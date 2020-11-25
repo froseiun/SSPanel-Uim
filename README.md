@@ -28,23 +28,48 @@ php composer.phar install
 
 ## Usage
 ### Create Database and import database file
-`sql\glzjin_all.sql`
+`sql/glzjin_all.sql`
 
 ### Edit config files
 
 Example config files:
 
-`config\.config.example.php`
+`config/.config.example.php`
 
-`config\appprofile.example.php`
+`config/appprofile.example.php`
 
 Rename to:
 
-`config\.config.php`
+`config/.config.php`
 
-`config\appprofile.php`
+`config/appprofile.php`
 
-Follow the notes and edit it.
+Follow the notes and edit it. 
+
+## Malio Theme
+
+If you wish to use [Malio theme](https://github.com/Cadwalader307/Malio-Theme-for-SSPANEL), follow these steps
+
+### Edit Malio theme config files
+
+Example config files:
+
+`config/.malio_config.example.php`
+
+`config/.i18n.example.php`
+
+Rename to:
+
+`config/.malio_config.php`
+
+`config/.i18n.php`
+
+Follow the notes and edit it. 
+
+### Import Malio theme database file
+`sql/malio_all.sql`
+
+Last step, change `$_ENV['theme']` to `malio` in `config/.config.php`
 
 ## Donate
 
