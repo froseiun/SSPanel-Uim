@@ -9,6 +9,7 @@ Web panel for Shadowsocks & ShadowsocksR and V2Ray, based on ss-panel-v3-mod.
 - ✅ Nginx (or other web server supports PHP-CGI)
 
 ## Installation
+
 ### Clone the “froseiun/dev” branch of this repository
 ```bash
 git clone -b froseiun/dev git@github.com:froseiun/sspanel-vela.git
@@ -27,24 +28,42 @@ php composer.phar install
 ### Change folder permissions and ownership
 
 ## Usage
+
 ### Create Database and import database file
-`sql\glzjin_all.sql`
+`sql/glzjin_all.sql`
 
 ### Edit config files
 
 Example config files:
 
-`config\.config.example.php`
+`config/.config.example.php`
 
-`config\appprofile.example.php`
+`config/appprofile.example.php`
 
 Rename to:
 
-`config\.config.php`
+`config/.config.php`
 
-`config\appprofile.php`
+`config/appprofile.php`
 
-Follow the notes and edit it.
+Follow the notes and edit it. 
+
+### Create Admin User
+`php xcat User createAdmin`
+
+### Other Configurations
+```bash
+php xcat User resetTraffic
+php xcat Tool initQQWry
+php xcat Tool initdownload
+```
+
+### Set up cron jobs
+```bash
+30 22 * * * php /[webroot]/xcat SendDiaryMail
+0 0 * * * php -n /[webroot]/xcat Job DailyJob
+*/1 * * * * php /[webroot]/xcat Job CheckJob
+```
 
 ## Donate
 
