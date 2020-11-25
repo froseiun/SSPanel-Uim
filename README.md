@@ -27,7 +27,8 @@ php composer.phar install
 ### Change folder permissions and ownership
 
 ## Usage
-### Create Database and import database file `sql\glzjin_all.sql` in MariaDB|MySQL
+### Create Database and import database file
+`sql\glzjin_all.sql`
 
 ### Edit config files
 
