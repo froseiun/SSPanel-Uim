@@ -86,4 +86,3 @@ php xcat Tool initdownload
 
 ## License
 [MIT](https://raw.githubusercontent.com/froseiun/sspanel-vela/froseiun/dev/LICENSE)
-
