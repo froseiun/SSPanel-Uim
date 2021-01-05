@@ -26,7 +26,7 @@
             <div class="inner">
                 <h1>500 错误</h1>
                 <p>服务娘崩溃了呢... TwT</p>
-                <p>这件事儿不应该发生的...如果反复出现可以提交一下工单联系站主.</p>
+                <p>这件事儿不应该发生的...如果反复出现请联系站主.</p>
                 {if !is_null($exceptionId)}
                 <p>事件 ID: {$exceptionId}</p>
                 {/if}

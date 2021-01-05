@@ -752,6 +752,9 @@
   - DOMAIN-SUFFIX,googlevideo.com,🎬国外媒体
   - DOMAIN-SUFFIX,youtube.com,🎬国外媒体
   - DOMAIN,youtubei.googleapis.com,🎬国外媒体
+
+  - DOMAIN,api-priconne-redive.cygames.jp,🎬国外媒体
+  
   - DOMAIN-SUFFIX,biliapi.com,🎬哔哩哔哩
   - DOMAIN-SUFFIX,biliapi.net,🎬哔哩哔哩
   - DOMAIN-SUFFIX,bilibili.com,🎬哔哩哔哩
