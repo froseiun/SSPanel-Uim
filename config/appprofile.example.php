@@ -275,87 +275,105 @@ $_ENV['Clash_Profiles'] = [
         'Proxy' => [],
         'ProxyGroup' => [
             [
-                'name' => '🔰国外流量',
+                'name' => '国外流量',
                 'type' => 'select',
                 'content' => [
                     'regex' => '(.*)',
                     'right-proxies' => [
-                        '🚀直接连接'
+                        '直接连接'
                     ],
                 ]
             ],
             [
-                'name' => '⚓️其他流量',
+                'name' => '其他流量',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量',
-                        '🚀直接连接'
+                        '国外流量',
+                        '直接连接'
                     ]
                 ]
             ],
             [
-                'name' => '✈️Telegram',
+                'name' => 'TG流量',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '国外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Youtube',
+                'name' => '雀魂麻将',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '国外流量'
+                    ],
+                    'regex' => '(.*)',
+            ],
+            [
+                'name' => 'PCR日服',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '国外流量'
+                    ],
+                    'regex' => '(.*)',
+            ],
+            [
+                'name' => 'Youtube',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '国外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Netflix',
+                'name' => 'Netflix媒体',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '国外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬哔哩哔哩',
+                'name' => 'b站',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🚀直接连接'
+                        '直接连接'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬国外媒体',
+                'name' => '境外其他媒体',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '国外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🍎苹果服务',
+                'name' => 'AppleService',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🚀直接连接',
-                        '🔰国外流量'
+                        '直接连接',
+                        '国外流量'
                     ]
                 ]
             ],
             [
-                'name' => '🚀直接连接',
+                'name' => '直接连接',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
