@@ -761,6 +761,8 @@
   - DOMAIN-SUFFIX,bilibili.tv,🎬哔哩哔哩
   - DOMAIN-SUFFIX,bilivideo.com,🎬哔哩哔哩
 
+  - DOMAIN,cygames.jp,测试项
+
   - DOMAIN-SUFFIX,local,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
