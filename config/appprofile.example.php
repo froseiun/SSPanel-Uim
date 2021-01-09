@@ -312,6 +312,7 @@ $_ENV['Clash_Profiles'] = [
                         '国外流量'
                     ],
                     'regex' => '(.*)',
+                ]
             ],
             [
                 'name' => 'PCR日服',
@@ -321,6 +322,7 @@ $_ENV['Clash_Profiles'] = [
                         '国外流量'
                     ],
                     'regex' => '(.*)',
+                ]
             ],
             [
                 'name' => 'Youtube',
