@@ -78,7 +78,7 @@ table tr td:first-child {
                         </div>
                         <div class="user-info-bottom">
                             <div class="nodeinfo node-flex">
-                                <span><i class="icon icon-md">attach_money</i>到期账户自动删除</span>
+                                <span><i class="icon icon-md">attach_money</i>到期账户可能会被删除</span>
                                 <a href="/user/code" class="card-tag tag-green">充值</a>
                             </div>
                         </div>
@@ -402,6 +402,8 @@ table tr td:first-child {
                                                 <p>此处为通用订阅，适用于多种应用的订阅，如您使用的客户端不在各平台列举的名单中则在此使用订阅服务.</p>
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_1</span> [ SS ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssa']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
+                                                    .
                                                     <a id="general_ss" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ss","#general_ss","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
                                                 <hr/>
@@ -436,6 +438,8 @@ table tr td:first-child {
                                                     </p>
                                                     <p>
                                                         使用方式：
+                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssa']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
+                                                        .
                                                         <a id="win_ss" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ss","#win_ss","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                     </p>
                                                 <hr/>                                            
@@ -608,6 +612,8 @@ table tr td:first-child {
                                                     </p>
                                                     <p>
                                                         使用方式：
+                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssa']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
+                                                        .
                                                         <a id="mac_ss" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ss","#mac_ss","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                     </p>
                                                 <hr/>
@@ -745,14 +751,6 @@ table tr td:first-child {
                                                     </p>
                                                     <p>
                                                         使用方式：
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ss']}"><i class="material-icons icon-sm">send</i> 拷贝 SS 订阅链接</a>
-                                                        .
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssr']}"><i class="material-icons icon-sm">send</i> 拷贝 SSR 订阅链接</a>
-                                                        .
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['v2ray']}"><i class="material-icons icon-sm">send</i> 拷贝 V2Ray 订阅链接</a>
-                                                        .
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['trojan']}"><i class="material-icons icon-sm">send</i> 拷贝 Trojan 订阅链接</a>
-                                                        .
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['shadowrocket']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
                                                         .
                                                         <a class="btn-dl" onclick=AddSub("{$subInfo['shadowrocket']}","shadowrocket://add/sub://")><i class="material-icons icon-sm">send</i> 一键导入 Shadowrocket</a>
