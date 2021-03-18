@@ -403,7 +403,6 @@ table tr td:first-child {
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_1</span> [ SS ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssa']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
-                                                    .
                                                     <a id="general_ss" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ss","#general_ss","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
                                                 <hr/>
