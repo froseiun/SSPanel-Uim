@@ -395,9 +395,9 @@ table tr td:first-child {
                                                 {/foreach}
                                             {/function}
                                             <div class="tab-pane fade active in" id="sub_center_general">
-                                                <p>此处为通用订阅，适用于多种应用的订阅，请注意站点所支持的协议，本处显示的订阅类型不代表站点支持的协议类型.</p>
+                                                <p><!--此处为通用订阅，适用于多种应用的订阅，请注意站点所支持的协议，本处显示的订阅类型不代表站点支持的协议类型.-->本站點僅支援Trojan協議.</p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_1</span> [ Shadowsocks ]：
+                                                <!-- <p><span class="icon icon-lg text-white">filter_1</span> [ Shadowsocks ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ss']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>.<a id="general_ss" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ss","#general_ss","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
                                                 <hr/>
@@ -408,7 +408,7 @@ table tr td:first-child {
                                                 <p><span class="icon icon-lg text-white">filter_3</span> [ V2Ray ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['v2ray']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>.<a id="general_v2ray" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=v2ray","#general_v2ray","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
-                                                <hr/>
+                                                <hr/> -->
                                                 <p><span class="icon icon-lg text-white">filter_4</span> [ Trojan ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['trojan']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                 </p>
