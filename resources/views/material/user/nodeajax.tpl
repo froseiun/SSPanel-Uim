@@ -113,7 +113,6 @@
                         }
                     ]
                 });
-        {$speedtests=$point_node->getSpeedtestResult()}
         chart{$id}.render();
         up_chart{$id}.render();
         alive_chart{$id}.render();

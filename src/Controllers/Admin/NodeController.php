@@ -6,7 +6,6 @@ use App\Controllers\AdminController;
 use App\Models\Node;
 use App\Utils\{
     Tools,
-    Radius,
     Telegram,
     CloudflareDriver,
     DatatablesHelper
@@ -21,6 +20,8 @@ use Psr\Http\Message\ResponseInterface;
 class NodeController extends AdminController
 {
     /**
+     * 后台节点页面
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -61,6 +62,8 @@ class NodeController extends AdminController
     }
 
     /**
+     * 后台创建节点页面
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -74,6 +77,8 @@ class NodeController extends AdminController
     }
 
     /**
+     * 后台添加节点
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -109,20 +114,15 @@ class NodeController extends AdminController
                 $node->node_ip = $req_node_ip;
             }
             if ($node->node_ip == '') {
-                return $response->withJson(
-                    [
-                        'ret' => 0,
-                        'msg' => '获取节点IP失败，请检查您输入的节点地址是否正确！'
-                    ]
-                );
+                return $response->withJson([
+                    'ret' => 0,
+                    'msg' => '获取节点IP失败，请检查您输入的节点地址是否正确！'
+                ]);
             }
         } else {
             $node->node_ip = '';
         }
 
-        if ($node->sort == 1) {
-            Radius::AddNas($node->node_ip, $request->getParam('server'));
-        }
         $node->node_class                 = $request->getParam('class');
         $node->node_bandwidth_limit       = $request->getParam('node_bandwidth_limit') * 1024 * 1024 * 1024;
         $node->bandwidthlimit_resetday    = $request->getParam('bandwidthlimit_resetday');
@@ -144,15 +144,15 @@ class NodeController extends AdminController
             );
         }
 
-        return $response->withJson(
-            [
-                'ret' => 1,
-                'msg' => '节点添加成功'
-            ]
-        );
+        return $response->withJson([
+            'ret' => 1,
+            'msg' => '节点添加成功'
+        ]);
     }
 
     /**
+     * 后台编辑指定节点页面
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -169,6 +169,8 @@ class NodeController extends AdminController
     }
 
     /**
+     * 后台更新指定节点内容
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -209,27 +211,10 @@ class NodeController extends AdminController
         }
 
         if (!$success) {
-            return $response->withJson(
-                [
-                    'ret' => 0,
-                    'msg' => '更新节点IP失败，请检查您输入的节点地址是否正确！'
-                ]
-            );
-        }
-
-        if (in_array($node->sort, array(0, 10, 11, 12))) {
-            Tools::updateRelayRuleIp($node);
-        }
-
-        if ($node->sort == 1) {
-            $SS_Node = Node::where('sort', '=', 0)->where('server', '=', $request->getParam('server'))->first();
-            if ($SS_Node != null) {
-                if ($SS_Node->node_heartbeat == 0 || time() - $SS_Node->node_heartbeat < 300) {
-                    Radius::AddNas(gethostbyname($request->getParam('server')), $request->getParam('server'));
-                }
-            } else {
-                Radius::AddNas(gethostbyname($request->getParam('server')), $request->getParam('server'));
-            }
+            return $response->withJson([
+                'ret' => 0,
+                'msg' => '更新节点IP失败，请检查您输入的节点地址是否正确！'
+            ]);
         }
 
         $node->status                     = $request->getParam('status');
@@ -249,15 +234,15 @@ class NodeController extends AdminController
             );
         }
 
-        return $response->withJson(
-            [
-                'ret' => 1,
-                'msg' => '修改成功'
-            ]
-        );
+        return $response->withJson([
+            'ret' => 1,
+            'msg' => '修改成功'
+        ]);
     }
 
     /**
+     * 后台删除指定节点
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -266,17 +251,12 @@ class NodeController extends AdminController
     {
         $id = $request->getParam('id');
         $node = Node::find($id);
-        if ($node->sort == 1) {
-            Radius::DelNas($node->node_ip);
-        }
 
         if (!$node->delete()) {
-            return $response->withJson(
-                [
-                    'ret' => 0,
-                    'msg' => '删除失败'
-                ]
-            );
+            return $response->withJson([
+                'ret' => 0,
+                'msg' => '删除失败'
+            ]);
         }
 
         if (Config::getconfig('Telegram.bool.DeleteNode')) {
@@ -289,15 +269,15 @@ class NodeController extends AdminController
             );
         }
 
-        return $response->withJson(
-            [
-                'ret' => 1,
-                'msg' => '删除成功'
-            ]
-        );
+        return $response->withJson([
+            'ret' => 1,
+            'msg' => '删除成功'
+        ]);
     }
 
     /**
+     * 后台节点页面 AJAX
+     *
      * @param Request   $request
      * @param Response  $response
      * @param array     $args
@@ -361,26 +341,11 @@ class NodeController extends AdminController
                 case 0:
                     $sort = 'Shadowsocks';
                     break;
-                case 1:
-                    $sort = 'VPN/Radius基础';
-                    break;
-                case 2:
-                    $sort = 'SSH';
-                    break;
-                case 5:
-                    $sort = 'Anyconnect';
-                    break;
                 case 9:
                     $sort = 'Shadowsocks - 单端口多用户';
                     break;
-                case 10:
-                    $sort = 'Shadowsocks - 中转';
-                    break;
                 case 11:
                     $sort = 'V2Ray 节点';
-                    break;
-                case 12:
-                    $sort = 'V2Ray - 中转';
                     break;
                 case 13:
                     $sort = 'Shadowsocks - V2Ray-Plugin&Obfs';

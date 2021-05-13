@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use App\Models\Relay;
 use App\Models\User as ModelsUser;
 use App\Services\Config;
 use App\Utils\GA;
@@ -20,8 +19,8 @@ class User extends Command
         . '│ ├─ createAdmin             - 创建管理员帐号' . PHP_EOL
         . '│ ├─ resetAllPort            - 重置所有用户端口' . PHP_EOL
         . '│ ├─ resetTraffic            - 重置所有用户流量' . PHP_EOL
-        . '│ ├─ generateUUID            - 为所有用户生成新的UUID' . PHP_EOL
-        . '│ ├─ cleanRelayRule          - 清除所有中转规则' . PHP_EOL;
+        . '│ ├─ generateUUID            - 为所有用户生成新的 UUID' . PHP_EOL
+        . '│ ├─ generateGa              - 为所有用户生成新的 Ga Secret' . PHP_EOL;
 
     public function boot()
     {
@@ -49,11 +48,6 @@ class User extends Command
         if ($user !== null) {
             $origin_port = $user->port;
             $user->port  = Tools::getAvPort();
-            $relay_rules = Relay::where('user_id', $user->id)->where('port', $origin_port)->get();
-            foreach ($relay_rules as $rule) {
-                $rule->port = $user->port;
-                $rule->save();
-            }
             if ($user->save()) {
                 echo '重置成功!' . PHP_EOL;
             }
@@ -108,37 +102,28 @@ class User extends Command
         $users = ModelsUser::all();
         $current_timestamp = time();
         foreach ($users as $user) {
-            $user->uuid = Uuid::uuid3(
-                Uuid::NAMESPACE_DNS,
-                $user->email . '|' . $current_timestamp
-            );
-            $user->save();
+            /** @var ModelsUser $user */
+            $user->generateUUID($current_timestamp);
         }
         echo 'generate UUID successful' . PHP_EOL;
     }
 
     /**
-     * 清理所有中转规则
+     * 二次验证
      *
      * @return void
      */
-    public function cleanRelayRule()
+    public function generateGa()
     {
-        $rules = Relay::all();
-        foreach ($rules as $rule) {
-            echo ($rule->id . "\n");
-            if ($rule->source_node_id == 0) {
-                echo ($rule->id . "被删除！\n");
-                $rule->delete();
-                continue;
-            }
-            $ruleset = Relay::where('user_id', $rule->user_id)->orwhere('user_id', 0)->get();
-            $maybe_rule_id = Tools::has_conflict_rule($rule, $ruleset, $rule->id);
-            if ($maybe_rule_id != 0) {
-                echo ($rule->id . "被删除！\n");
-                $rule->delete();
-            }
+        $users = ModelsUser::all();
+        foreach ($users as $user) {
+            $ga = new GA();
+            $secret = $ga->createSecret();
+
+            $user->ga_token = $secret;
+            $user->save();
         }
+        echo 'generate Ga Secret successful' . PHP_EOL;
     }
 
     /**
@@ -190,7 +175,6 @@ class User extends Command
             $user->im_type          = 1;
             $user->im_value         = '';
             $user->class            = 0;
-            $user->plan             = 'A';
             $user->node_speedlimit  = 0;
             $user->theme            = $_ENV['theme'];
 

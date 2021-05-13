@@ -8,23 +8,27 @@ use App\Models\{
     Node,
     User,
     DetectLog,
-    TrafficLog,
     NodeOnlineLog
 };
 use App\Utils\Tools;
+use Slim\Http\{
+    Request,
+    Response
+};
+use Psr\Http\Message\ResponseInterface;
 
 class UserController extends BaseController
 {
     /**
      * User List
-     * 
+     *
      * @param \Slim\Http\Request    $request
      * @param \Slim\Http\Response   $response
      * @param array                 $args
      *
      * @return \Slim\Http\Response
      */
-    public function index($request, $response, $args)
+    public function index($request, $response, $args): ResponseInterface
     {
         $node_id = $request->getQueryParam('node_id', '0');
 
@@ -34,10 +38,9 @@ class UserController extends BaseController
         } else {
             $node = Node::where('id', '=', $node_id)->first();
             if ($node == null) {
-                $res = [
-                    'ret' => 0
-                ];
-                return $this->echoJson($response, $res);
+                return $response->withJson([
+                    'ret' => 0,
+                ]);
             }
         }
         $node->node_heartbeat = time();
@@ -46,12 +49,10 @@ class UserController extends BaseController
         // 节点流量耗尽则返回 null
         if (($node->node_bandwidth_limit != 0) && $node->node_bandwidth_limit < $node->node_bandwidth) {
             $users = null;
-
-            $res = [
-                'ret' => 1,
+            return $response->withJson([
+                'ret'  => 1,
                 'data' => $users
-            ];
-            return $this->echoJson($response, $res);
+            ]);
         }
 
         if (in_array($node->sort, [0, 10]) && $node->mu_only != -1) {
@@ -78,19 +79,23 @@ class UserController extends BaseController
                     }
                 )->orwhere('is_admin', 1);
             }
-        )
-            ->where('enable', 1)->where('expire_in', '>', date('Y-m-d H:i:s'))->get();
+        )->where('enable', 1)->where('expire_in', '>', date('Y-m-d H:i:s'))->get();
 
         $users = array();
 
-        $key_list = array(
-            'email', 'method', 'obfs', 'obfs_param', 'protocol', 'protocol_param',
-            'forbidden_ip', 'forbidden_port', 'node_speedlimit', 'disconnect_ip',
-            'is_multi_user', 'id', 'port', 'passwd', 'u', 'd', 'node_connector',
-            'sort', 'uuid'
-        );
+        if ($node->sort == 14) {
+            $key_list = array('node_speedlimit', 'u', 'd', 'transfer_enable', 'id', 'node_connector', 'uuid', 'alive_ip');
+        } elseif ($node->sort == 11) {
+            $key_list = array('node_speedlimit', 'u', 'd', 'transfer_enable', 'id', 'node_connector', 'uuid', 'alive_ip');
+        } else {
+            $key_list = array('method', 'obfs', 'obfs_param', 'protocol', 'protocol_param', 'node_speedlimit',
+                'is_multi_user', 'u', 'd', 'transfer_enable', 'id', 'port', 'passwd', 'node_connector', 'alive_ip');
+        }
 
         foreach ($users_raw as $user_raw) {
+            if ($user_raw->node_connector != 0) {
+                $user_raw->alive_ip = (new \App\Models\Ip)->getUserAliveIpCount($user_raw->id);
+            }
             if ($user_raw->transfer_enable <= $user_raw->u + $user_raw->d) {
                 if ($_ENV['keep_connect'] === true) {
                     // 流量耗尽用户限速至 1Mbps
@@ -110,20 +115,25 @@ class UserController extends BaseController
                 }
             }
             $user_raw = Tools::keyFilter($user_raw, $key_list);
-            if ($node->sort == 14) {
-                $user_raw->sha224uuid = hash('sha224', $user_raw->uuid);
-            }
             $users[] = $user_raw;
         }
 
-        $res = [
-            'ret' => 1,
+        $header_etag = $request->getHeaderLine('IF_NONE_MATCH');
+        $etag = Tools::etag($users);
+        if ($header_etag == $etag){
+            return $response->withStatus(304);
+        }
+        return $response->withHeader('ETAG', $etag)->withJson([
+            'ret'  => 1,
             'data' => $users
-        ];
-        return $this->echoJson($response, $res);
+        ]);
     }
 
-    //   Update Traffic
+    /**
+     * @param Request   $request
+     * @param Response  $response
+     * @param array     $args
+     */
     public function addTraffic($request, $response, $args)
     {
         $params = $request->getQueryParams();
@@ -138,10 +148,9 @@ class UserController extends BaseController
         $node = Node::find($node_id);
 
         if ($node == null) {
-            $res = [
-                'ret' => 0
-            ];
-            return $this->echoJson($response, $res);
+            return $response->withJson([
+                'ret' => 0,
+            ]);
         }
 
         if (count($data) > 0) {
@@ -149,7 +158,6 @@ class UserController extends BaseController
                 $u = $log['u'];
                 $d = $log['d'];
                 $user_id = $log['user_id'];
-
                 $user = User::find($user_id);
 
                 if ($user == null) {
@@ -165,19 +173,8 @@ class UserController extends BaseController
                         'ret' => 0,
                         'data' => 'update failed',
                     ];
-                    return $this->echoJson($response, $res);
+                    return $response->withJson($res);
                 }
-
-                // log
-                $traffic = new TrafficLog();
-                $traffic->user_id = $user_id;
-                $traffic->u = $u;
-                $traffic->d = $d;
-                $traffic->node_id = $node_id;
-                $traffic->rate = $node->traffic_rate;
-                $traffic->traffic = Tools::flowAutoShow(($u + $d) * $node->traffic_rate);
-                $traffic->log_time = time();
-                $traffic->save();
             }
         }
 
@@ -194,9 +191,14 @@ class UserController extends BaseController
             'ret' => 1,
             'data' => 'ok',
         ];
-        return $this->echoJson($response, $res);
+        return $response->withJson($res);
     }
 
+    /**
+     * @param Request   $request
+     * @param Response  $response
+     * @param array     $args
+     */
     public function addAliveIp($request, $response, $args)
     {
         $params = $request->getQueryParams();
@@ -213,7 +215,7 @@ class UserController extends BaseController
             $res = [
                 'ret' => 0
             ];
-            return $this->echoJson($response, $res);
+            return $response->withJson($res);
         }
         if (count($data) > 0) {
             foreach ($data as $log) {
@@ -234,9 +236,14 @@ class UserController extends BaseController
             'ret' => 1,
             'data' => 'ok',
         ];
-        return $this->echoJson($response, $res);
+        return $response->withJson($res);
     }
 
+    /**
+     * @param Request   $request
+     * @param Response  $response
+     * @param array     $args
+     */
     public function addDetectLog($request, $response, $args)
     {
         $params = $request->getQueryParams();
@@ -253,7 +260,7 @@ class UserController extends BaseController
             $res = [
                 'ret' => 0
             ];
-            return $this->echoJson($response, $res);
+            return $response->withJson($res);
         }
 
         if (count($data) > 0) {
@@ -275,6 +282,6 @@ class UserController extends BaseController
             'ret' => 1,
             'data' => 'ok',
         ];
-        return $this->echoJson($response, $res);
+        return $response->withJson($res);
     }
 }

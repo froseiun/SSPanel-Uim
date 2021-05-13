@@ -577,30 +577,6 @@
 </script>
 <script>
     $(document).ready(function () {
-        $("#setpac").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "pacset",
-                dataType: "json",
-                data: {
-                    pac: $("#pac").text()
-                },
-                success: (data) => {
-                    $("#result").modal();
-                    $$.getElementById('msg').innerHTML = data.msg;
-                },
-                error: (jqXHR) => {
-                    $("#result").modal();
-                    $$.getElementById('msg').innerHTML = `${
-                            data.msg
-                            } 出现了一些错误`;
-                }
-            })
-        })
-    })
-</script>
-<script>
-    $(document).ready(function () {
         $("#pwd-update").click(function () {
             $.ajax({
                 type: "POST",
@@ -795,29 +771,6 @@
                         $("#result").modal();
                         $$.getElementById('msg').innerHTML = data.msg;
                     }
-                },
-                error: (jqXHR) => {
-                    $("#result").modal();
-                    $$.getElementById('msg').innerHTML = `${data.msg} 出现了一些错误`;
-                }
-            })
-        })
-    })
-</script>
-<script>
-    $(document).ready(function () {
-        $("#relay-update").click(function () {
-            $.ajax({
-                type: "POST",
-                url: "relay",
-                dataType: "json",
-                data: {
-                    relay_enable: $$getValue('relay_enable'),
-                    relay_info: $$getValue('relay_info')
-                },
-                success: (data) => {
-                    $("#result").modal();
-                    $$.getElementById('msg').innerHTML = data.msg;
                 },
                 error: (jqXHR) => {
                     $("#result").modal();

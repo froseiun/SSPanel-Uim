@@ -13,6 +13,7 @@ use App\Utils\{
     URL,
     Tools,
     AppURI,
+    ConfGenerate,
     ConfRender
 };
 use voku\helper\AntiXSS;
@@ -236,13 +237,8 @@ class LinkController extends BaseController
                 break;
             case 'clash':
                 if ($value !== null) {
-                    if ((int) $value == 2) {
-                        $return = self::getSubscribeExtend('clashr');
-                        $return['class'] = 'Clash';
-                    } else {
-                        $return = self::getSubscribeExtend('clash');
-                        $return['class'] = 'Clash';
-                    }
+                    $return = self::getSubscribeExtend('clash');
+                    $return['class'] = 'Clash';
                 } else {
                     $return = [
                         'filename' => 'Clash',
@@ -266,13 +262,6 @@ class LinkController extends BaseController
                         'class'    => 'Lists'
                     ];
                 }
-                break;
-            case 'clashr':
-                $return = [
-                    'filename' => 'ClashR',
-                    'suffix'   => 'yaml',
-                    'class'    => 'Lists'
-                ];
                 break;
             case 'v2rayn':
                 $return = [
@@ -334,13 +323,6 @@ class LinkController extends BaseController
                     'class'    => 'Lists'
                 ];
                 break;
-            case 'clashr_provider':
-                $return = [
-                    'filename' => 'ClashRProvider',
-                    'suffix'   => 'yaml',
-                    'class'    => 'Lists'
-                ];
-                break;
             case 'quantumult_sub':
                 $return = [
                     'filename' => 'QuantumultSub',
@@ -393,7 +375,7 @@ class LinkController extends BaseController
      * 响应内容
      *
      * @param User   $user
-     * @param array  $response
+     * @param object $response
      * @param string $content  订阅内容
      * @param string $filename 文件名
      */
@@ -448,8 +430,6 @@ class LinkController extends BaseController
             'ssa'             => '?list=ssa',
             'clash'           => '?clash=1',
             'clash_provider'  => '?list=clash',
-            'clashr'          => '?clash=2',
-            'clashr_provider' => '?list=clashr',
             'surge'           => '?surge=' . $int,
             'surge_node'      => '?list=surge',
             'surge2'          => '?surge=2',
@@ -492,9 +472,6 @@ class LinkController extends BaseController
             case 'clash':
                 $return = AppURI::getClashURI($item);
                 break;
-            case 'clashr':
-                $return = AppURI::getClashURI($item, true);
-                break;
             case 'v2rayn':
                 $return = AppURI::getV2RayNURI($item);
                 break;
@@ -536,7 +513,6 @@ class LinkController extends BaseController
             switch ($list) {
                 case 'ssa':
                 case 'clash':
-                case 'clashr':
                     $return = array_merge($return, self::getListExtend($user, $list));
                     break;
                 default:
@@ -555,7 +531,6 @@ class LinkController extends BaseController
                 return json_encode($return, 320);
                 break;
             case 'clash':
-            case 'clashr':
                 return \Symfony\Component\Yaml\Yaml::dump(['proxies' => $return], 4, 2);
             case 'kitsunebi':
             case 'quantumult':
@@ -601,7 +576,7 @@ class LinkController extends BaseController
             'port'            => 10086,
             'method'          => 'chacha20-ietf',
             'passwd'          => $user->passwd,
-            'id'              => $user->getUuid(),
+            'id'              => $user->uuid,
             'aid'             => 0,
             'net'             => 'tcp',
             'headerType'      => 'none',
@@ -672,7 +647,7 @@ class LinkController extends BaseController
             $Profiles = ($surge == 2 ? $_ENV['Surge2_DefaultProfiles'] : $_ENV['Surge_DefaultProfiles']);
         }
 
-        return ConfController::getSurgeConfs($user, $All_Proxy, $Nodes, $_ENV[$variable][$Profiles]);
+        return ConfGenerate::getSurgeConfs($user, $All_Proxy, $Nodes, $_ENV[$variable][$Profiles]);
     }
 
     /**
@@ -789,7 +764,7 @@ class LinkController extends BaseController
             $Profiles = $_ENV['Surfboard_DefaultProfiles']; // 默认策略组
         }
 
-        return ConfController::getSurgeConfs($user, $All_Proxy, $Nodes, $_ENV['Surfboard_Profiles'][$Profiles]);
+        return ConfGenerate::getSurgeConfs($user, $All_Proxy, $Nodes, $_ENV['Surfboard_Profiles'][$Profiles]);
     }
 
     /**
@@ -806,11 +781,10 @@ class LinkController extends BaseController
     {
         $subInfo = self::getSubinfo($user, $clash);
         $userapiUrl = $subInfo['clash'];
-        $ssr_support = ($clash == 2 ? true : false);
         $items = URL::getNew_AllItems($user, $Rule);
         $Proxys = [];
         foreach ($items as $item) {
-            $Proxy = AppURI::getClashURI($item, $ssr_support);
+            $Proxy = AppURI::getClashURI($item);
             if ($Proxy !== null) {
                 $Proxys[] = $Proxy;
             }
@@ -822,7 +796,7 @@ class LinkController extends BaseController
             $Profiles = $_ENV['Clash_DefaultProfiles']; // 默认策略组
         }
 
-        return ConfController::getClashConfs($user, $Proxys, $_ENV['Clash_Profiles'][$Profiles]);
+        return ConfGenerate::getClashConfs($user, $Proxys, $_ENV['Clash_Profiles'][$Profiles]);
     }
 
     /**

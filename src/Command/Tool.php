@@ -2,13 +2,14 @@
 
 namespace App\Command;
 
+use App\Utils\QQWry;
+
 class Tool extends Command
 {
     public $description = ''
         . '├─=: php xcat Tool [选项]' . PHP_EOL
         . '│ ├─ initQQWry               - 下载 IP 解析库' . PHP_EOL
         . '│ ├─ setTelegram             - 设置 Telegram 机器人' . PHP_EOL
-        . '│ ├─ initdownload            - 下载 SSR 程序至服务器' . PHP_EOL
         . '│ ├─ detectConfigs           - 检查数据库内新增的配置' . PHP_EOL
         . '│ ├─ initdocuments           - 下载用户使用文档至服务器' . PHP_EOL;
 
@@ -38,7 +39,7 @@ class Tool extends Command
             $telegram = new \Telegram\Bot\Api($_ENV['telegram_token']);
             $telegram->removeWebhook();
             if ($telegram->setWebhook(['url' => $WebhookUrl])) {
-                echo ('New Bot @' . $telegram->getMe()->getUsername() . ' 设置成功！');
+                echo ('New Bot @' . $telegram->getMe()->getUsername() . ' 设置成功！' . PHP_EOL);
             }
         } else {
             $bot = new \TelegramBot\Api\BotApi($_ENV['telegram_token']);
@@ -52,17 +53,6 @@ class Tool extends Command
                 echo ('Old Bot 设置成功！' . PHP_EOL);
             }
         }
-    }
-
-    /**
-     * 下载客户端
-     *
-     * @return void
-     */
-    public function initdownload()
-    {
-        system('git clone --depth=3 https://github.com/xcxnig/ssr-download.git ' . BASE_PATH . '/public/ssr-download/ && git gc', $ret);
-        echo $ret;
     }
 
     /**
@@ -83,14 +73,27 @@ class Tool extends Command
      */
     public function initQQWry()
     {
-        echo ('开始下载纯真 IP 数据库....');
+        echo ('开始下载或更新纯真 IP 数据库....');
+        $path  = BASE_PATH . '/storage/qqwry.dat';
         $qqwry = file_get_contents('https://qqwry.mirror.noc.one/QQWry.Dat?from=sspanel_uim');
         if ($qqwry != '') {
-            $fp = fopen(BASE_PATH . '/storage/qqwry.dat', 'wb');
+            if (is_file($path)) {
+                rename($path, $path . '.bak');
+            }
+            $fp = fopen($path, 'wb');
             if ($fp) {
                 fwrite($fp, $qqwry);
                 fclose($fp);
                 echo ('纯真 IP 数据库下载成功！');
+                $iplocation   = new QQWry();
+                $location     = $iplocation->getlocation('8.8.8.8');
+                $Userlocation = $location['country'];
+                if (iconv('gbk', 'utf-8//IGNORE', $Userlocation) !== '美国') {
+                    unlink($path);
+                    if (is_file($path . '.bak')) {
+                        rename($path . '.bak', $path);
+                    }
+                }
             } else {
                 echo ('纯真 IP 数据库保存失败！');
             }

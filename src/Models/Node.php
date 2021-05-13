@@ -96,43 +96,6 @@ class Node extends Model
         return $log->online_user;
     }
 
-    public function getSpeedtest()
-    {
-        $id = $this->attributes['id'];
-        $log = Speedtest::where('nodeid', $id)->orderBy('datetime', 'desc')->first();
-        if ($log == null) {
-            return '暂无数据';
-        }
-
-        return '电信延迟：' . $log->telecomping . ' 下载：' . $log->telecomeupload . ' 上传：' . $log->telecomedownload . '<br>
-		联通延迟：' . $log->unicomping . ' 下载：' . $log->unicomupload . ' 上传：' . $log->unicomdownload . '<br>
-		移动延迟：' . $log->cmccping . ' 下载：' . $log->cmccupload . ' 上传：' . $log->cmccdownload . '<br>定时测试，仅供参考';
-    }
-
-    public function getSpeedtestResult()
-    {
-        $id = $this->attributes['id'];
-        $log = Speedtest::where('nodeid', $id)->orderBy('id', 'desc')->limit(48)->get();
-        if ($log == null) {
-            return '暂无数据';
-        }
-
-        return $log;
-    }
-
-    public function getTrafficFromLogs()
-    {
-        $id = $this->attributes['id'];
-
-        $traffic = TrafficLog::where('node_id', $id)->sum('u') + TrafficLog::where('node_id', $id)->sum('d');
-
-        if ($traffic == 0) {
-            return '暂无数据';
-        }
-
-        return Tools::flowAutoShow($traffic);
-    }
-
     public function isNodeOnline()
     {
         $delay = 300;
@@ -216,26 +179,12 @@ class Node extends Model
      *
      * @param User $user
      * @param int  $mu_port
-     * @param int  $relay_rule_id
      * @param int  $is_ss
      * @param bool $emoji
      */
-    public function getItem(User $user, int $mu_port = 0, int $relay_rule_id = 0, int $is_ss = 0, bool $emoji = false):? array
+    public function getItem(User $user, int $mu_port = 0, int $is_ss = 0, bool $emoji = false):? array
     {
-        $relay_rule = Relay::where('id', $relay_rule_id)
-            ->where(
-                static function ($query) use ($user) {
-                    $query->Where('user_id', '=', $user->id)
-                        ->orWhere('user_id', '=', 0);
-                }
-            )
-            ->orderBy('priority', 'DESC')
-            ->orderBy('id')
-            ->first();
         $node_name = $this->name;
-        if ($relay_rule != null) {
-            $node_name .= ' - ' . $relay_rule->dist_node()->name;
-        }
         if ($mu_port != 0) {
             $mu_user = User::where('port', '=', $mu_port)->where('is_multi_user', '<>', 0)->first();
             if ($mu_user == null) {
@@ -282,7 +231,7 @@ class Node extends Model
         $return_array['remark'] = ($emoji ? Tools::addEmoji($node_name) : $node_name);
         $return_array['class']  = $this->node_class;
         $return_array['group']  = $_ENV['appName'];
-        $return_array['ratio']  = ($relay_rule != null ? $this->traffic_rate + $relay_rule->dist_node()->traffic_rate : $this->traffic_rate);
+        $return_array['ratio']  = $this->traffic_rate;
 
         return $return_array;
     }
@@ -292,16 +241,15 @@ class Node extends Model
      *
      * @param User $user
      * @param int  $mu_port
-     * @param int  $relay_rule_id
      * @param int  $is_ss
      * @param bool $emoji
      */
-    public function getV2RayItem(User $user, int $mu_port = 0, int $relay_rule_id = 0, int $is_ss = 0, bool $emoji = false): array
+    public function getV2RayItem(User $user, int $mu_port = 0, int $is_ss = 0, bool $emoji = false): array
     {
         $item           = Tools::v2Array($this->server);
         $item['type']   = 'vmess';
         $item['remark'] = ($emoji ? Tools::addEmoji($this->name) : $this->name);
-        $item['id']     = $user->getUuid();
+        $item['id']     = $user->uuid;
         $item['class']  = $this->node_class;
         return $item;
     }
@@ -311,13 +259,12 @@ class Node extends Model
      *
      * @param User $user 用户
      * @param int  $mu_port
-     * @param int  $relay_rule_id
      * @param int  $is_ss
      * @param bool $emoji
      *
      * @return array|null
      */
-    public function getV2RayPluginItem(User $user, int $mu_port = 0, int $relay_rule_id = 0, int $is_ss = 0, bool $emoji = false)
+    public function getV2RayPluginItem(User $user, int $mu_port = 0, int $is_ss = 0, bool $emoji = false)
     {
         $return_array = Tools::ssv2Array($this->server);
         // 非 AEAD 加密无法使用
@@ -356,11 +303,10 @@ class Node extends Model
      *
      * @param User $user 用户
      * @param int  $mu_port
-     * @param int  $relay_rule_id
      * @param int  $is_ss
      * @param bool $emoji
      */
-    public function getTrojanItem(User $user, int $mu_port = 0, int $relay_rule_id = 0, int $is_ss = 0, bool $emoji = false): array
+    public function getTrojanItem(User $user, int $mu_port = 0, int $is_ss = 0, bool $emoji = false): array
     {
         $server = explode(';', $this->server);
         $opt    = [];
@@ -371,7 +317,7 @@ class Node extends Model
         $item['type']     = 'trojan';
         $item['address']  = $server[0];
         $item['port']     = (isset($opt['port']) ? (int) $opt['port'] : 443);
-        $item['passwd']   = $user->getUuid();
+        $item['passwd']   = $user->uuid;
         $item['host']     = $item['address'];
         if (isset($opt['host'])) {
             $item['host'] = $opt['host'];
