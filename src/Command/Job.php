@@ -105,7 +105,7 @@ class Job extends Command
         // ------- 清理各表记录
 
         // ------- 清理 TG 二维码登录的图片
-        system('rm ' . BASE_PATH . '/storage/*.png', $ret);
+        // system('rm ' . BASE_PATH . '/storage/*.png', $ret);
         // ------- 清理 TG 二维码登录的图片
 
         // ------- 重置自增 ID
