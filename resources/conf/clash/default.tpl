@@ -5,6 +5,9 @@
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,国外流量
   - DOMAIN,services.googleapis.cn,国外流量
 
+  # addons
+  - DOMAIN-SUFFIX,technews.tw,国外流量
+
   - DOMAIN-SUFFIX,ampproject.org,国外流量
   - DOMAIN-SUFFIX,appspot.com,国外流量
   - DOMAIN-SUFFIX,blogger.com,国外流量
