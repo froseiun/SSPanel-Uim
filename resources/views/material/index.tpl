@@ -25,7 +25,7 @@
     <!--首页开始-->
     <header id="header">
         <div class="logo">
-            <span class="icon fa-rocket"></span>
+            <span class="icon fa-compress"></span>
         </div>
         {if $user->isLogin}
             <div class="content">
@@ -80,7 +80,7 @@
         <!--标签1开始-->
         <article id="1">
             <h2 class="major">简介</h2>
-            <p>「ホワイトアルバムの季節」が、また、やってきた。</p>
+            <p>「 」</p>
         </article>
         <!--
         简介修改示例:
