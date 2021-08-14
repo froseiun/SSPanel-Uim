@@ -1,22 +1,18 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: tonyzou
- * Date: 2018/9/24
- * Time: 下午7:07
- */
-
 namespace App\Services;
 
 use App\Services\Gateway\{
     AopF2F,
     Codepay,
+    Vmqpay,
     PaymentWall,
     SPay,
     PAYJS,
-    YftPay,
-    BitPayX
+    BitPayX,
+    THeadPay,
+    CoinPay,
+    EasyPay
 };
 
 class Payment
@@ -27,6 +23,8 @@ class Payment
         switch ($method) {
             case ('codepay'):
                 return new Codepay();
+            case ('vmqpay'):
+                return new Vmqpay();
             case ('paymentwall'):
                 return new PaymentWall();
             case ('spay'):
@@ -35,10 +33,12 @@ class Payment
                 return new AopF2F();
             case ('payjs'):
                 return new PAYJS($_ENV['payjs_key']);
-            case ('yftpay'):
-                return new YftPay();
-            case ('bitpayx'):
-                return new BitPayX($_ENV['bitpay_secret']);
+            case ('theadpay'):
+                return new THeadPay();
+            case ('coinpay'):
+                return new CoinPay(Config::get('coinpay_secret'), Config::get('coinpay_appid'));
+            case ("easypay"):
+                return new EasyPay(Config::get('easypay_app_secret'));
             default:
                 return null;
         }
