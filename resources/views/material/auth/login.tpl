@@ -1,5 +1,6 @@
 {include file='header.tpl'}
 
+
 <div class="authpage">
     <div class="container">
         <form action="javascript:void(0);" method="POST">
