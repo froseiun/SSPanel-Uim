@@ -56,25 +56,25 @@ class AppURI
         $return = null;
         switch ($item['type']) {
             case 'vmess':
-		if((string)$item['vtype'] == "vmess://") {
-		   $node = [
-			'v'     => "2",
-			'ps'    => $item['remark'],
-			'add'   => $item['add'],
-			'port'  => (string)$item['port'],
-			'id'    => $item['id'],
-			'aid'   => (string)$item['aid'],
-			'net'   => $item['net'],
-			'type'  => $item['net'] =='grpc' ?  "multi" : $item['headerType'],
-			'host'  => $item['net'] =='grpc' ? '' : $item['host'],
-			'path'  => $item['net'] =='grpc' ?  $item['servicename'] : $item['path'],
-			'tls'   => $item['tls'],
-			'sni'	=> $item['sni']
-	           ];
-		   $return = ('vmess://' . base64_encode(
-			json_encode($node, 320)
-	           ));
-		}else{
+        if((string)$item['vtype'] == "vmess://") {
+           $node = [
+            'v'     => "2",
+            'ps'    => $item['remark'],
+            'add'   => $item['add'],
+            'port'  => (string)$item['port'],
+            'id'    => $item['id'],
+            'aid'   => (string)$item['aid'],
+            'net'   => $item['net'],
+            'type'  => $item['net'] =='grpc' ?  "multi" : $item['headerType'],
+            'host'  => $item['net'] =='grpc' ? '' : $item['host'],
+            'path'  => $item['net'] =='grpc' ?  $item['servicename'] : $item['path'],
+            'tls'   => $item['tls'],
+            'sni'   => $item['sni']
+               ];
+           $return = ('vmess://' . base64_encode(
+            json_encode($node, 320)
+               ));
+        }else{
                    $return = 'vless://' . $item['id'] ."@".(string)$item['add'].":".$item['port']."?encryption=none";
                    $return.="&type=".$item['net'];
                    $return.="&security=".$item['tls'];
@@ -89,9 +89,9 @@ class AppURI
                    }else{
                        if($item['headerType']!="")$return=$return."&headerType=".$item['headerType'];
                    }
-                   if ($item['remark']!="")$return=$return."#". rawurlencode($item['remark']);					
-		}
-                break; 
+                   if ($item['remark']!="")$return=$return."#". rawurlencode($item['remark']);
+        }
+                break;
         }
         return $return;
     }

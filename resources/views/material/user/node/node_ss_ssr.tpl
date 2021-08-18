@@ -193,13 +193,13 @@
 
 <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js"></script>
 <script>
-	$(function(){
-		new ClipboardJS('.copy-text');
-	});
-	$(".copy-text").click(function () {
-		$("#result").modal();
-		$("#msg").html("已复制到您的剪贴板，请您继续接下来的操作。");
-	});
+    $(function(){
+        new ClipboardJS('.copy-text');
+    });
+    $(".copy-text").click(function () {
+        $("#result").modal();
+        $("#msg").html("已复制到您的剪贴板，请您继续接下来的操作。");
+    });
 </script>
 <script>
     $(function () {

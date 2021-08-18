@@ -140,7 +140,7 @@ class CoinPay extends AbstractPayment
     public function getPurchaseHTML()
     {
         return '<div class="card-inner">
-						<div class="form-group pull-left">
+                        <div class="form-group pull-left">
                             <p class="modal-title">CoinPay 支持BTC、ETH、USDT等数十种数字货币</p>
                             <div class="form-group form-group-label">
                                 <label class="floating-label" for="price">充值金额</label>

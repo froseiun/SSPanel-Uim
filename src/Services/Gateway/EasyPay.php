@@ -51,7 +51,7 @@ class EasyPay extends AbstractPayment
      */
     public function verify($data, $signature)
     {
-    	unset($data['sign']);
+        unset($data['sign']);
         $mySign = $this->sign($this->prepareSign($data));
         return $mySign === $signature;
     }
@@ -62,7 +62,7 @@ class EasyPay extends AbstractPayment
         {
             $data = http_build_query($data, null, '&');
         }
-        
+
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $this->gatewayUri);
         curl_setopt($curl, CURLOPT_HEADER, 0);
@@ -96,27 +96,27 @@ class EasyPay extends AbstractPayment
         $data['return_url'] = Config::get('baseUrl') . '/user/payment/return';
         $params = $this->prepareSign($data);
         $data['sign'] = $this->sign($params);
-    	$result = json_decode($this->post($data), true);
-    	if (!isset($result['data'])) {
-    		return json_encode(['code' => -1, 'msg' => '支付网关处理失败']);
-    	}
+        $result = json_decode($this->post($data), true);
+        if (!isset($result['data'])) {
+            return json_encode(['code' => -1, 'msg' => '支付网关处理失败']);
+        }
         $result['pid'] = $pl->tradeno;
         return json_encode(['url' => $result['data']['pay_url'], 'code' => 0, 'pid' => $pl->tradeno]);
     }
 
     public function notify($request, $response, $args)
     {
-    	file_put_contents(BASE_PATH . '/storage/easypay.log', json_encode($request->getParams())."\r\n", FILE_APPEND);
-    	if (!$this->verify($request->getParams(), $request->getParam('sign'))) {
-    		die('FAIL');
-    	}
-    	$this->postPayment($request->getParam('out_trade_no'), 'EasyPay');
-    	die('SUCCESS');
+        file_put_contents(BASE_PATH . '/storage/easypay.log', json_encode($request->getParams())."\r\n", FILE_APPEND);
+        if (!$this->verify($request->getParams(), $request->getParam('sign'))) {
+            die('FAIL');
+        }
+        $this->postPayment($request->getParam('out_trade_no'), 'EasyPay');
+        die('SUCCESS');
     }
 
     public function getPurchaseHTML()
     {
-    	return View::getSmarty()->fetch('user/easypay.tpl');
+        return View::getSmarty()->fetch('user/easypay.tpl');
     }
 
     public function getReturnHTML($request, $response, $args)

@@ -235,7 +235,7 @@ class TelegramProcess
 						/traffic 查询流量
 						/checkin 签到
 						/help 获取帮助信息
-						/rss 获取节点订阅	';
+						/rss 获取节点订阅';
                     if ($user == null) {
                         $reply['message'] .= PHP_EOL . '您未绑定本站账号，您可以进入网站的“资料编辑”，在右下方绑定您的账号';
                     }

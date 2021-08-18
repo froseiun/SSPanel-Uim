@@ -18,25 +18,25 @@
             </div>
 
             <div class="card">
-				<div class="card-main">
-					<div class="card-inner">
-						<div class="form-group form-group-label">
-							<label class="floating-label" for="userid">需要修改邀请者的用户</label>
-							<input class="form-control maxwidth-edit" id="userid" type="text">
-							<p class="form-control-guide"><i class="material-icons">info</i>填写用户的ID</p>
-						</div>
-						<div class="form-group form-group-label">
-							<label class="floating-label" for="refid">邀请者的ID</label>
-							<input class="form-control maxwidth-edit" id="refid" type="number">
-						</div>
-					</div>
-					<div class="card-action">
-						<div class="card-action-btn pull-left">
-							<a class="btn btn-flat waves-attach" id="confirm"><span class="icon">check</span>&nbsp;更改</a>
-						</div>
-					</div>
-				</div>
-			</div>
+                <div class="card-main">
+                    <div class="card-inner">
+                        <div class="form-group form-group-label">
+                            <label class="floating-label" for="userid">需要修改邀请者的用户</label>
+                            <input class="form-control maxwidth-edit" id="userid" type="text">
+                            <p class="form-control-guide"><i class="material-icons">info</i>填写用户的ID</p>
+                        </div>
+                        <div class="form-group form-group-label">
+                            <label class="floating-label" for="refid">邀请者的ID</label>
+                            <input class="form-control maxwidth-edit" id="refid" type="number">
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <div class="card-action-btn pull-left">
+                            <a class="btn btn-flat waves-attach" id="confirm"><span class="icon">check</span>&nbsp;更改</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-main">
                     <div class="card-inner">

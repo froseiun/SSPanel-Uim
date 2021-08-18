@@ -449,10 +449,10 @@ class Node extends Model
         $item['port']     = (isset($opt['port']) ? (int) $opt['port'] : 443);
         $item['passwd']   = $user->uuid;
         $item['host']     = $item['address'];
-        $item['net']	  = (isset($opt['grpc']) ? "grpc" :'');
+        $item['net']      = (isset($opt['grpc']) ? "grpc" :'');
         $item['servicename'] = (isset($opt['servicename']) ? $opt['servicename'] :'');
-        $item['flow']	  = (isset($opt['flow']) ? $opt['flow'] :'');
-        $xtls			= (isset($opt['enable_xtls']) ? $opt['enable_xtls'] :'');
+        $item['flow']     = (isset($opt['flow']) ? $opt['flow'] :'');
+        $xtls             = (isset($opt['enable_xtls']) ? $opt['enable_xtls'] :'');
         if($xtls == 'true'){
           $item['tls'] =  'xtls';
         }else {

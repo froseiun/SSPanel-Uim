@@ -28,13 +28,13 @@
                     amount: $$getValue('amount')
                 },
                 success: (data) => {
-                	console.log(data)
-                	if (data.code === 0) {
-                		window.location.href = data.url
-                	} else {
+                    console.log(data)
+                    if (data.code === 0) {
+                        window.location.href = data.url
+                    } else {
                         $("#result").modal();
                         $$.getElementById('msg').innerHTML = data.msg;
-                	}
+                    }
                 },
                 error: (jqXHR) => {
                     //console.log(jqXHR);

@@ -19,17 +19,17 @@ class Vmqpay extends AbstractPayment
         $param = '';
         $timestamp = time();
         $sign = md5($timestamp.$param.$type.$price.$vmqpay_key);
-		
+
         $pl = new Paylist();
         $pl->userid = $user->id;
         $pl->total = $price;
         $pl->tradeno = $timestamp; //将订单发起时的时间戳作为流水号
         $pl->save();
-		
+
         $post_url = "$vmqpay_gateway/createOrder?payId=$timestamp&type=$type&price=$price&sign=$sign&param=$param&isHtml=1&notifyUrl=$baseUrl/payment/notify&returnUrl=$baseUrl/user/code";
         header('Location:' . $post_url);
     }
-	
+
     public function notify($request, $response, $args)
     {
         $key = $_ENV['vmqpay_key'];
@@ -39,18 +39,18 @@ class Vmqpay extends AbstractPayment
         $type = $_GET['type']; // alipay -> 2, wechat -> 1
         $price = $_GET['price'];
         $reallyPrice = $_GET['reallyPrice'];
-		
+
         $sign = $_GET['sign'];
         $_sign =  md5($payId.$param.$type.$price.$reallyPrice.$key);
         if ($_sign != $sign) {
             echo "error_sign";
             exit();
         }
-		
+
         echo "success";
         $this->postPayment($payId, '在线支付');
     }
-	
+
     public function getPurchaseHTML()
     {
         return '
@@ -65,7 +65,7 @@ class Vmqpay extends AbstractPayment
                         </div>
 ';
     }
-	
+
     public function getReturnHTML($request, $response, $args)
     {
         // TODO: Implement getReturnHTML() method.

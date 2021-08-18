@@ -105,7 +105,7 @@ class SPay extends AbstractPayment
     {
         return '
                     <div class="card-inner">
-						<div class="form-group pull-left">
+                        <div class="form-group pull-left">
                         <p class="modal-title" >本站支持支付宝在线充值</p>
                         <p>输入充值金额：</p>
                         <p>低于10元自动转为10元  (亲!手续费很贵滴)</p>

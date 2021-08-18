@@ -118,20 +118,20 @@
                         </div>
                     </div>
                 </div>
-				<div class="card margin-bottom-no">
-					<div class="card-main">
-						<div class="card-inner">
-							<div class="card-inner">
-								<div class="cardbtn-edit">
-									<div class="card-heading">重置订阅链接</div>
-									<div class="reset-flex">
-										<a class="reset-link btn btn-brand-accent btn-flat" ><i class="icon">autorenew</i>&nbsp;</a>
-									</div>
-								</div>
+                <div class="card margin-bottom-no">
+                    <div class="card-main">
+                        <div class="card-inner">
+                            <div class="card-inner">
+                                <div class="cardbtn-edit">
+                                    <div class="card-heading">重置订阅链接</div>
+                                    <div class="reset-flex">
+                                        <a class="reset-link btn btn-brand-accent btn-flat" ><i class="icon">autorenew</i>&nbsp;</a>
+                                    </div>
+                                </div>
                                 <p>点击会重置您的订阅链接，您需要更新客户端中所配置的订阅地址方可继续使用。</p>
-							</div>
-						</div>
-					</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xx-12 col-sm-6">

@@ -48,25 +48,25 @@
                                         <table class="table">
                                             <thead>
                                             <tr>
-                                              	<th>#ID</th>
-                                              	<th>套餐名称</th>
-                                              	<th>已用天数</th>
-                                              	<th>下次流量重置时间</th>
-                                              	<th>套餐过期时间</th>
+                                                <th>#ID</th>
+                                                <th>套餐名称</th>
+                                                <th>已用天数</th>
+                                                <th>下次流量重置时间</th>
+                                                <th>套餐过期时间</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                          	{foreach $boughts as $bought}
-                                          		{if $bought->valid()}
-                                                <tr>
-                                                    <td>#{$bought->id}</td>
-                                                    <td>{$bought->shop()->name}</td>
-                                                    <td>{$bought->used_days()} 天</td>
-                                                    <td>{$bought->reset_time()}</td>
-                                                    <td>{$bought->exp_time()}</td>
-                                                </tr>
-                                          		{/if}
-                                          	{/foreach}
+                                                {foreach $boughts as $bought}
+                                                {if $bought->valid()}
+                                                    <tr>
+                                                        <td>#{$bought->id}</td>
+                                                        <td>{$bought->shop()->name}</td>
+                                                        <td>{$bought->used_days()} 天</td>
+                                                        <td>{$bought->reset_time()}</td>
+                                                        <td>{$bought->exp_time()}</td>
+                                                    </tr>
+                                                {/if}
+                                                {/foreach}
                                             </tbody>
                                         </table>
                                     </div>

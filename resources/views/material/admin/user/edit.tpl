@@ -73,9 +73,9 @@
                     </div>
                 </div>
 
-				<div class="card">
-					<div class="card-main">
-						<div class="card-inner">
+                <div class="card">
+                    <div class="card-main">
+                        <div class="card-inner">
                             <div class="form-group form-group-label">
                                 <label class="floating-label" for="ban_time">手动封禁时长 (分钟)，不封禁不要修改</label>
                                 <input class="form-control maxwidth-edit" id="ban_time" type="text"
@@ -101,9 +101,9 @@
                                 <input class="form-control maxwidth-edit" id="all_detect_number" type="text"
                                        value="{$edit_user->all_detect_number}" readonly>
                             </div>
-						</div>
-					</div>
-				</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-main">
                         <div class="card-inner">
