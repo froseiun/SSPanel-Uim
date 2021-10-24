@@ -136,7 +136,8 @@ $_ENV['notify_limit_value']         = 20;           //当上一项为per时，�
 $_ENV['Subscribe']                  = true;                         //本站是否提供订阅功能
 $_ENV['subUrl']                     = $_ENV['baseUrl'] . '/link/';  //订阅地址，如需和站点名称相同，请不要修改
 $_ENV['mergeSub']                   = true;                         //合并订阅设置 可选项 false / true
-$_ENV['enable_sub_extend']          = true;                         // 是否开启订阅中默认显示流量剩余以及账户到期时间以及 sub_message 中的信息
+$_ENV['enable_sub_extend']          = true;                         //是否开启订阅中默认显示流量剩余以及账户到期时间以及 sub_message 中的信息
+$_ENV['enable_forced_replacement']  = true;                         //用户修改账户登录密码时，是否强制更换订阅地址
 
 // 订阅中的营销信息
 // 使用数组形式，将会添加在订阅列表的顶端
@@ -300,10 +301,6 @@ $_ENV['payment_system']       = 'none';     // todo: ['gateway1', 'gateway2']
 $_ENV['vmqpay_key']           = '';          //v免签通讯密钥
 $_ENV['vmqpay_gateway']       = '';          //v免签网关地址如 https://pay.com
 
-# codepay码支付
-$_ENV['codepay_id']           = '';          //码支付ID
-$_ENV['codepay_key']          = '';          //码支付通信密钥
-
 # alipay,f2fpay
 $_ENV['f2fpay_app_id']        = '';
 $_ENV['f2fpay_p_id']          = '';
@@ -316,11 +313,6 @@ $_ENV['pmw_publickey']        = '';
 $_ENV['pmw_privatekey']       = '';
 $_ENV['pmw_widget']           = 'm2_1';
 $_ENV['pmw_height']           = '350px';
-
-# alipay,spay
-$_ENV['alipay_id']            = '';
-$_ENV['alipay_key']           = '';
-$_ENV['amount']               = [2, 23, 233, 2333, 23333];        //充值金额选项设定
 
 # alipay,zfbjk.com
 $_ENV['zfbjk_pid']            = '';
@@ -341,10 +333,6 @@ $_ENV['coinpay_appid']  = '';    // CoinPay 应用ID (*)
 $_ENV['coinpay_secret'] = '';    // CoinPay 验证密钥 (*)
 $_ENV['coinpay_notify'] = '';    // 异步回调URL
 $_ENV['coinpay_return'] = '';    // 同步返回URL
-
-# EasyPay https://t.me/Easy_panel
-$_ENV['easypay_app_id'] = '';      // 商户APPID
-$_ENV['easypay_app_secret'] = '';  // 商户APPKEY
 
 #后台商品列表 销量统计
 $_ENV['sales_period']         = 30;             //统计指定周期内的销量，值为【expire/任意大于0的整数】

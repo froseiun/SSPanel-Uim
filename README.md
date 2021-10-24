@@ -71,10 +71,6 @@ php xcat Tool initdownload
 
 [Anankke 很可爱请给 Anankke 钱](https://t.me/anankke/7)
 
-### dumplin
-
-[码支付-微信收款功能开通](https://codepay.fateqq.com/i/39756)
-
 ### galaxychuck
 
 [moecloud-美國VPS](https://lite.moe/aff.php?aff=56)
@@ -83,6 +79,9 @@ php xcat Tool initdownload
 
 [dmit-美国香港服务器](https://www.dmit.io/aff.php?aff=912)
 
+### M1Screw
+
+[Vultr-不用我多解釋了吧](https://www.vultr.com/?ref=8941355-8H)
 
 ## License
 [MIT](https://raw.githubusercontent.com/froseiun/sspanel-vela/froseiun/dev/LICENSE)

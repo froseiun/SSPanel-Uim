@@ -10,6 +10,7 @@ use App\Utils\{
     CloudflareDriver
 };
 use App\Services\Config;
+use Exception;
 use Slim\Http\{
     Request,
     Response
@@ -85,9 +86,6 @@ class NodeController extends AdminController
         $node                   = new Node();
         $node->name             = $request->getParam('name');
         $node->server           = trim($request->getParam('server'));
-        $node->method           = $request->getParam('method');
-        $node->custom_method    = $request->getParam('custom_method');
-        $node->custom_rss       = $request->getParam('custom_rss');
         $node->mu_only          = $request->getParam('mu_only');
         $node->traffic_rate     = $request->getParam('rate');
         $node->info             = $request->getParam('info');
@@ -96,6 +94,12 @@ class NodeController extends AdminController
         $node->node_speedlimit  = $request->getParam('node_speedlimit');
         $node->status           = $request->getParam('status');
         $node->sort             = $request->getParam('sort');
+
+        if ($request->getParam('custom_config') != null) {
+            $node->custom_config = $request->getParam('custom_config');
+        } else {
+            $node->custom_config = '{}';
+        }
 
         $req_node_ip = trim($request->getParam('node_ip'));
         if ($req_node_ip == '') {
@@ -127,13 +131,20 @@ class NodeController extends AdminController
         }
 
         if (Config::getconfig('Telegram.bool.AddNode')) {
-            Telegram::Send(
-                str_replace(
-                    '%node_name%',
-                    $request->getParam('name'),
-                    Config::getconfig('Telegram.string.AddNode')
-                )
-            );
+            try {
+                Telegram::Send(
+                    str_replace(
+                        '%node_name%',
+                        $request->getParam('name'),
+                        Config::getconfig('Telegram.string.AddNode')
+                    )
+                );
+            } catch (Exception $e) {
+                return $response->withJson([
+                    'ret' => 1,
+                    'msg' => '节点添加成功，但Telegram通知失败'
+                ]);
+            }
         }
 
         return $response->withJson([
@@ -174,15 +185,18 @@ class NodeController extends AdminController
         $node->name             = $request->getParam('name');
         $node->node_group       = $request->getParam('group');
         $node->server           = trim($request->getParam('server'));
-        $node->method           = $request->getParam('method');
-        $node->custom_method    = $request->getParam('custom_method');
-        $node->custom_rss       = $request->getParam('custom_rss');
         $node->mu_only          = $request->getParam('mu_only');
         $node->traffic_rate     = $request->getParam('rate');
         $node->info             = $request->getParam('info');
         $node->node_speedlimit  = $request->getParam('node_speedlimit');
         $node->type             = $request->getParam('type');
         $node->sort             = $request->getParam('sort');
+
+        if ($request->getParam('custom_config') != null) {
+            $node->custom_config = $request->getParam('custom_config');
+        } else {
+            $node->custom_config = '{}';
+        }
 
         $req_node_ip = trim($request->getParam('node_ip'));
         if ($req_node_ip == '') {
@@ -212,13 +226,20 @@ class NodeController extends AdminController
         $node->save();
 
         if (Config::getconfig('Telegram.bool.UpdateNode')) {
-            Telegram::Send(
-                str_replace(
-                    '%node_name%',
-                    $request->getParam('name'),
-                    Config::getconfig('Telegram.string.UpdateNode')
-                )
-            );
+            try {
+                Telegram::Send(
+                    str_replace(
+                        '%node_name%',
+                        $request->getParam('name'),
+                        Config::getconfig('Telegram.string.UpdateNode')
+                    )
+                );
+            } catch (Exception $e) {
+                return $response->withJson([
+                    'ret' => 1,
+                    'msg' => '修改成功，但Telegram通知失败'
+                ]);
+            }
         }
 
         return $response->withJson([
@@ -247,13 +268,20 @@ class NodeController extends AdminController
         }
 
         if (Config::getconfig('Telegram.bool.DeleteNode')) {
-            Telegram::Send(
-                str_replace(
-                    '%node_name%',
-                    $node->name,
-                    Config::getconfig('Telegram.string.DeleteNode')
-                )
-            );
+            try {
+                Telegram::Send(
+                    str_replace(
+                        '%node_name%',
+                        $request->getParam('name'),
+                        Config::getconfig('Telegram.string.DeleteNode')
+                    )
+                );
+            } catch (Exception $e) {
+                return $response->withJson([
+                    'ret' => 1,
+                    'msg' => '删除成功，但Telegram通知失败'
+                ]);
+            }
         }
 
         return $response->withJson([

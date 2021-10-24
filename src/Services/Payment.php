@@ -4,15 +4,11 @@ namespace App\Services;
 
 use App\Services\Gateway\{
     AopF2F,
-    Codepay,
     Vmqpay,
     PaymentWall,
-    SPay,
     PAYJS,
-    BitPayX,
     THeadPay,
-    CoinPay,
-    EasyPay
+    CoinPay
 };
 
 class Payment
@@ -21,14 +17,10 @@ class Payment
     {
         $method = $_ENV['payment_system'];
         switch ($method) {
-            case ('codepay'):
-                return new Codepay();
             case ('vmqpay'):
                 return new Vmqpay();
             case ('paymentwall'):
                 return new PaymentWall();
-            case ('spay'):
-                return new SPay();
             case ('f2fpay'):
                 return new AopF2F();
             case ('payjs'):
@@ -37,8 +29,6 @@ class Payment
                 return new THeadPay();
             case ('coinpay'):
                 return new CoinPay(Config::get('coinpay_secret'), Config::get('coinpay_appid'));
-            case ("easypay"):
-                return new EasyPay(Config::get('easypay_app_secret'));
             default:
                 return null;
         }
