@@ -34,7 +34,7 @@ class Tool extends Command
     public function setTelegram()
     {
         if ($_ENV['use_new_telegram_bot'] === true) {
-            $WebhookUrl = ($_ENV['baseUrl'] . '/telegram_callback?token=' . $_ENV['telegram_request_token']);
+            $WebhookUrl = ($_ENV['telegram_callback_url'] . '/telegram_callback?token=' . $_ENV['telegram_request_token']);
             $telegram = new \Telegram\Bot\Api($_ENV['telegram_token']);
             $telegram->removeWebhook();
             if ($telegram->setWebhook(['url' => $WebhookUrl])) {
@@ -48,7 +48,7 @@ class Tool extends Command
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
             $deleteWebhookReturn = json_decode(curl_exec($ch));
             curl_close($ch);
-            if ($deleteWebhookReturn->ok && $deleteWebhookReturn->result && $bot->setWebhook($_ENV['baseUrl'] . '/telegram_callback?token=' . $_ENV['telegram_request_token']) == 1) {
+            if ($deleteWebhookReturn->ok && $deleteWebhookReturn->result && $bot->setWebhook($_ENV['telegram_callback_url'] . '/telegram_callback?token=' . $_ENV['telegram_request_token']) == 1) {
                 echo ('Old Bot 设置成功！' . PHP_EOL);
             }
         }

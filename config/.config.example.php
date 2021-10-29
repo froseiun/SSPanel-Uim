@@ -199,11 +199,12 @@ $_ENV['auto_detect_ban'] = [
 # Telegram bot
 $_ENV['enable_telegram']                    = false;        //是否开启 Telegram bot
 $_ENV['use_new_telegram_bot']               = true;         //是否使用新的 Telegram bot
-$_ENV['telegram_token']                     = '';           //Telegram bot,bot 的 token ，跟 father bot 申请
-$_ENV['telegram_chatid']                    = '';           //Telegram bot,群组会话 ID,把机器人拉进群里之后跟他 /ping 一下即可得到
+$_ENV['telegram_token']                     = '';           //Telegram bot 的 token，跟 BotFather 申请
+$_ENV['telegram_chatid']                    = '';           //Telegram bot 的群组会话 ID，把机器人拉进群里之后跟他 /ping 一下即可得到
 $_ENV['telegram_bot']                       = '_bot';       //Telegram 机器人账号
 $_ENV['telegram_group_quiet']               = false;        //Telegram 机器人在群组中不回应
-$_ENV['telegram_request_token']             = '';           //Telegram 机器人请求Key，随意设置，由大小写英文和数字组成，更新这个参数之后请 php xcat Tool setTelegram
+$_ENV['telegram_request_token']             = '';           //Telegram 机器人请求 Key，随意设置，由大小写英文和数字组成，更新这个参数之后请 php xcat Tool setTelegram
+$_ENV['telegram_callback_url']              = '';           //Telegram 机器人 callback URL
 
 # 通用
 $_ENV['finance_public']                     = true;         //财务报告是否向群公开
