@@ -8,8 +8,6 @@ composer.lock
 .env
 vendor
 
-resources/conf/clash/default.tpl
-
 php_errors.log
 composer.phar
 
