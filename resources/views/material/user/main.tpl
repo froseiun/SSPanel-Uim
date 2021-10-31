@@ -43,7 +43,7 @@
                                 class="icon icon-lg margin-right">exit_to_app</span>登出</a>
                 </li>
                 <li>
-                    <a href="//en.gravatar.com/" target="view_window"><i class="icon icon-lg margin-right">insert_photo</i>设置Gravatar头像</a>
+                    <a href="//en.gravatar.com/" target="view_window"><i class="icon icon-lg margin-right">insert_photo</i>Gravatar</a>
                 </li>
             </ul>
         </div>
@@ -62,6 +62,9 @@
                         </li>
                         <li>
                             <a href="/user/profile"><i class="icon icon-lg">account_box</i>&nbsp;账户信息</a>
+                        </li>
+                        <li>
+                            <a href="/user/edit"><i class="icon icon-lg">edit</i>&nbsp;资料编辑</a>
                         </li>
                         {if $config['subscribeLog']===true && $config['subscribeLog_show']===true}
                         <li>
