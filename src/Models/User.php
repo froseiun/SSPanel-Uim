@@ -807,12 +807,12 @@ class User extends Model
             }
         }
         if (count($data) == 0) {
-            return '未购买套餐.';
+            return '以等级到期时间为准';
         }
         if (count($data) == 1) {
             return $data[0];
         }
-        return '多个有效套餐无法显示.';
+        return '多个有效套餐无法显示';
     }
 
     /**

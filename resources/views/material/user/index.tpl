@@ -151,7 +151,7 @@ table tr td:first-child {
                         <div class="card-main">
                         <div class="card-inner margin-bottom-no">
                             <p class="card-heading" style="margin-bottom: 0;"><i class="icon icon-md">account_circle</i>流量使用情况</p>
-                                {if $user->valid_use_loop() != '未购买套餐.'}
+                                {if $user->valid_use_loop() != '以等级到期时间为准'}
                                 <p>下次流量重置时间：{$user->valid_use_loop()}</p>
                                 {/if}
                                 <div class="progressbar">
