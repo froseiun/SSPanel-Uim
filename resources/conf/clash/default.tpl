@@ -442,6 +442,8 @@
   - DOMAIN-SUFFIX,spiegel.de,境外流量
   - DOMAIN-SUFFIX,startpage.com,境外流量
   - DOMAIN-SUFFIX,steamcommunity.com,境外流量
+  - DOMAIN,api.steampowered.com,境外流量
+  - DOMAIN,store.steampowered.com,境外流量
   - DOMAIN-SUFFIX,steemit.com,境外流量
   - DOMAIN-SUFFIX,steemitwallet.com,境外流量
   - DOMAIN-SUFFIX,straitstimes.com,境外流量
@@ -1157,9 +1159,14 @@
   - DOMAIN-SUFFIX,sogou.com,DIRECT
   - DOMAIN-SUFFIX,sogoucdn.com,DIRECT
   # > Steam
-  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
   - DOMAIN-SUFFIX,steampowered.com,DIRECT
+  - DOMAIN-SUFFIX,steam-chat.com,DIRECT
+  - DOMAIN-SUFFIX,steamgames.com,DIRECT
+  - DOMAIN-SUFFIX,steamusercontent.com,DIRECT
+  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
   - DOMAIN-SUFFIX,steamstatic.com,DIRECT
+  - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
+  - DOMAIN-SUFFIX,steamstat.us,DIRECT
   # > Tencent
   # USER-AGENT,MicroMessenger*,,DIRECT
   # USER-AGENT,WeChat*,DIRECT
