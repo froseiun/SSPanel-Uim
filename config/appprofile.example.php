@@ -42,7 +42,7 @@ $_ENV['Surge_Profiles'] = [
         ],
         'ProxyGroup' => [
             [
-                'name' => '🔰国外流量',
+                'name' => '🔰境外流量',
                 'type' => 'select',
                 'content' => [
                     'regex' => '(.*)',
@@ -56,7 +56,7 @@ $_ENV['Surge_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量',
+                        '🔰境外流量',
                         '🚀直接连接'
                     ]
                 ]
@@ -66,17 +66,17 @@ $_ENV['Surge_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Youtube',
+                'name' => '🎬YouTube',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -86,7 +86,7 @@ $_ENV['Surge_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -102,11 +102,11 @@ $_ENV['Surge_Profiles'] = [
                 ]
             ],
             [
-                'name' => '🎬国外媒体',
+                'name' => '🎬境外媒体',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -117,7 +117,7 @@ $_ENV['Surge_Profiles'] = [
                 'content' => [
                     'left-proxies' => [
                         '🚀直接连接',
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ]
                 ]
             ]
@@ -149,7 +149,7 @@ $_ENV['Surge2_Profiles'] = [
         ],
         'ProxyGroup' => [
             [
-                'name' => '🔰国外流量',
+                'name' => '🔰境外流量',
                 'type' => 'select',
                 'content' => [
                     'regex' => '(.*)',
@@ -163,7 +163,7 @@ $_ENV['Surge2_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量',
+                        '🔰境外流量',
                         '🚀直接连接'
                     ]
                 ]
@@ -173,17 +173,17 @@ $_ENV['Surge2_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Youtube',
+                'name' => '🎬YouTube',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -193,7 +193,7 @@ $_ENV['Surge2_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -209,11 +209,11 @@ $_ENV['Surge2_Profiles'] = [
                 ]
             ],
             [
-                'name' => '🎬国外媒体',
+                'name' => '🎬境外媒体',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -224,7 +224,7 @@ $_ENV['Surge2_Profiles'] = [
                 'content' => [
                     'left-proxies' => [
                         '🚀直接连接',
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ]
                 ]
             ]
@@ -258,12 +258,14 @@ $_ENV['Clash_Profiles'] = [
             'enhanced-mode'       => 'fake-ip',
             'fake-ip-range'       => '198.18.0.1/16',
             'nameserver'=>[
-                '114.114.114.114',
-                'tcp://223.5.5.5'
+                '223.5.5.5',
+                '223.6.6.6',
+                'tcp://223.5.5.5',
+                'tcp://223.6.6.6',
             ],
             'fallback'=>[
-                'tls://223.5.5.5:853',
-                'https://223.5.5.5/dns-query'
+                'tls://dot.pub:853',
+                'https://doh.pub/dns-query'
             ],
             'fallback-filter'=>[
                 'geoip'=> true,
@@ -275,31 +277,11 @@ $_ENV['Clash_Profiles'] = [
         'Proxy' => [],
         'ProxyGroup' => [
             [
-                'name' => '国外流量',
+                'name' => '境外流量',
                 'type' => 'select',
                 'content' => [
-                    'regex' => '(.*)',
                     'right-proxies' => [
                         '直接连接'
-                    ],
-                ]
-            ],
-            [
-                'name' => '其他流量',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '国外流量',
-                        '直接连接'
-                    ]
-                ]
-            ],
-            [
-                'name' => 'TG流量',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '国外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -309,43 +291,56 @@ $_ENV['Clash_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '国外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
+                    'right-proxies' => [
+                        '直接连接'
+                    ]
                 ]
             ],
             [
-                'name' => 'PCR日服',
+                'name' => 'Cygames',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '国外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => 'Youtube',
+                'name' => 'YouTube',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '国外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => 'Netflix媒体',
+                'name' => 'Netflix',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '国外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => 'b站',
+                'name' => '巴哈姆特',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'bilibili',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -355,22 +350,81 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => '境外其他媒体',
+                'name' => '境外其他流媒体',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '国外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => 'AppleService',
+                'name' => 'Apple_API',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
                         '直接连接',
-                        '国外流量'
+                        '境外流量'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Apple_CDN',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Microsoft',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ]
+                ]
+	    ],
+	    [
+                'name' => '星野集团',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'DN42',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '其他流量',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
+                'name' => '局域网',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接'
                     ]
                 ]
             ],
@@ -406,7 +460,7 @@ $_ENV['Surfboard_Profiles'] = [
         ],
         'ProxyGroup' => [
             [
-                'name' => '🔰国外流量',
+                'name' => '🔰境外流量',
                 'type' => 'select',
                 'content' => [
                     'regex' => '(.*)',
@@ -420,7 +474,7 @@ $_ENV['Surfboard_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量',
+                        '🔰境外流量',
                         '🚀直接连接'
                     ]
                 ]
@@ -430,17 +484,17 @@ $_ENV['Surfboard_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Youtube',
+                'name' => '🎬YouTube',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -450,7 +504,7 @@ $_ENV['Surfboard_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -466,11 +520,11 @@ $_ENV['Surfboard_Profiles'] = [
                 ]
             ],
             [
-                'name' => '🎬国外媒体',
+                'name' => '🎬境外媒体',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰国外流量'
+                        '🔰境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -481,3 +535,4 @@ $_ENV['Surfboard_Profiles'] = [
         ]
     ]
 ];
+
