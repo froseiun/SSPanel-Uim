@@ -10,18 +10,24 @@
     <link href="/theme/material/css/base.min.css" rel="stylesheet">
     <link href="/theme/material/css/project.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-    <link href="//cdn.jsdelivr.net/npm/material-design-lite@1.3.0/dist/material.min.css" rel="stylesheet">
-    <link href="//cdn.jsdelivr.net/gh/DataTables/DataTables@1.10.19/media/css/dataTables.material.min.css" rel="stylesheet">
-    <link href="//cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/material-design-lite/1.3.0/material.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/datatables/1.10.19/css/dataTables.material.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/jsoneditor/9.5.8/jsoneditor.min.css" rel="stylesheet" type="text/css">
     <!-- js -->
-    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
-    <script src="//cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jsoneditor/9.5.8/jsoneditor.min.js"></script>
     <!-- favicon -->
     <!-- ... -->
     <style>
         body {
             position: relative;
         }
+
+        {if $config['admin_center_bg'] == true}
+        .page-brand .ui-content-header {
+            background-image: url({$config['admin_center_bg_addr']});
+        }
+        {/if}
 
         .table-responsive {
             background: white;
@@ -112,8 +118,8 @@
                     </ul>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_config">配置</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_config">
+                        <li><a href="/admin/setting"><i class="icon icon-lg">settings</i>&nbsp;设置中心</a></li>
                         <li><a href="/admin/config/telegram"><i class="icon icon-lg">supervisor_account</i>&nbsp;Telegram</a></li>
-                        <li><a href="/admin/config/register"><i class="icon icon-lg">supervisor_account</i>&nbsp;用户注册</a></li>
                     </ul>
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_detect">审计</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_detect">
@@ -130,9 +136,6 @@
                         <li><a href="/admin/shop"><i class="icon icon-lg">shop</i>&nbsp;商品</a></li>
                         <li><a href="/admin/coupon"><i class="icon icon-lg">card_giftcard</i>&nbsp;优惠码</a></li>
                         <li><a href="/admin/bought"><i class="icon icon-lg">shopping_cart</i>&nbsp;购买记录</a></li>
-                        {if $config['payment_system']=='chenAlipay'}
-                            <li><a href="/admin/editConfig"><i class="icon icon-lg">shopping_cart</i>&nbsp;支付设置</a></li>
-                        {/if}
                     </ul>
                 <li><a href="/user"><i class="icon icon-lg">person</i>&nbsp;用户中心</a></li>
             </ul>

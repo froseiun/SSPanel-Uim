@@ -3,8 +3,9 @@
 namespace App\Services\Gateway;
 
 use App\Services\Auth;
-use App\Models\Paylist;
 use App\Services\View;
+use App\Models\Paylist;
+use App\Models\Setting;
 use Exception;
 
 class THeadPay extends AbstractPayment
@@ -16,7 +17,7 @@ class THeadPay extends AbstractPayment
 
     public static function _enable() 
     {
-        return $_ENV['theadpay_enable'];
+        return self::getActiveGateway('theadpay');
     }
 
     public static function _readableName() {
@@ -27,10 +28,12 @@ class THeadPay extends AbstractPayment
 
     public function __construct()
     {
+        $configs = Setting::getClass('theadpay');
+        
         $this->sdk = new THeadPaySDK([
-            'theadpay_url'      => $_ENV['theadpay_url'],
-            'theadpay_mchid'    => $_ENV['theadpay_mchid'],
-            'theadpay_key'      => $_ENV['theadpay_key'],
+            'theadpay_url'      => $configs['theadpay_url'],
+            'theadpay_mchid'    => $configs['theadpay_mchid'],
+            'theadpay_key'      => $configs['theadpay_key'],
         ]);
     }
 
@@ -102,7 +105,9 @@ class THeadPay extends AbstractPayment
 
     public function getStatus($request, $response, $args)
     {
-        $p = Paylist::where('tradeno', $_POST['pid'])->first();
+        $pid = $request->getParam('pid');
+        
+        $p = Paylist::where('tradeno', $pid)->first();
         return $response->withJson([
             'ret'       => 1,
             'result'    => $p->status,

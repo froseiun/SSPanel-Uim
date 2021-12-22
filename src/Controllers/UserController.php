@@ -21,6 +21,7 @@ use App\Models\{
     Payback,
     BlockIp,
     LoginIp,
+    Setting,
     UnblockIp,
     DetectLog,
     DetectRule,
@@ -79,6 +80,12 @@ class UserController extends BaseController
             $token = '';
         }
 
+        if (Setting::obtain('enable_checkin_captcha') == true) {
+            $geetest_html = $captcha['geetest'];
+        } else {
+            $geetest_html = null;
+        }
+
         return $response->write(
             $this->view()
                 ->assign('ssr_sub_token', $this->user->getSublink())
@@ -87,7 +94,7 @@ class UserController extends BaseController
                 ->assign('ios_account', $_ENV['ios_account'])
                 ->assign('ios_password', $_ENV['ios_password'])
                 ->assign('ann', Ann::orderBy('date', 'desc')->first())
-                ->assign('geetest_html', $captcha['geetest'])
+                ->assign('geetest_html', $geetest_html)
                 ->assign('mergeSub', $_ENV['mergeSub'])
                 ->assign('subUrl', $_ENV['subUrl'])
                 ->registerClass('URL', URL::class)
@@ -233,20 +240,10 @@ class UserController extends BaseController
         if ($codeq->type == -1) {
             $user->money += $codeq->number;
             $user->save();
-            if ($user->ref_by != 0) {
-                $gift_user = $user->ref_by_user();
-                if ($gift_user != null) {
-                    $ref_get            = $codeq->number * ($_ENV['code_payback'] / 100);
-                    $gift_user->money  += $ref_get;
-                    $gift_user->save();
-                    $Payback            = new Payback();
-                    $Payback->total     = $codeq->number;
-                    $Payback->userid    = $this->user->id;
-                    $Payback->ref_by    = $this->user->ref_by;
-                    $Payback->ref_get   = $ref_get;
-                    $Payback->datetime  = time();
-                    $Payback->save();
-                }
+            
+            // 返利
+            if ($user->ref_by > 0 && Setting::obtain('invitation_mode') == 'after_recharge') {
+                Payback::rebate($user->id, $codeq->number);
             }
 
             if ($_ENV['enable_donate']) {
@@ -402,18 +399,12 @@ class UserController extends BaseController
 
         $paybacks->setPath('/user/profile');
 
-        $iplocation  = new QQWry();
-
-        $userloginip = [];
+        // 登录IP
         $totallogin  = LoginIp::where('userid', '=', $this->user->id)->where('type', '=', 0)->orderBy('datetime', 'desc')->take(10)->get();
-        foreach ($totallogin as $single) {
-            if (!isset($userloginip[$single->ip])) {
-                $location                 = $iplocation->getlocation($single->ip);
-                $userloginip[$single->ip] = iconv('gbk', 'utf-8//IGNORE', $location['country'] . $location['area']);
-            }
-        }
 
+        // 使用IP
         $userip = [];
+        $iplocation  = new QQWry();
         $total  = Ip::where('datetime', '>=', time() - 300)->where('userid', '=', $this->user->id)->get();
         foreach ($total as $single) {
             $single->ip = Tools::getRealIp($single->ip);
@@ -429,7 +420,7 @@ class UserController extends BaseController
 
         if ($request->getParam('json') == 1) {
             $res['userip']      = $userip;
-            $res['userloginip'] = $userloginip;
+            $res['userloginip'] = $totallogin;
             $res['paybacks']    = $paybacks;
             $res['ret']         = 1;
             return $response->withJson($res);
@@ -441,8 +432,9 @@ class UserController extends BaseController
             $this->view()
                 ->assign('boughts'    , $boughts)
                 ->assign('userip'     , $userip)
-                ->assign('userloginip', $userloginip)
+                ->assign('userloginip', $totallogin)
                 ->assign('paybacks'   , $paybacks)
+                ->registerClass('Tools', Tools::class)
                 ->display('user/profile.tpl')
         );
     }
@@ -697,7 +689,7 @@ class UserController extends BaseController
             return $response->withJson($res);
         }
         
-        if (Config::getconfig('Register.bool.Enable_email_verify')) {
+        if (Setting::obtain('reg_email_verify')) {
             $emailcode = $request->getParam('emailcode');
             $mailcount = EmailVerify::where('email', '=', $newemail)->where('code', '=', $emailcode)->where('expire_in', '>', time())->first();
             if ($mailcount == null) {
@@ -924,6 +916,11 @@ class UserController extends BaseController
         $bought->save();
 
         $shop->buy($user);
+
+        // 返利
+        if ($user->ref_by > 0 && Setting::obtain('invitation_mode') == 'after_purchase') {
+            Payback::rebate($user->id, $price);
+        }
 
         $res['ret'] = 1;
         $res['msg'] = '购买成功';
@@ -1348,7 +1345,7 @@ class UserController extends BaseController
             return $response->withJson($res);
         }
 
-        if ($_ENV['enable_checkin_captcha'] == true) {
+        if (Setting::obtain('enable_checkin_captcha') == true) {
             $ret = Captcha::verify($request->getParams());
             if (!$ret) {
                 return $response->withJson([

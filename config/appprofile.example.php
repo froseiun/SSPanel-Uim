@@ -20,7 +20,7 @@ $_ENV['Surge_Profiles'] = [
         'Checks' => [],
         'General' => [
             'loglevel'                    => 'notify',
-            'dns-server'                  => 'system, 117.50.10.10, 119.29.29.29, 223.6.6.6',
+            'dns-server'                  => 'system, 223.5.5.5, 1.1.1.1',
             'skip-proxy'                  => '127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com',
             'external-controller-access'  => 'China@0.0.0.0:8233',
             'allow-wifi-access'           => 'true',
@@ -138,7 +138,7 @@ $_ENV['Surge2_Profiles'] = [
             'loglevel'                   => 'notify',
             'ipv6'                       => 'true',
             'replica'                    => 'false',
-            'dns-server'                 => 'system, 119.29.29.29, 223.5.5.5',
+            'dns-server'                 => 'system, 223.5.5.5, 1.1.1.1',
             'skip-proxy'                 => '127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com',
             'bypass-system'              => 'true',
             'allow-wifi-access'          => 'true',
@@ -259,13 +259,11 @@ $_ENV['Clash_Profiles'] = [
             'fake-ip-range'       => '198.18.0.1/16',
             'nameserver'=>[
                 '223.5.5.5',
-                '223.6.6.6',
-                'tcp://223.5.5.5',
-                'tcp://223.6.6.6',
+                '1.1.1.1'
             ],
             'fallback'=>[
-                'tls://dot.pub:853',
-                'https://doh.pub/dns-query'
+                '1.0.0.1',
+                '8.8.8.8'
             ],
             'fallback-filter'=>[
                 'geoip'=> true,
@@ -452,7 +450,7 @@ $_ENV['Surfboard_Profiles'] = [
         'Checks' => [],
         'General' => [
             'loglevel'   => 'notify',
-            'dns-server' => 'system, 119.29.29.29, 223.5.5.5',
+            'dns-server' => 'system, 223.5.5.5, 1.1.1.1',
             'skip-proxy' => '127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com',
         ],
         'Proxy' => [
