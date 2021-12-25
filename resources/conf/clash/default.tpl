@@ -441,9 +441,6 @@
   - DOMAIN-SUFFIX,softfamous.com,境外流量
   - DOMAIN-SUFFIX,spiegel.de,境外流量
   - DOMAIN-SUFFIX,startpage.com,境外流量
-  - DOMAIN-SUFFIX,steamcommunity.com,境外流量
-  - DOMAIN,api.steampowered.com,境外流量
-  - DOMAIN,store.steampowered.com,境外流量
   - DOMAIN-SUFFIX,steemit.com,境外流量
   - DOMAIN-SUFFIX,steemitwallet.com,境外流量
   - DOMAIN-SUFFIX,straitstimes.com,境外流量
@@ -1030,6 +1027,36 @@
   - DOMAIN-SUFFIX,apple.news,Apple_API
   - DOMAIN-SUFFIX,itunes-apple.com.akadns.net,Apple_API
 
+  # > Steam CDN
+  - DOMAIN-SUFFIX,steamusercontent.com,Steam_CDN
+  - DOMAIN-SUFFIX,steamcontent.com,Steam_CDN
+  - DOMAIN-SUFFIX,steamstatic.com,Steam_CDN
+  - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,Steam_CDN
+  - DOMAIN-SUFFIX,steamstore-a.akamaihd.net,Steam_CDN
+  - DOMAIN-SUFFIX,steamcommunity-a.akamaihd.net,Steam_CDN
+  - DOMAIN-SUFFIX,steampipe.akamaized.net,Steam_CDN
+  - DOMAIN-SUFFIX,hsar.steampowered.com.edgesuite.net,Steam_CDN
+  - DOMAIN-SUFFIX,cs.steampowered.com,Steam_CDN
+  - DOMAIN-SUFFIX,cm.steampowered.com,Steam_CDN
+  - DOMAIN-SUFFIX,client-download.steampowered.com,Steam_CDN
+  - DOMAIN-SUFFIX,content-origin.steampowered.com,Steam_CDN
+  - DOMAIN-SUFFIX,content.steampowered.com,Steam_CDN
+  - DOMAIN-SUFFIX,media.steampowered.com,Steam_CDN
+  - DOMAIN-SUFFIX,storefront.steampowered.com,Steam_CDN
+  - DOMAIN,content1.steampowered.com,Steam_CDN
+  - DOMAIN,content2.steampowered.com,Steam_CDN
+  - DOMAIN,content3.steampowered.com,Steam_CDN
+  - DOMAIN,content4.steampowered.com,Steam_CDN
+  - DOMAIN,content5.steampowered.com,Steam_CDN
+  - DOMAIN,content6.steampowered.com,Steam_CDN
+  - DOMAIN,content7.steampowered.com,Steam_CDN
+  - DOMAIN,content8.steampowered.com,Steam_CDN
+
+  # > Steam API
+  - DOMAIN-SUFFIX,steamcommunity.com,Steam_API
+  - DOMAIN-SUFFIX,steampowered.com,Steam_API
+  - DOMAIN-SUFFIX,steamgames.com,Steam_API
+
   # > Microsoft
   - DOMAIN-SUFFIX,microsoft.com,Microsoft
   - DOMAIN-SUFFIX,msecnd.net,Microsoft
@@ -1158,15 +1185,6 @@
   - DOMAIN-SUFFIX,sogo.com,DIRECT
   - DOMAIN-SUFFIX,sogou.com,DIRECT
   - DOMAIN-SUFFIX,sogoucdn.com,DIRECT
-  # > Steam
-  - DOMAIN-SUFFIX,steampowered.com,DIRECT
-  - DOMAIN-SUFFIX,steam-chat.com,DIRECT
-  - DOMAIN-SUFFIX,steamgames.com,DIRECT
-  - DOMAIN-SUFFIX,steamusercontent.com,DIRECT
-  - DOMAIN-SUFFIX,steamcontent.com,DIRECT
-  - DOMAIN-SUFFIX,steamstatic.com,DIRECT
-  - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,DIRECT
-  - DOMAIN-SUFFIX,steamstat.us,DIRECT
   # > Tencent
   # USER-AGENT,MicroMessenger*,,DIRECT
   # USER-AGENT,WeChat*,DIRECT

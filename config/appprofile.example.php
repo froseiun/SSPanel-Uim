@@ -292,9 +292,6 @@ $_ENV['Clash_Profiles'] = [
                         '境外流量'
                     ],
                     'regex' => '(.*)',
-                    'right-proxies' => [
-                        '直接连接'
-                    ]
                 ]
             ],
             [
@@ -364,11 +361,33 @@ $_ENV['Clash_Profiles'] = [
                     'left-proxies' => [
                         '直接连接',
                         '境外流量'
-                    ]
+                    ],
+                    'regex' => '(.*)',
                 ]
             ],
             [
                 'name' => 'Apple_CDN',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Steam_API',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Steam_CDN',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -386,8 +405,8 @@ $_ENV['Clash_Profiles'] = [
                         '境外流量'
                     ]
                 ]
-	    ],
-	    [
+            ],
+            [
                 'name' => '星野集团',
                 'type' => 'select',
                 'content' => [
@@ -403,6 +422,7 @@ $_ENV['Clash_Profiles'] = [
                 'content' => [
                     'left-proxies' => [
                         '直接连接',
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
@@ -413,15 +433,6 @@ $_ENV['Clash_Profiles'] = [
                 'content' => [
                     'left-proxies' => [
                         '境外流量',
-                        '直接连接'
-                    ]
-                ]
-            ],
-            [
-                'name' => '局域网',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
                         '直接连接'
                     ]
                 ]
@@ -533,4 +544,3 @@ $_ENV['Surfboard_Profiles'] = [
         ]
     ]
 ];
-
