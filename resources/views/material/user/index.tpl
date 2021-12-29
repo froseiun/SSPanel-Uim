@@ -3,13 +3,25 @@
 {$pre_user = URL::cloneUser($user)}
 
 <style>
-.table {
-    box-shadow: none;
-}
-table tr td:first-child {
-    text-align: right;
-    font-weight: bold;
-}
+    .table {
+        box-shadow: none;
+    }
+
+    table tr td:first-child {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    #connection-info {
+        overflow: auto;
+        width: 100%;
+    }
+
+    #connection-info-table {
+        width: 100%;
+        table-layout: fixed;
+        word-break: break-all;
+    }
 </style>
 
 <main class="content">
@@ -268,78 +280,50 @@ table tr td:first-child {
                                 <div class="card-inner">
                                     <div class="tab-content">
                                         <div class="tab-pane fade" id="info_center">
-                                            <p>您的链接信息：</p>
-                                            {if URL::SSRCanConnect($user)}
-                                                {$user = URL::getSSRConnectInfo($pre_user)}
-                                                <table class="table">
+                                            <p>您的连接信息：</p>
+                                            <div id="connection-info">
+                                                <table id="connection-info-table" class="table">
                                                     <tbody>
-                                                        <tr>
-                                                            <td><strong>端口</strong></td>
-                                                            <td>{$user->port}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>密码</strong></td>
-                                                            <td>{$user->passwd}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义加密</strong></td>
-                                                            <td>{$user->method}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义协议</strong></td>
-                                                            <td>{$user->protocol}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义混淆</strong></td>
-                                                            <td>{$user->obfs}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义混淆参数</strong></td>
-                                                            <td>{$user->obfs_param}</td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td><strong>端口</strong></td>
+                                                        <td>{$user->port}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>SS/SSR连接密码</strong></td>
+                                                        <td>{$user->passwd}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>UUID</strong></td>
+                                                        <td>{$user->uuid}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>自定义加密</strong></td>
+                                                        <td>{$user->method}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>自定义协议</strong></td>
+                                                        <td>{$user->protocol}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>自定义混淆</strong></td>
+                                                        <td>{$user->obfs}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>自定义混淆参数</strong></td>
+                                                        <td>{$user->obfs_param}</td>
+                                                    </tr>
                                                     </tbody>
                                                 </table>
-                                                <hr/>
-                                                <p>您好，您目前的 加密方式，混淆或协议 适用于 SSR 客户端，请您选用支持 SSR 的客户端来连接，或者到 <a href="/user/edit">资料编辑</a> 页面修改后再来查看此处。</p>
-                                                <p>同时, ShadowsocksR 单端口多用户的连接不受您设置的影响，您可以在此使用相应的客户端进行连接</p>
-                                            {elseif URL::SSCanConnect($user)}
-                                                {$user = URL::getSSConnectInfo($pre_user)}
-                                                <table class="table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><strong>端口</strong></td>
-                                                            <td>{$user->port}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>密码</strong></td>
-                                                            <td>{$user->passwd}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义加密</strong></td>
-                                                            <td>{$user->method}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义混淆</strong></td>
-                                                            <td>{$user->obfs}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><strong>自定义混淆参数</strong></td>
-                                                            <td>{$user->obfs_param}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                <hr/>
-                                                <p>您好，您目前的 加密方式，混淆或协议 适用于 SS 客户端，请您选用支持 SS 协议的客户端来连接，或者到 <a href="/user/edit">资料编辑</a> 页面修改后再来查看此处。</p>
-                                                <p>同时, Shadowsocks 单端口多用户的连接不受您设置的影响，您可以在此使用相应的客户端进行连接</p>
-                                            {else}
-                                                <p>您的账户连接信息存在异常，请联系管理员</p>
-                                            {/if}
+                                            </div>
                                         </div>
                                         <div class="tab-pane fade active in" id="sub_center">
                                             <nav class="tab-nav margin-top-no">
                                                 <ul class="nav nav-list">
                                                     <li class="active">
-                                                        <a class="" data-toggle="tab" href="#sub_center_general"><i class="icon icon-lg">star</i>&nbsp;General</a>
+                                                        <a class="" data-toggle="tab" href="#sub_center_universal_subscription"><i class="icon icon-lg">star</i>&nbsp;通用订阅</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="" data-toggle="tab" href="#sub_center_general"><i class="icon icon-lg">error</i>&nbsp;协议/客户端专用订阅（旧）</a>
                                                     </li>
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_windows"><i class="icon icon-lg">desktop_windows</i>&nbsp;Windows</a>
@@ -392,10 +376,32 @@ table tr td:first-child {
                                                     </p>
                                                 {/foreach}
                                             {/function}
-                                            <div class="tab-pane fade active in" id="sub_center_general">
-                                                <p><!--此处为通用订阅，适用于多种应用的订阅，请注意站点所支持的协议，本处显示的订阅类型不代表站点支持的协议类型.-->本站點僅支援Trojan協議.</p>
+                                            <div class="tab-pane fade active in" id="sub_center_universal_subscription">
+                                                <p>此处为通用订阅，适用于多种应用的订阅，请注意站点所支持的协议，本处显示的订阅类型不代表站点支持的协议类型.</p>
                                                 <hr/>
-                                                <!--
+                                                <p><span class="icon icon-lg text-white">settings_suggest</span> [ 所有节点 ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/all"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
+                                                </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">settings_suggest</span> [ Shadowsocks 节点 ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/ss"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
+                                                </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">settings_suggest</span> [ Shadowsocksr 节点 ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/ssr"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
+                                                </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">settings_suggest</span> [ Vmess/Vless 节点 ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/v2ray"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
+                                                </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">settings_suggest</span> [ Trojan 节点 ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/trojan"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
+                                                </p>
+                                            </div>
+                                            <div class="tab-pane fade" id="sub_center_general">
+                                                <p>此处的订阅将会在未来版本中被废弃，请尽快切换至可以使用通用订阅的客戶端</p>
+                                                <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_1</span> [ Shadowsocks ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ss']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>.<a id="general_ss" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ss","#general_ss","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
@@ -674,6 +680,19 @@ table tr td:first-child {
                                                         .
                                                         <a class="btn-dl" onclick=AddSub("{$subInfo['shadowrocket']}","shadowrocket://add/sub://")><i class="material-icons icon-sm">send</i> 一键导入 Shadowrocket</a>
                                                     </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">filter_6</span> Stash - [ SS/SSR/VMess/Trojan ]：</p>
+                                                <p>Stash 是一款 iOS 平台基于规则的多协议代理客户端，完全兼容 clash 配置，支持 Rule Set 规则、按需连接、SSID Policy Group等特性.</p>
+                                                <p>
+                                                    应用下载：
+                                                    <a class="btn-dl" href="https://apps.apple.com/app/stash/id1596063349"><i class="material-icons icon-sm">cloud_download</i> 官方下载</a>
+                                                </p>
+                                                <p>
+                                                    使用方式：
+                                                    <a class="btn-dl" href="stash://install-config?url={urlencode($subInfo['clash'])}"><i class="material-icons icon-sm">send</i> 一键导入 Stash</a>
+                                                    .
+                                                    <a class="btn-dl" href="{$subInfo['clash']}"><i class="material-icons icon-sm">send</i> 配置文件下载</a>
+                                                </p>
                                             {if array_key_exists('iOS',$config['userCenterClient'])}
                                                 {if count($config['userCenterClient']['iOS']) != 0}
                                                     {printClient items=$config['userCenterClient']['iOS']}
