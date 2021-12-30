@@ -235,9 +235,9 @@ class AppURI
                 $return .= (', tag=' . $item['remark']);
                 break;
             case 'trojan':
-                // ;trojan=example.com:443, password=pwd, over-tls=true, tls-verification=true, fast-open=false, udp-relay=false, tag=trojan-tls-01
+                // ;trojan=example.com:443, password=pwd, over-tls=true, tls13=true, tls-verification=true, fast-open=false, udp-relay=false, tag=trojan-tls-01
                 $return  = ('trojan=' . $item['address'] . ':' . $item['port'] . ', password=' . $item['passwd'] . ', tls-host=' . $item['host']);
-                $return .= ', over-tls=true';
+                $return .= ', over-tls=true, tls13=true';
                 if ($item['allow_insecure'] == true) {
                     $return .= ', tls-verification=false';
                 } else {
