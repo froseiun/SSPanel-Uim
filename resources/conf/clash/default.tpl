@@ -53,16 +53,36 @@
   # > Akamai
   - DOMAIN,a248.e.akamai.net,境外流量
   - DOMAIN,a771.dscq.akamai.net,境外流量
-  # > Cryptocurrency
+  # > Crypto
   - DOMAIN-SUFFIX,aex.com,境外流量
   - DOMAIN-SUFFIX,bibox.com,境外流量
+  - DOMAIN-SUFFIX,binance.cc,境外流量
   - DOMAIN-SUFFIX,binance.com,境外流量
+  - DOMAIN-SUFFIX,binance.me,境外流量
+  - DOMAIN-SUFFIX,binance.us,境外流量
   - DOMAIN-SUFFIX,bitcointalk.org,境外流量
   - DOMAIN-SUFFIX,bitfinex.com,境外流量
+  - DOMAIN-SUFFIX,bithumb.com,境外流量
   - DOMAIN-SUFFIX,bitmex.com,境外流量
+  - DOMAIN-SUFFIX,bitstamp.net,境外流量
+  - DOMAIN-SUFFIX,bittrex.com,境外流量
+  - DOMAIN-SUFFIX,bybit.com,境外流量
+  - DOMAIN-SUFFIX,coinbase.com,境外流量
+  - DOMAIN-SUFFIX,coincheck.com,境外流量
+  - DOMAIN-SUFFIX,coingecko.com,境外流量
+  - DOMAIN-SUFFIX,coinmarketcap.com,境外流量
+  - DOMAIN-SUFFIX,coinone.co.kr,境外流量
+  - DOMAIN-SUFFIX,ftx.com,境外流量
   - DOMAIN-SUFFIX,gate.io,境外流量
+  - DOMAIN-SUFFIX,gemini.com,境外流量
   - DOMAIN-SUFFIX,huobi.com,境外流量
+  - DOMAIN-SUFFIX,korbit.co.kr,境外流量
+  - DOMAIN-SUFFIX,kraken.com,境外流量
+  - DOMAIN-SUFFIX,kucoin.com,境外流量
+  - DOMAIN-SUFFIX,liquid.com,境外流量
   - DOMAIN-SUFFIX,okex.com,境外流量
+  - DOMAIN-SUFFIX,poloniex.com,境外流量
+  - DOMAIN-SUFFIX,uniswap.org,境外流量
   - DOMAIN-SUFFIX,zb.com,境外流量
   # > Discord
   - DOMAIN-SUFFIX,discord.com,境外流量
@@ -92,7 +112,7 @@
   - DOMAIN-SUFFIX,whatsapp.net,境外流量
   # > Github
   - DOMAIN-SUFFIX,github.com,境外流量
-  - DOMAIN-SUFFIX,githubio,境外流量
+  - DOMAIN-SUFFIX,github.io,境外流量
   - DOMAIN-SUFFIX,githubusercontent.com,境外流量
   # > Google
   - DOMAIN,services.googleapis.cn,境外流量
@@ -204,7 +224,7 @@
   - DOMAIN-SUFFIX,archiveofourown.org,境外流量
   - DOMAIN-SUFFIX,arte.tv,境外流量
   - DOMAIN-SUFFIX,artstation.com,境外流量
-  - DOMAIN-SUFFIX,arukasio,境外流量
+  - DOMAIN-SUFFIX,arukas.io,境外流量
   - DOMAIN-SUFFIX,ask.com,境外流量
   - DOMAIN-SUFFIX,avg.com,境外流量
   - DOMAIN-SUFFIX,avgle.com,境外流量
@@ -277,7 +297,7 @@
   - DOMAIN-SUFFIX,enanyang.my,境外流量
   - DOMAIN-SUFFIX,encyclopedia.com,境外流量
   - DOMAIN-SUFFIX,esoir.be,境外流量
-  - DOMAIN-SUFFIX,etherscanio,境外流量
+  - DOMAIN-SUFFIX,etherscan.io,境外流量
   - DOMAIN-SUFFIX,euronews.com,境外流量
   - DOMAIN-SUFFIX,evozi.com,境外流量
   - DOMAIN-SUFFIX,exblog.jp,境外流量
@@ -326,7 +346,7 @@
   - DOMAIN-SUFFIX,initiummall.com,境外流量
   - DOMAIN-SUFFIX,inoreader.com,境外流量
   - DOMAIN-SUFFIX,insecam.org,境外流量
-  - DOMAIN-SUFFIX,ipfsio,境外流量
+  - DOMAIN-SUFFIX,ipfs.io,境外流量
   - DOMAIN-SUFFIX,issuu.com,境外流量
   - DOMAIN-SUFFIX,istockphoto.com,境外流量
   - DOMAIN-SUFFIX,japantimes.co.jp,境外流量
@@ -381,7 +401,7 @@
   - DOMAIN-SUFFIX,nii.ac.jp,境外流量
   - DOMAIN-SUFFIX,nikkei.com,境外流量
   - DOMAIN-SUFFIX,nitter.net,境外流量
-  - DOMAIN-SUFFIX,nofileio,境外流量
+  - DOMAIN-SUFFIX,nofile.io,境外流量
   - DOMAIN-SUFFIX,notion.so,境外流量
   - DOMAIN-SUFFIX,now.com,境外流量
   - DOMAIN-SUFFIX,nrk.no,境外流量
@@ -446,6 +466,7 @@
   - DOMAIN-SUFFIX,straitstimes.com,境外流量
   - DOMAIN-SUFFIX,streamable.com,境外流量
   - DOMAIN-SUFFIX,streema.com,境外流量
+  - DOMAIN-SUFFIX,substack.com,境外流量
   - DOMAIN-SUFFIX,t66y.com,境外流量
   - DOMAIN-SUFFIX,tapatalk.com,境外流量
   - DOMAIN-SUFFIX,technews.tw,境外流量
@@ -501,6 +522,7 @@
   - DOMAIN-SUFFIX,xn--i2ru8q2qg.com,境外流量
   - DOMAIN-SUFFIX,xnxx.com,境外流量
   - DOMAIN-SUFFIX,xvideos.com,境外流量
+  - DOMAIN-SUFFIX,yadi.sk,境外流量
   - DOMAIN-SUFFIX,yahoo.com,境外流量
   - DOMAIN-SUFFIX,yandex.ru,境外流量
   - DOMAIN-SUFFIX,ycombinator.com,境外流量
@@ -510,7 +532,8 @@
   - DOMAIN-SUFFIX,you-get.org,境外流量
   - DOMAIN-SUFFIX,zaobao.com,境外流量
   - DOMAIN-SUFFIX,zello.com,境外流量
-  - DOMAIN-SUFFIX,zeronetio,境外流量
+  - DOMAIN-SUFFIX,zeronet.io,境外流量
+  - DOMAIN-SUFFIX,z-lib.org,境外流量
   - DOMAIN-SUFFIX,zoom.us,境外流量
 
   - DOMAIN,cc.tvbs.com.tw,境外流量
@@ -541,7 +564,7 @@
   - DOMAIN-SUFFIX,deepmind.com,境外流量
   - DOMAIN-SUFFIX,dialogflow.com,境外流量
   - DOMAIN-SUFFIX,firebaseio.com,境外流量
-  - DOMAIN-SUFFIX,getmdlio,境外流量
+  - DOMAIN-SUFFIX,getmdl.io,境外流量
   - DOMAIN-SUFFIX,ggpht.com,境外流量
   - DOMAIN-SUFFIX,gmail.com,境外流量
   - DOMAIN-SUFFIX,gmodules.com,境外流量
@@ -551,11 +574,11 @@
   - DOMAIN-SUFFIX,gwtproject.org,境外流量
   - DOMAIN-SUFFIX,itasoftware.com,境外流量
   - DOMAIN-SUFFIX,madewithcode.com,境外流量
-  - DOMAIN-SUFFIX,materialio,境外流量
+  - DOMAIN-SUFFIX,material.io,境外流量
   - DOMAIN-SUFFIX,page.link,境外流量
   - DOMAIN-SUFFIX,polymer-project.org,境外流量
   - DOMAIN-SUFFIX,recaptcha.net,境外流量
-  - DOMAIN-SUFFIX,shatteredio,境外流量
+  - DOMAIN-SUFFIX,shattered.io,境外流量
   - DOMAIN-SUFFIX,synergyse.com,境外流量
   - DOMAIN-SUFFIX,telephony.goog,境外流量
   - DOMAIN-SUFFIX,tensorflow.org,境外流量
@@ -586,6 +609,15 @@
   - DOMAIN-SUFFIX,twitter.jp,境外流量
 
   # (Region-Restricted Access Denied)
+  # ---(Apple)---
+  # > News
+  - DOMAIN-SUFFIX,apple.news,境外流量
+  - DOMAIN,news-assets.apple.com,境外流量
+  - DOMAIN,news-client.apple.com,境外流量
+  - DOMAIN,news-client-search.apple.com,境外流量
+  - DOMAIN,news-edge.apple.com,境外流量
+  - DOMAIN,news-events.apple.com,境外流量
+  - DOMAIN,apple.comscoreresearch.com,境外流量
   # Google
   - DOMAIN-SUFFIX,go.dev,境外流量
   - DOMAIN-SUFFIX,golang.org,境外流量
@@ -593,12 +625,13 @@
   - DOMAIN-SUFFIX,aicoin.com,境外流量
   - DOMAIN-SUFFIX,aimoon.com,境外流量
   - DOMAIN-SUFFIX,bing.com,境外流量
-  - DOMAIN-SUFFIX,cccatio,境外流量
+  - DOMAIN-SUFFIX,cccat.io,境外流量
   - DOMAIN-SUFFIX,dubox.com,境外流量
   - DOMAIN-SUFFIX,duboxcdn.com,境外流量
   - DOMAIN-SUFFIX,ifixit.com,境外流量
   - DOMAIN-SUFFIX,mangakakalot.com,境外流量
   - DOMAIN-SUFFIX,shopeemobile.com,境外流量
+  - DOMAIN-SUFFIX,sushi.com,境外流量
 
   # (Network Jitter)
   # > DigiCert
@@ -625,6 +658,9 @@
   - DOMAIN-SUFFIX,twitchcdn.net,境外其他流媒体
 
   # (Music)
+  # > Apple Music Radio
+  - DOMAIN,radio.itunes.apple.com,境外其他流媒体
+  - DOMAIN,tv.applemusic.com,境外其他流媒体
   # > Deezer
   - PROCESS-NAME,deezer.android.app,境外其他流媒体
   - DOMAIN-SUFFIX,deezer.com,境外其他流媒体
@@ -663,6 +699,9 @@
   - PROCESS-NAME,com.google.android.youtube.tvmusic,YouTube
 
   # (Podcast)
+  # > Podcasts
+  - DOMAIN,amp-api.podcasts.apple.com,境外其他流媒体
+  - DOMAIN,bookkeeper.itunes.apple.com,境外其他流媒体
   # > Himalaya
   - PROCESS-NAME,com.ximalaya.ting.himalaya,境外其他流媒体
   - DOMAIN-SUFFIX,himalaya.com,境外其他流媒体
@@ -904,10 +943,6 @@
   - DOMAIN-SUFFIX,phprcdn.com,境外其他流媒体
   - DOMAIN-SUFFIX,pornhub.com,境外其他流媒体
   - DOMAIN-SUFFIX,pornhubpremium.com,境外其他流媒体
-  # > 台湾好
-  - PROCESS-NAME,com.twgood.android,境外其他流媒体
-  - DOMAIN-SUFFIX,skyking.com.tw,境外其他流媒体
-  - DOMAIN,hamifans.emome.net,境外其他流媒体
   # > TikTok
   - PROCESS-NAME,com.ss.android.ugc.trill,境外其他流媒体
   - DOMAIN-SUFFIX,byteoversea.com,境外其他流媒体
@@ -957,6 +992,7 @@
   # > bilibili
   - DOMAIN-SUFFIX,biliapi.com,bilibili
   - DOMAIN-SUFFIX,biliapi.net,bilibili
+  - DOMAIN,grpc.biliapi.net,bilibili
   - DOMAIN-SUFFIX,bilibili.com,bilibili
   - DOMAIN-SUFFIX,bilibili.tv,bilibili
   - DOMAIN-SUFFIX,bilivideo.com,bilibili
@@ -1024,7 +1060,6 @@
   - DOMAIN-SUFFIX,icloud-content.com,Apple_API
   - DOMAIN-SUFFIX,itunes.com,Apple_API
   - DOMAIN-SUFFIX,me.com,Apple_API
-  - DOMAIN-SUFFIX,apple.news,Apple_API
   - DOMAIN-SUFFIX,itunes-apple.com.akadns.net,Apple_API
 
   # > Steam CDN
@@ -1203,15 +1238,6 @@
   - DOMAIN-SUFFIX,tenpay.com,DIRECT
   - DOMAIN-SUFFIX,wechat.com,DIRECT
   - DOMAIN,file-igamecj.akamaized.net,DIRECT
-  - IP-CIDR,101.32.104.4/32,DIRECT,no-resolve
-  - IP-CIDR,101.32.104.41/32,DIRECT,no-resolve
-  - IP-CIDR,101.32.104.56/32,DIRECT,no-resolve
-  - IP-CIDR,101.32.118.25/32,DIRECT,no-resolve
-  - IP-CIDR,101.32.133.16/32,DIRECT,no-resolve
-  - IP-CIDR,101.32.133.53/32,DIRECT,no-resolve
-  - IP-CIDR,101.32.133.209/32,DIRECT,no-resolve
-  - IP-CIDR,129.226.3.47/32,DIRECT,no-resolve
-  - IP-CIDR,129.226.107.244/32,DIRECT,no-resolve
   - IP-CIDR,182.254.116.0/24,DIRECT,no-resolve
   - IP-CIDR,203.205.254.0/23,DIRECT,no-resolve
   # > Content Delivery Network
@@ -1342,8 +1368,6 @@
   - DOMAIN-SUFFIX,keepcdn.com,DIRECT
   - DOMAIN-SUFFIX,kkmh.com,DIRECT
   - DOMAIN-SUFFIX,lanzous.com,DIRECT
-  - DOMAIN-SUFFIX,licdn.com,DIRECT
-  - DOMAIN-SUFFIX,linkedin.com,DIRECT
   - DOMAIN-SUFFIX,luojilab.com,DIRECT
   - DOMAIN-SUFFIX,maoyan.com,DIRECT
   - DOMAIN-SUFFIX,maoyun.tv,DIRECT
