@@ -391,6 +391,9 @@ class AppURI
                     $return['network'] = 'grpc';
                     $return['grpc-opts']['grpc-service-name'] = ($item['servicename'] != '' ? $item['servicename'] : "");
                 }
+                if ($item['skip-cert-verify'] == 'true') {
+                    $return['skip-cert-verify'] = true;
+                }
                 break;
         }
         return $return;
