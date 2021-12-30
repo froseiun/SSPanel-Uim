@@ -458,7 +458,7 @@ class Node extends Model
         }else {
           $item['tls'] =  'tls';
         }
-        $item['skip-cert-verify'] = (isset($opt['skip-cert-verify']) ? $opt['skip-cert-verify'] : '');
+        $item['allow_insecure'] = (isset($opt['allow_insecure']) ? $opt['allow_insecure'] : '');
         if (isset($opt['host'])) {
           $item['host'] = $opt['host'];
         }

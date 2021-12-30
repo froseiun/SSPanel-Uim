@@ -237,7 +237,12 @@ class AppURI
             case 'trojan':
                 // ;trojan=example.com:443, password=pwd, over-tls=true, tls-verification=true, fast-open=false, udp-relay=false, tag=trojan-tls-01
                 $return  = ('trojan=' . $item['address'] . ':' . $item['port'] . ', password=' . $item['passwd'] . ', tls-host=' . $item['host']);
-                $return .= ', over-tls=true, tls-verification=true';
+                $return .= ', over-tls=true';
+                if ($item['allow_insecure'] == true) {
+                    $return .= ', tls-verification=false';
+                } else {
+                    $return .= ', tls-verification=true';
+                }
                 $return .= (', tag=' . $item['remark']);
                 break;
         }
@@ -391,7 +396,7 @@ class AppURI
                     $return['network'] = 'grpc';
                     $return['grpc-opts']['grpc-service-name'] = ($item['servicename'] != '' ? $item['servicename'] : "");
                 }
-                if ($item['skip-cert-verify'] == 'true') {
+                if ($item['allow_insecure'] == 'true') {
                     $return['skip-cert-verify'] = true;
                 }
                 break;
@@ -465,8 +470,11 @@ class AppURI
                 $return = ('vmess://' . Tools::base64_url_encode('auto:' . $item['id'] . '@' . $item['add'] . ':' . $item['port']) . '?remarks=' . rawurlencode($item['remark']) . $obfs . $tls . '&alterId=' . $item['aid']);
                 break;
             case 'trojan':
-                $return  = ('trojan://' . $item['passwd'] . '@' . $item['address'] . ':' . $item['port']);
-                $return .= ('?peer=' . $item['host'] . '#' . rawurlencode($item['remark']));
+                $return  = ('trojan://' . $item['passwd'] . '@' . $item['address'] . ':' . $item['port'] . '?');
+                if ($item['allow_insecure'] == true) {
+                    $return .= 'allowInsecure=1&';
+                }
+                $return .= ('peer=' . $item['host'] . '#' . rawurlencode($item['remark']));
                 break;
         }
         return $return;
