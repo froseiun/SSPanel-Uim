@@ -54,6 +54,7 @@
   - DOMAIN,a248.e.akamai.net,境外流量
   - DOMAIN,a771.dscq.akamai.net,境外流量
   # > Crypto
+  - DOMAIN-SUFFIX,debank.com,境外流量
   - DOMAIN-SUFFIX,aex.com,境外流量
   - DOMAIN-SUFFIX,bibox.com,境外流量
   - DOMAIN-SUFFIX,binance.cc,境外流量
@@ -81,6 +82,7 @@
   - DOMAIN-SUFFIX,kucoin.com,境外流量
   - DOMAIN-SUFFIX,liquid.com,境外流量
   - DOMAIN-SUFFIX,okex.com,境外流量
+  - DOMAIN-SUFFIX,pancakeswap.finance,境外流量
   - DOMAIN-SUFFIX,poloniex.com,境外流量
   - DOMAIN-SUFFIX,uniswap.org,境外流量
   - DOMAIN-SUFFIX,zb.com,境外流量
@@ -975,7 +977,14 @@
   - PROCESS-NAME,com.google.android.youtube,YouTube
   - PROCESS-NAME,com.google.android.youtube.tv,YouTube
   - DOMAIN-SUFFIX,googlevideo.com,YouTube
+  - DOMAIN-SUFFIX,withyoutube.com,YouTube
+  - DOMAIN-SUFFIX,youtu.be,YouTube
   - DOMAIN-SUFFIX,youtube.com,YouTube
+  - DOMAIN-SUFFIX,youtubeeducation.com,YouTube
+  - DOMAIN-SUFFIX,youtubegaming.com,YouTube
+  - DOMAIN-SUFFIX,youtubekids.com,YouTube
+  - DOMAIN-SUFFIX,youtube-nocookie.com,YouTube
+  - DOMAIN-SUFFIX,yt.be,YouTube
   - DOMAIN-SUFFIX,ytimg.com,YouTube
   - DOMAIN,youtubei.googleapis.com,YouTube
   - DOMAIN,yt3.ggpht.com,YouTube
@@ -992,7 +1001,6 @@
   # > bilibili
   - DOMAIN-SUFFIX,biliapi.com,bilibili
   - DOMAIN-SUFFIX,biliapi.net,bilibili
-  - DOMAIN,grpc.biliapi.net,bilibili
   - DOMAIN-SUFFIX,bilibili.com,bilibili
   - DOMAIN-SUFFIX,bilibili.tv,bilibili
   - DOMAIN-SUFFIX,bilivideo.com,bilibili
@@ -1157,9 +1165,6 @@
   - DOMAIN-SUFFIX,didialift.com,DIRECT
   - DOMAIN-SUFFIX,didiglobal.com,DIRECT
   - DOMAIN-SUFFIX,udache.com,DIRECT
-  # > HunanTV
-  - DOMAIN-SUFFIX,hitv.com,DIRECT
-  - DOMAIN-SUFFIX,mgtv.com,DIRECT
   # > iQiyi
   - DOMAIN-SUFFIX,iqiyi.com,DIRECT
   - DOMAIN-SUFFIX,iqiyipic.com,DIRECT
@@ -1231,14 +1236,12 @@
   - DOMAIN-SUFFIX,myqcloud.com,DIRECT
   - DOMAIN-SUFFIX,qq.com,DIRECT
   - DOMAIN-SUFFIX,qqmail.com,DIRECT
-  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
   - DOMAIN-SUFFIX,tencent.com,DIRECT
   - DOMAIN-SUFFIX,tencent-cloud.com,DIRECT
   - DOMAIN-SUFFIX,tencent-cloud.net,DIRECT
   - DOMAIN-SUFFIX,tenpay.com,DIRECT
-  - DOMAIN-SUFFIX,wechat.com,DIRECT
-  - DOMAIN,file-igamecj.akamaized.net,DIRECT
   - IP-CIDR,182.254.116.0/24,DIRECT,no-resolve
+  - IP-CIDR,203.205.238.0/23,DIRECT,no-resolve
   - IP-CIDR,203.205.254.0/23,DIRECT,no-resolve
   # > Content Delivery Network
   - DOMAIN-SUFFIX,ccgslb.com,DIRECT
@@ -1310,7 +1313,6 @@
   - DOMAIN-SUFFIX,air-matters.com,DIRECT
   - DOMAIN-SUFFIX,air-matters.io,DIRECT
   - DOMAIN-SUFFIX,aixifan.com,DIRECT
-  - DOMAIN-SUFFIX,amd.com,DIRECT
   - DOMAIN-SUFFIX,b612.net,DIRECT
   - DOMAIN-SUFFIX,bdatu.com,DIRECT
   - DOMAIN-SUFFIX,beitaichufang.com,DIRECT
@@ -1378,8 +1380,6 @@
   - DOMAIN-SUFFIX,myzaker.com,DIRECT
   - DOMAIN-SUFFIX,nim-lang-cn.org,DIRECT
   - DOMAIN-SUFFIX,ntp.org,DIRECT
-  - DOMAIN-SUFFIX,nvidia.com,DIRECT
-  - DOMAIN-SUFFIX,oracle.com,DIRECT
   - DOMAIN-SUFFIX,plex.tv,DIRECT
   - DOMAIN-SUFFIX,qidian.com,DIRECT
   - DOMAIN-SUFFIX,qweather.com,DIRECT
@@ -1420,7 +1420,6 @@
   - DOMAIN-SUFFIX,zhuihd.com,DIRECT
 
   - DOMAIN,download.jetbrains.com,DIRECT
-  - DOMAIN,images-cn.ssl-images-amazon.com,DIRECT
 
   # > 学术
   - DOMAIN,ees.elsevier.com,境外流量
