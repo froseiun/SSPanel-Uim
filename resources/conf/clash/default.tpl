@@ -1,8 +1,4 @@
   # > General
-  # USER-AGENT,archero*,DIRECT
-  # USER-AGENT,coffeecorp*,DIRECT
-  # USER-AGENT,Coffee%20Corp*,DIRECT
-  # USER-AGENT,restaurant-mobile*,DIRECT
   - DOMAIN-SUFFIX,smtp,DIRECT
   - DOMAIN-KEYWORD,aria2,DIRECT
   - DOMAIN,app.adjust.com,DIRECT
@@ -31,8 +27,6 @@
   - DOMAIN,alt6-mtalk.google.com,DIRECT
   - DOMAIN,alt7-mtalk.google.com,DIRECT
   - DOMAIN,alt8-mtalk.google.com,DIRECT
-  # >> Paramount+
-  - DOMAIN,pubads.g.doubleclick.net,DIRECT
   # > Tencent
   - DOMAIN,fairplay.l.qq.com,DIRECT
   - DOMAIN,livew.l.qq.com,DIRECT
@@ -82,6 +76,7 @@
   - DOMAIN-SUFFIX,kucoin.com,境外流量
   - DOMAIN-SUFFIX,liquid.com,境外流量
   - DOMAIN-SUFFIX,okex.com,境外流量
+  - DOMAIN-SUFFIX,okx.com,境外流量
   - DOMAIN-SUFFIX,pancakeswap.finance,境外流量
   - DOMAIN-SUFFIX,poloniex.com,境外流量
   - DOMAIN-SUFFIX,uniswap.org,境外流量
@@ -1034,6 +1029,7 @@
   - DOMAIN-SUFFIX,ls.apple.com,DIRECT
   - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
   - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  - DOMAIN-SUFFIX,apzones.com,DIRECT
 
   # > Apple CDN
   - DOMAIN,aod.itunes.apple.com,Apple_CDN
@@ -1062,6 +1058,7 @@
   - DOMAIN-SUFFIX,apple.co,Apple_API
   - DOMAIN-SUFFIX,apple.com,Apple_API
   - DOMAIN-SUFFIX,apple-cloudkit.com,Apple_API
+  - DOMAIN-SUFFIX,apple-livephotoskit.com,Apple_API
   - DOMAIN-SUFFIX,appsto.re,Apple_API
   - DOMAIN-SUFFIX,cdn-apple.com,Apple_API
   - DOMAIN-SUFFIX,icloud.com,Apple_API
