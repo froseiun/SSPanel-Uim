@@ -51,19 +51,6 @@ class ClientDownload extends Command
             ],
         ],
         [
-            'name'      => 'Netch',
-            'tagMethod' => 'github_release',
-            'gitRepo'   => 'netchx/Netch',
-            'savePath'  => 'public/clients/',
-            'downloads' => [
-                [
-                    'sourceName' => 'Netch.7z',
-                    'saveName'   => 'Netch.7z',
-                    'apkpureUrl' => ''
-                ]
-            ],
-        ],
-        [
             'name'      => 'ClashforWindows',
             'tagMethod' => 'github_release',
             'gitRepo'   => 'Fndroid/clash_for_windows_pkg',
@@ -162,29 +149,6 @@ class ClientDownload extends Command
                 [
                     'sourceName' => 'v2rayNG_%tagName%_x86_64.apk',
                     'saveName'   => 'v2rayng_x86_64.apk',
-                    'apkpureUrl' => ''
-                ],
-            ],
-        ],
-        [
-            'name'      => 'Qv2ray',
-            'tagMethod' => 'github_release',
-            'gitRepo'   => 'Qv2ray/Qv2ray',
-            'savePath'  => 'public/clients/',
-            'downloads' => [
-                [
-                    'sourceName' => 'Qv2ray-%tagName%-Windows.7z',
-                    'saveName'   => 'Qv2ray.7z',
-                    'apkpureUrl' => ''
-                ],
-                [
-                    'sourceName' => 'Qv2ray-%tagName%-macOS-x64.dmg',
-                    'saveName'   => 'Qv2ray.dmg',
-                    'apkpureUrl' => ''
-                ],
-                [
-                    'sourceName' => 'Qv2ray-%tagName%-linux-x64.AppImage',
-                    'saveName'   => 'Qv2ray.AppImage',
                     'apkpureUrl' => ''
                 ],
             ],

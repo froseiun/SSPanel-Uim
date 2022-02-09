@@ -254,76 +254,12 @@ $_ENV['ios_password']         = '';        //iOS密码
 
 #用户中心首页添加其他客户端的支持，可配合 subconverter 等 Api
 $_ENV['userCenterClient']     = [
-    'iOS'     => [
-        [
-            'name'           => 'Loon',
-            'support'        => 'SS/SSR/VMess',
-            'download_urls'  => [
-                [
-                    'name' => '本站下载',
-                    'url'  => 'https://google.com',
-                ],
-                [
-                    'name' => '官方下载',
-                    'url'  => 'https://baidu.com',
-                ]
-            ],
-            'tutorial_url'   => '/doc/#/iOS/Loon',
-            'description'    => '其他说明.',
-            'subscribe_urls' => [
-                [
-                    'name' => 'SS 订阅',
-                    'type' => 'href',
-                    'url'  => '%userUrl%?sub=2',
-                ],
-                [
-                    'name' => 'SSR 订阅',
-                    'type' => 'href',
-                    'url'  => '%userUrl%?sub=1',
-                ],
-                [
-                    'name' => 'V2Ray 订阅',
-                    'type' => 'copy',
-                    'url'  => '%userUrl%?sub=3',
-                ]
-            ]
-        ]
-    ],
+    'iOS'     => [],
     'macOS'   => [],
     'Linux'   => [],
     'Router'  => [],
     'Android' => [],
-    'Windows' => [
-        [
-            'name'           => 'Netch',
-            'support'        => 'SS/SSR/VMess',
-            'download_urls'  => [
-                [
-                    'name' => '官方下载',
-                    'url'  => 'https://github.com/NetchX/Netch/releases',
-                ]
-            ],
-            'tutorial_url'   => '/doc/#/Windows/Netch',
-            'description'    => '其他说明.',
-            'subscribe_urls' => [
-                [
-                    'name' => 'SS 订阅',
-                    'type' => 'href',
-                    'url'  => '%userUrl%?sub=2',
-                ],
-                [
-                    'name' => 'SSR 订阅',
-                    'type' => 'href',
-                    'url'  => '%userUrl%?sub=1',
-                ],
-                [
-                    'name' => 'V2Ray 订阅',
-                    'type' => 'copy',
-                    'url'  => '%userUrl%?sub=3',
-                ]
-            ]
-        ]
-    ]
+    'Windows' => []
 ];
 
 //节点检测-----------------------------------------------------------------------------------------------

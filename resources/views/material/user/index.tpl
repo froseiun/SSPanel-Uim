@@ -417,12 +417,12 @@
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['v2ray']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>.<a id="general_v2ray" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=v2ray","#general_v2ray","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
                                                 <hr/>
-                                                -->
-                                                <p><span class="icon icon-lg text-white">filter_1</span> [ Trojan ]：
+                                                <p><span class="icon icon-lg text-white">filter_4</span> [ Trojan ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['trojan']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                 </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_2</span> [ Clash ]：
+                                                -->
+                                                <p><span class="icon icon-lg text-white">filter_1</span> [ Clash ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['clash']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                 </p>
                                             </div>
@@ -454,8 +454,7 @@
                                                         <a id="win_ssr" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=ssr","#win_ssr","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                     </p>
                                                 <hr/>
-                                                -->
-                                                <p><span class="icon icon-lg text-white">filter_1</span> V2RayN - [ SS/VMess ]：</p>
+                                                <p><span class="icon icon-lg text-white">filter_3</span> V2RayN - [ SS/VMess ]：</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="{if $config["subscribe_client"]===true}{if $config["subscribe_client_url"]==''}/user/getPcClient{else}{$config["subscribe_client_url"]}/getClient/{$getClient}{/if}?type=v2rayn-win{else}/clients/v2rayn.zip{/if}"><i class="material-icons icon-sm">cloud_download</i> 本站下载 </a>
@@ -469,7 +468,8 @@
                                                         <a id="win_v2rayn" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=v2ray","#win_v2rayn","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                     </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_2</span> Clash for Windows - [ SS/VMess/Trojan ]：</p>
+                                                -->
+                                                <p><span class="icon icon-lg text-white">filter_1</span> Clash for Windows - [ SS/VMess/Trojan ]：</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="/clients/Clash-Windows.exe"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
@@ -518,6 +518,7 @@
                                                         .
                                                         <a class="btn-dl" href="clash://install-config?url={urlencode($subInfo['clash'])}"><i class="material-icons icon-sm">send</i> 配置一键导入</a>
                                                     </p>
+                                                <!--
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_3</span> V2RayU - [ SS/VMess ]：</p>
                                                     <p>
@@ -528,7 +529,6 @@
                                                         使用方式：
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['v2ray']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                     </p>
-                                                <!--
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_4</span> ShadowsocksX-NG - [ SS ]：</p>
                                                     <p>
@@ -595,6 +595,7 @@
                                                         .
                                                         <a class="btn-dl" href="surge:///install-config?url={urlencode($subInfo['surge2'])}"><i class="material-icons icon-sm">send</i> 2.x 一键</a>
                                                     </p>
+                                                <!--
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_2</span> Kitsunebi - [ SS/VMess ]：</p>
                                                     <p>该客户端专属订阅链接支持同时订阅 SS/V2Ray 节点.</p>
@@ -622,16 +623,13 @@
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssr']}"><i class="material-icons icon-sm">send</i> 拷贝 SSR 订阅链接</a>
                                                         .
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['quantumult_v2']}"><i class="material-icons icon-sm">send</i> 拷贝 V2Ray 订阅链接</a>
-                                                        <!--
-                                                        .
-                                                        <a id="quan_sub" class="copy-config btn-dl" onclick=Copyconfig("{$subInfo['quantumult_sub']}","#quan_sub","quantumult://settings?configuration=clipboard")><i class="material-icons icon-sm">send</i> 完整订阅配置</a>
-                                                        -->
                                                         .
                                                         <a id="quan_conf" class="copy-config btn-dl" onclick=Copyconfig("{$subInfo['quantumult_conf']}","#quan_conf","quantumult://settings?configuration=clipboard")><i class="material-icons icon-sm">send</i> 完整策略组配置</a>
                                                     </p>
+                                                    -->
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_4</span> QuantumultX - [ SS/SSR/VMess ]：</p>
-                                                    <p>该客户端专属订阅链接支持同时订阅 SS/SSR/V2Ray 节点.</p>
+                                                <p><span class="icon icon-lg text-white">filter_2</span> QuantumultX - [ SS/SSR/VMess/Trojan ]：</p>
+                                                    <p>该客户端专属订阅链接支持同时订阅 SS/SSR/V2Ray/Trojan 节点.</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="https://apps.apple.com/us/app/quantumult-x/id1443988620"><i class="material-icons icon-sm">cloud_download</i> 官方下载</a>
@@ -643,7 +641,7 @@
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['quantumultx']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
                                                     </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_5</span> Shadowrocket - [ SS/SSR/VMess/Trojan ]：</p>
+                                                <p><span class="icon icon-lg text-white">filter_3</span> Shadowrocket - [ SS/SSR/VMess/Trojan ]：</p>
                                                     <p>该客户端专属订阅链接支持同时订阅 SS/SSR/V2Ray 节点.</p>
                                                     <p>
                                                         应用下载：
@@ -656,7 +654,7 @@
                                                         <a class="btn-dl" onclick=AddSub("{$subInfo['shadowrocket']}","shadowrocket://add/sub://")><i class="material-icons icon-sm">send</i> 一键导入 Shadowrocket</a>
                                                     </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_6</span> Stash - [ SS/SSR/VMess/Trojan ]：</p>
+                                                <p><span class="icon icon-lg text-white">filter_4</span> Stash - [ SS/SSR/VMess/Trojan ]：</p>
                                                 <p>Stash 是一款 iOS 平台基于规则的多协议代理客户端，完全兼容 clash 配置，支持 Rule Set 规则、按需连接、SSID Policy Group等特性.</p>
                                                 <p>
                                                     应用下载：
@@ -703,7 +701,6 @@
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssr']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                     </p>
                                                 <hr/>
-                                                -->
                                                 <p><span class="icon icon-lg text-white">filter_1</span> V2RayNG - [ SS/VMess ]：</p>
                                                     <p>
                                                         应用下载：
@@ -716,7 +713,8 @@
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['v2ray']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                     </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_2</span> Surfboard - [ SS/VMess ]：</p>
+                                                -->
+                                                <p><span class="icon icon-lg text-white">filter_1</span> Surfboard - [ SS/VMess/Trojan ]：</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="/clients/Surfboard.apk"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
@@ -729,6 +727,7 @@
                                                         .
                                                         <a class="btn-dl" href="{$subInfo['surfboard']}"><i class="material-icons icon-sm">send</i> 配置文件下载</a>
                                                     </p>
+                                                <!--
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_3</span> Kitsunebi - [ SS/VMess ]：</p>
                                                     <p>该客户端专属订阅链接支持同时订阅 SS 和 V2Ray 节点.</p>
@@ -742,8 +741,9 @@
                                                         .
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['kitsunebi']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
                                                     </p>
+                                                    -->
                                                 <hr/>
-                                                    <p><span class="icon icon-lg text-white">filter_4</span> Clash for Android - [ SS/VMess ]：</p>
+                                                    <p><span class="icon icon-lg text-white">filter_2</span> Clash for Android - [ SS/VMess/Trojan ]：</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="/clients/Clash-Android.apk"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
