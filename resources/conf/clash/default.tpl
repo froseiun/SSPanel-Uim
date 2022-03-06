@@ -782,7 +782,6 @@
   # > Bahamut
   - DOMAIN-SUFFIX,bahamut.com.tw,巴哈姆特
   - DOMAIN-SUFFIX,gamer.com.tw,巴哈姆特
-  - DOMAIN,bahamut.akamaized.net,巴哈姆特
   - DOMAIN,gamer-cds.cdn.hinet.net,巴哈姆特
   - DOMAIN,gamer2-cds.cdn.hinet.net,巴哈姆特
 
