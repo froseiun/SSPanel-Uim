@@ -1,6 +1,7 @@
   # Unbreak
   # > General
   - DOMAIN,app.adjust.com,DIRECT
+  - DOMAIN,app.appsflyer.com,DIRECT
   - DOMAIN,bdtj.tagtic.cn,DIRECT
   # > Alibaba
   - DOMAIN,log.mmstat.com,DIRECT
@@ -13,9 +14,6 @@
   - DOMAIN,dl.l.google.com,DIRECT
   - DOMAIN,update.googleapis.com,DIRECT
   - DOMAIN,translate.googleapis.com,DIRECT
-  # >> Google Fonts API
-  - DOMAIN,fonts.googleapis.com,DIRECT
-  - DOMAIN,fonts.gstatic.com,DIRECT
   # >> Firebase Cloud Messaging
   - DOMAIN,mtalk.google.com,DIRECT
   - DOMAIN,alt1-mtalk.google.com,DIRECT
@@ -265,6 +263,7 @@
   - DOMAIN-SUFFIX,on2.com,境外流量
   - DOMAIN-SUFFIX,recaptcha.net,境外流量
   - DOMAIN-SUFFIX,schema.org,境外流量
+  - DOMAIN-SUFFIX,tenor.com,境外流量
   - DOMAIN-SUFFIX,tensorflow.org,境外流量
   - DOMAIN-SUFFIX,tfhub.dev,境外流量
   - DOMAIN-SUFFIX,tiltbrush.com,境外流量
@@ -377,6 +376,7 @@
   - DOMAIN-SUFFIX,github.blog,境外流量
   - DOMAIN-SUFFIX,github.com,境外流量
   - DOMAIN-SUFFIX,github.io,境外流量
+  - DOMAIN-SUFFIX,githubassets.com,境外流量
   - DOMAIN-SUFFIX,githubusercontent.com,境外流量
   - DOMAIN-SUFFIX,onedrive.live.com,境外流量
   - DOMAIN-SUFFIX,streaming.mediaservices.windows.net,境外流量
@@ -472,6 +472,7 @@
   - DOMAIN-SUFFIX,ifixit.com,境外流量
   - DOMAIN-SUFFIX,terabox.com,境外流量
   - DOMAIN-SUFFIX,zaobao.com.sg,境外流量
+  - DOMAIN,addons.mozilla.org,境外流量
   - DOMAIN,wego.here.com,境外流量
   # > Alphabet
   - DOMAIN-SUFFIX,go.dev,境外流量
@@ -907,6 +908,8 @@
   # China Area Network
   - DOMAIN-SUFFIX,flyert.com,DIRECT
   - DOMAIN-SUFFIX,gandi.net,DIRECT
+  - DOMAIN-SUFFIX,nvidia.com,DIRECT
+  - DOMAIN-SUFFIX,snapdrop.net,DIRECT
   - DOMAIN-SUFFIX,cm.steampowered.com,DIRECT
   - DOMAIN,api.steampowered.com,DIRECT
   - DOMAIN,download.jetbrains.com,DIRECT
