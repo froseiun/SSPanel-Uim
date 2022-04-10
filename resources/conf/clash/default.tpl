@@ -906,14 +906,21 @@
   - DOMAIN-SUFFIX,dn42,DN42
 
   # China Area Network
+  - DOMAIN-SUFFIX,cn,DIRECT
   - DOMAIN-SUFFIX,flyert.com,DIRECT
   - DOMAIN-SUFFIX,gandi.net,DIRECT
   - DOMAIN-SUFFIX,nvidia.com,DIRECT
   - DOMAIN-SUFFIX,snapdrop.net,DIRECT
-  - DOMAIN-SUFFIX,cm.steampowered.com,DIRECT
-  - DOMAIN,api.steampowered.com,DIRECT
   - DOMAIN,download.jetbrains.com,DIRECT
-  - DOMAIN,origin-a.akamaihd.ne,DIRECT
+  - DOMAIN,origin-a.akamaihd.net,DIRECT
+  - DOMAIN-SUFFIX,clngaa.com,DIRECT
+  - DOMAIN-SUFFIX,ksyna.com,DIRECT
+  - DOMAIN-SUFFIX,bscstorage.net,DIRECT
+  - DOMAIN-SUFFIX,eccdnx.com,DIRECT
+  - DOMAIN-SUFFIX,pinyuncloud.com,DIRECT
+  - DOMAIN-SUFFIX,tnkjmec.com,DIRECT
+  - DOMAIN-SUFFIX,8686c.com,DIRECT
+  - DOMAIN,xz.pphimalayanrt.com,DIRECT
   # > PayPal
   - DOMAIN-SUFFIX,paypal.com,DIRECT
   - DOMAIN-SUFFIX,paypal.me,DIRECT
