@@ -1019,6 +1019,7 @@
   - DOMAIN-SUFFIX,proquest.com,DIRECT
   - DOMAIN-SUFFIX,rsc.org,DIRECT
   - DOMAIN-SUFFIX,sagepub.com,DIRECT
+  - DOMAIN-SUFFIX,science.org,DIRECT
   - DOMAIN-SUFFIX,sciencedirect.com,DIRECT
   - DOMAIN-SUFFIX,sciencemag.org,DIRECT
   - DOMAIN-SUFFIX,scitation.org,DIRECT
