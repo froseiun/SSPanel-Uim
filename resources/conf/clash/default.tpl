@@ -77,9 +77,12 @@
   - DOMAIN-SUFFIX,dlive.tv,境外流量
   - DOMAIN-SUFFIX,dowjones.com,境外流量
   - DOMAIN-SUFFIX,duckduckgo.com,境外流量
+  - DOMAIN-SUFFIX,dw.com,境外流量
+  - DOMAIN-SUFFIX,dw.de,境外流量
   - DOMAIN-SUFFIX,earthcam.com,境外流量
   - DOMAIN-SUFFIX,edx-cdn.org,境外流量
   - DOMAIN-SUFFIX,encyclopedia.com,境外流量
+  - DOMAIN-SUFFIX,epochtimes.com,境外流量
   - DOMAIN-SUFFIX,feeder.co,境外流量
   - DOMAIN-SUFFIX,feedly.com,境外流量
   - DOMAIN-SUFFIX,flickr.com,境外流量
@@ -130,6 +133,8 @@
   - DOMAIN-SUFFIX,newsweek.com,境外流量
   - DOMAIN-SUFFIX,newyorker.com,境外流量
   - DOMAIN-SUFFIX,now.com,境外流量
+  - DOMAIN-SUFFIX,ntd.com,境外流量
+  - DOMAIN-SUFFIX,ntdtv.com,境外流量
   - DOMAIN-SUFFIX,ok.ru,境外流量
   - DOMAIN-SUFFIX,omny.fm,境外流量
   - DOMAIN-SUFFIX,openvpn.net,境外流量
@@ -152,17 +157,20 @@
   - DOMAIN-SUFFIX,reabble.com,境外流量
   - DOMAIN-SUFFIX,redditlist.com,境外流量
   - DOMAIN-SUFFIX,resilio.com,境外流量
+  - DOMAIN-SUFFIX,rfi.fr,境外流量
   - DOMAIN-SUFFIX,rsshub.app,境外流量
   - DOMAIN-SUFFIX,rthk.hk,境外流量
   - DOMAIN-SUFFIX,scmp.com,境外流量
   - DOMAIN-SUFFIX,scribd.com,境外流量
   - DOMAIN-SUFFIX,search.com,境外流量
+  - DOMAIN-SUFFIX,secretchina.com,境外流量
   - DOMAIN-SUFFIX,shutterstock.com,境外流量
   - DOMAIN-SUFFIX,signal.org,境外流量
   - DOMAIN-SUFFIX,sketchappsources.com,境外流量
   - DOMAIN-SUFFIX,slideshare.net,境外流量
   - DOMAIN-SUFFIX,smartmailcloud.com,境外流量
   - DOMAIN-SUFFIX,smh.com.au,境外流量
+  - DOMAIN-SUFFIX,soundofhope.org,境外流量
   - DOMAIN-SUFFIX,speakerdeck.com,境外流量
   - DOMAIN-SUFFIX,spideroak.com,境外流量
   - DOMAIN-SUFFIX,spiegel.de,境外流量
@@ -191,6 +199,7 @@
   - DOMAIN-SUFFIX,tradingview.com,境外流量
   - DOMAIN-SUFFIX,turbobit.net,境外流量
   - DOMAIN-SUFFIX,tutanota.com,境外流量
+  - DOMAIN-SUFFIX,tw,境外流量
   - DOMAIN-SUFFIX,urbandictionary.com,境外流量
   - DOMAIN-SUFFIX,ustream.tv,境外流量
   - DOMAIN-SUFFIX,v2ex.com,境外流量
@@ -384,6 +393,10 @@
   - DOMAIN,assets2.xboxlive.com,境外流量
   - DOMAIN,az416426.vo.msecnd.net,境外流量
   - DOMAIN,az668014.vo.msecnd.net,境外流量
+  # > PicACG
+  - DOMAIN-SUFFIX,picacomic.com,境外流量
+  - DOMAIN-SUFFIX,wikawika.xyz,境外流量
+  - DOMAIN-SUFFIX,tipatipa.xyz,境外流量
   # > Pinterest
   - DOMAIN-SUFFIX,pinimg.com,境外流量
   - DOMAIN-KEYWORD,.pinterest.,境外流量
