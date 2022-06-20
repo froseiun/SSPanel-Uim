@@ -40,6 +40,7 @@
   - DOMAIN-SUFFIX,9gag.com,境外流量
   - DOMAIN-SUFFIX,abc.com,境外流量
   - DOMAIN-SUFFIX,anchor.fm,境外流量
+  - DOMAIN-SUFFIX,appledaily.com,境外流量
   - DOMAIN-SUFFIX,archive.fo,境外流量
   - DOMAIN-SUFFIX,archive.org,境外流量
   - DOMAIN-SUFFIX,archive.ph,境外流量
@@ -60,11 +61,13 @@
   - DOMAIN-SUFFIX,bullguard.com,境外流量
   - DOMAIN-SUFFIX,castbox.fm,境外流量
   - DOMAIN-SUFFIX,change.org,境外流量
+  - DOMAIN-SUFFIX,chinatimes.com,境外流量
   - DOMAIN-SUFFIX,cloudcone.com,境外流量
   - DOMAIN-SUFFIX,clyp.it,境外流量
   - DOMAIN-SUFFIX,cna.com.tw,境外流量
   - DOMAIN-SUFFIX,conoha.jp,境外流量
   - DOMAIN-SUFFIX,coursehero.com,境外流量
+  - DOMAIN-SUFFIX,ctee.com.tw,境外流量
   - DOMAIN-SUFFIX,c-span.org,境外流量
   - DOMAIN-SUFFIX,dailymotion.com,境外流量
   - DOMAIN-SUFFIX,daum.net,境外流量
@@ -98,6 +101,7 @@
   - DOMAIN-SUFFIX,gfw.report,境外流量
   - DOMAIN-SUFFIX,git.io,境外流量
   - DOMAIN-SUFFIX,githack.com,境外流量
+  - DOMAIN-SUFFIX,gov.tw,境外流量
   - DOMAIN-SUFFIX,graphql.org,境外流量
   - DOMAIN-SUFFIX,hackmd.io,境外流量
   - DOMAIN-SUFFIX,heroku.com,境外流量
@@ -115,6 +119,7 @@
   - DOMAIN-SUFFIX,kobo.com,境外流量
   - DOMAIN-SUFFIX,listennotes.com,境外流量
   - DOMAIN-SUFFIX,livestream.com,境外流量
+  - DOMAIN-SUFFIX,ltn.com.tw,境外流量
   - DOMAIN-SUFFIX,mailchimp.com,境外流量
   - DOMAIN-SUFFIX,matrix.org,境外流量
   - DOMAIN-SUFFIX,medibang.com,境外流量
@@ -181,6 +186,7 @@
   - DOMAIN-SUFFIX,substack.com,境外流量
   - DOMAIN-SUFFIX,swissinfo.ch,境外流量
   - DOMAIN-SUFFIX,tapatalk.com,境外流量
+  - DOMAIN-SUFFIX,technews.tw,境外流量
   - DOMAIN-SUFFIX,techspot.com,境外流量
   - DOMAIN-SUFFIX,textnow.me,境外流量
   - DOMAIN-SUFFIX,theage.com.au,境外流量
@@ -199,7 +205,7 @@
   - DOMAIN-SUFFIX,tradingview.com,境外流量
   - DOMAIN-SUFFIX,turbobit.net,境外流量
   - DOMAIN-SUFFIX,tutanota.com,境外流量
-  - DOMAIN-SUFFIX,tw,境外流量
+  - DOMAIN-SUFFIX,udn.com,境外流量
   - DOMAIN-SUFFIX,urbandictionary.com,境外流量
   - DOMAIN-SUFFIX,ustream.tv,境外流量
   - DOMAIN-SUFFIX,v2ex.com,境外流量
