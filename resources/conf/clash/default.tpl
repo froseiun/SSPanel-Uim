@@ -86,6 +86,7 @@
   - DOMAIN-SUFFIX,edx-cdn.org,境外流量
   - DOMAIN-SUFFIX,encyclopedia.com,境外流量
   - DOMAIN-SUFFIX,epochtimes.com,境外流量
+  - DOMAIN-SUFFIX,fc2.com,境外流量
   - DOMAIN-SUFFIX,feeder.co,境外流量
   - DOMAIN-SUFFIX,feedly.com,境外流量
   - DOMAIN-SUFFIX,flickr.com,境外流量
