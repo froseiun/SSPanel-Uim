@@ -525,6 +525,16 @@
   - DOMAIN-SUFFIX,licdn.com,境外流量
   - DOMAIN-SUFFIX,msn.com,境外流量
   - DOMAIN-SUFFIX,skype.com,境外流量
+  # > TikTok
+  - DOMAIN-SUFFIX,byteoversea.com,境外流量
+  - DOMAIN-SUFFIX,ibytedtos.com,境外流量
+  - DOMAIN-SUFFIX,muscdn.com,境外流量
+  - DOMAIN-SUFFIX,musical.ly,境外流量
+  - DOMAIN-SUFFIX,tiktok.com,境外流量
+  - DOMAIN-SUFFIX,tik-tokapi.com,境外流量
+  - DOMAIN-SUFFIX,tiktokcdn.com,境外流量
+  - DOMAIN-SUFFIX,tiktokv.com,境外流量
+  - DOMAIN-KEYWORD,tiktokcdn-,境外流量
 
   # (Live)
   # > Twitch
@@ -626,10 +636,6 @@
   - DOMAIN-SUFFIX,disneystreaming.com,境外其他流媒体
   - DOMAIN-SUFFIX,dssott.com,境外其他流媒体
   - DOMAIN,cdn.registerdisney.go.com,境外其他流媒体
-  # > DMM
-  - DOMAIN-SUFFIX,dmm.co.jp,境外其他流媒体
-  - DOMAIN-SUFFIX,dmm.com,境外其他流媒体
-  - DOMAIN-SUFFIX,dmm-extension.com,境外其他流媒体
   # > encoreTVB
   - DOMAIN-SUFFIX,encoretvb.com,境外其他流媒体
   - DOMAIN,edge.api.brightcove.com,境外其他流媒体
@@ -740,16 +746,6 @@
   - DOMAIN-SUFFIX,phprcdn.com,境外其他流媒体
   - DOMAIN-SUFFIX,pornhub.com,境外其他流媒体
   - DOMAIN-SUFFIX,pornhubpremium.com,境外其他流媒体
-  # > TikTok
-  - DOMAIN-SUFFIX,byteoversea.com,境外其他流媒体
-  - DOMAIN-SUFFIX,ibytedtos.com,境外其他流媒体
-  - DOMAIN-SUFFIX,muscdn.com,境外其他流媒体
-  - DOMAIN-SUFFIX,musical.ly,境外其他流媒体
-  - DOMAIN-SUFFIX,tiktok.com,境外其他流媒体
-  - DOMAIN-SUFFIX,tik-tokapi.com,境外其他流媒体
-  - DOMAIN-SUFFIX,tiktokcdn.com,境外其他流媒体
-  - DOMAIN-SUFFIX,tiktokv.com,境外其他流媒体
-  - DOMAIN-KEYWORD,tiktokcdn-,境外其他流媒体
   # > TVer
   - DOMAIN-SUFFIX,tver.jp,境外其他流媒体
   - DOMAIN,edge.api.brightcove.com,境外其他流媒体
@@ -773,6 +769,11 @@
   - DOMAIN,api-priconne-redive.cygames.jp,Cygames
   - DOMAIN,api-umamusume.cygames.jp,Cygames
   - DOMAIN-SUFFIX,cygames.jp,Cygames
+
+  # > DMM
+  - DOMAIN-SUFFIX,dmm.co.jp,DMM
+  - DOMAIN-SUFFIX,dmm.com,DMM
+  - DOMAIN-SUFFIX,dmm-extension.com,DMM
 
   # > YouTube
   - DOMAIN-SUFFIX,googlevideo.com,YouTube

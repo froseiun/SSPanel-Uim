@@ -305,6 +305,16 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
+                'name' => 'DMM',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
                 'name' => 'YouTube',
                 'type' => 'select',
                 'content' => [
