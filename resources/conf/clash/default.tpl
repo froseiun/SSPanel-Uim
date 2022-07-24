@@ -774,6 +774,9 @@
   - DOMAIN-SUFFIX,dmm.co.jp,DMM
   - DOMAIN-SUFFIX,dmm.com,DMM
   - DOMAIN-SUFFIX,dmm-extension.com,DMM
+  - IP-CIDR,203.104.209.0/24,DMM
+  - IP-CIDR,125.6.189.0/24,DMM
+  - IP-CIDR,125.6.184.215/32,DMM
 
   # > YouTube
   - DOMAIN-SUFFIX,googlevideo.com,YouTube
