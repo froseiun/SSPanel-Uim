@@ -387,19 +387,6 @@
   - DOMAIN-SUFFIX,whatsapp.com,境外流量
   - DOMAIN-SUFFIX,whatsapp.net,境外流量
   - DOMAIN-KEYWORD,.facebook.,境外流量
-  # > Microsoft
-  - DOMAIN-SUFFIX,aka.ms,境外流量
-  - DOMAIN-SUFFIX,github.blog,境外流量
-  - DOMAIN-SUFFIX,github.com,境外流量
-  - DOMAIN-SUFFIX,github.io,境外流量
-  - DOMAIN-SUFFIX,githubassets.com,境外流量
-  - DOMAIN-SUFFIX,githubusercontent.com,境外流量
-  - DOMAIN-SUFFIX,onedrive.live.com,境外流量
-  - DOMAIN-SUFFIX,streaming.mediaservices.windows.net,境外流量
-  - DOMAIN,assets1.xboxlive.com,境外流量
-  - DOMAIN,assets2.xboxlive.com,境外流量
-  - DOMAIN,az416426.vo.msecnd.net,境外流量
-  - DOMAIN,az668014.vo.msecnd.net,境外流量
   # > PicACG
   - DOMAIN-SUFFIX,picacomic.com,境外流量
   - DOMAIN-SUFFIX,wikawika.xyz,境外流量
@@ -519,12 +506,6 @@
   - DOMAIN,news-edge.apple.com,境外流量
   - DOMAIN,news-events.apple.com,境外流量
   - DOMAIN,apple.comscoreresearch.com,境外流量
-  # > Microsoft
-  - DOMAIN-SUFFIX,bing.com,境外流量
-  - DOMAIN-SUFFIX,linkedin.com,境外流量
-  - DOMAIN-SUFFIX,licdn.com,境外流量
-  - DOMAIN-SUFFIX,msn.com,境外流量
-  - DOMAIN-SUFFIX,skype.com,境外流量
   # > TikTok
   - DOMAIN-SUFFIX,byteoversea.com,境外流量
   - DOMAIN-SUFFIX,ibytedtos.com,境外流量
@@ -924,6 +905,26 @@
   - DOMAIN-SUFFIX,windows.com,Microsoft
   - DOMAIN-SUFFIX,windowsupdate.com,Microsoft
   - DOMAIN,officecdn-microsoft-com.akamaized.net,Microsoft
+  - DOMAIN-SUFFIX,aka.ms,Microsoft
+  - DOMAIN-SUFFIX,github.blog,Microsoft
+  - DOMAIN-SUFFIX,github.com,Microsoft
+  - DOMAIN-SUFFIX,github.io,Microsoft
+  - DOMAIN-SUFFIX,githubassets.com,Microsoft
+  - DOMAIN-SUFFIX,githubusercontent.com,Microsoft
+  - DOMAIN-SUFFIX,onedrive.live.com,Microsoft
+  - DOMAIN-SUFFIX,streaming.mediaservices.windows.net,Microsoft
+  - DOMAIN,assets1.xboxlive.com,Microsoft
+  - DOMAIN,assets2.xboxlive.com,Microsoft
+  - DOMAIN,az416426.vo.msecnd.net,Microsoft
+  - DOMAIN,az668014.vo.msecnd.net,Microsoft
+  - DOMAIN-SUFFIX,bing.com,Microsoft
+  - DOMAIN-SUFFIX,linkedin.com,Microsoft
+  - DOMAIN-SUFFIX,licdn.com,Microsoft
+  - DOMAIN-SUFFIX,msn.com,Microsoft
+  - DOMAIN-SUFFIX,skype.com,Microsoft
+  - DOMAIN-SUFFIX,live.net,Microsoft
+  - DOMAIN-SUFFIX,livefilestore.com,Microsoft
+  - DOMAIN-SUFFIX,1dv.com,Microsoft
 
   # > DN42
   - IP-CIDR,172.16.0.0/12,DN42
