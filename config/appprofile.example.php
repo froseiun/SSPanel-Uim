@@ -285,13 +285,13 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => '雀魂麻将',
+                'name' => 'Microsoft',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
+                        '直接连接',
                         '境外流量'
-                    ],
-                    'regex' => '(.*)',
+                    ]
                 ]
             ],
             [
@@ -315,7 +315,50 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'YouTube',
+                'name' => 'Steam_API',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Steam_CDN',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Apple_API',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Apple_CDN',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ]
+                ]
+            ],
+            [
+                'name' => '雀魂麻将',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -345,6 +388,16 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
+                'name' => 'YouTube',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
                 'name' => 'bilibili',
                 'type' => 'select',
                 'content' => [
@@ -365,60 +418,17 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'Apple_API',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
-                    ],
-                    'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'Apple_CDN',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
-                    ]
-                ]
-            ],
-            [
-                'name' => 'Steam_API',
+                'name' => '星野集团',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
                         '境外流量',
                         '直接连接'
-                    ],
-                    'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'Steam_CDN',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
-                    ],
-                    'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'Microsoft',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
                     ]
                 ]
             ],
             [
-                'name' => '星野集团',
+                'name' => '其他流量',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -432,20 +442,9 @@ $_ENV['Clash_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
+                        '直接连接'
                     ],
                     'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => '其他流量',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '境外流量',
-                        '直接连接'
-                    ]
                 ]
             ],
             [
