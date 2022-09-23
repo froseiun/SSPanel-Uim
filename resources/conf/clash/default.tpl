@@ -906,12 +906,6 @@
   - DOMAIN-SUFFIX,windowsupdate.com,Microsoft
   - DOMAIN,officecdn-microsoft-com.akamaized.net,Microsoft
   - DOMAIN-SUFFIX,aka.ms,Microsoft
-  - DOMAIN-SUFFIX,github.blog,Microsoft
-  - DOMAIN-SUFFIX,github.com,Microsoft
-  - DOMAIN-SUFFIX,github.io,Microsoft
-  - DOMAIN-SUFFIX,githubassets.com,Microsoft
-  - DOMAIN-SUFFIX,githubusercontent.com,Microsoft
-  - DOMAIN-SUFFIX,onedrive.live.com,Microsoft
   - DOMAIN-SUFFIX,streaming.mediaservices.windows.net,Microsoft
   - DOMAIN,assets1.xboxlive.com,Microsoft
   - DOMAIN,assets2.xboxlive.com,Microsoft
@@ -925,6 +919,13 @@
   - DOMAIN-SUFFIX,live.net,Microsoft
   - DOMAIN-SUFFIX,livefilestore.com,Microsoft
   - DOMAIN-SUFFIX,1dv.com,Microsoft
+
+  # > GitHub
+  - DOMAIN-SUFFIX,github.blog,GitHub
+  - DOMAIN-SUFFIX,github.com,GitHub
+  - DOMAIN-SUFFIX,github.io,GitHub
+  - DOMAIN-SUFFIX,githubassets.com,GitHub
+  - DOMAIN-SUFFIX,githubusercontent.com,GitHub
 
   # > DN42
   - IP-CIDR,172.16.0.0/12,DN42
