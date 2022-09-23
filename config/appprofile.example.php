@@ -358,12 +358,12 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'Github',
+                'name' => 'GitHub',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
+                        '境外流量',
+                        '直接连接'
                     ]
                 ]
             ],
