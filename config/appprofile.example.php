@@ -365,6 +365,17 @@ $_ENV['Clash_Profiles'] = [
                         '境外流量',
                         '直接连接'
                     ]
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Telegram',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ]
+                    'regex' => '(.*)',
                 ]
             ],
             [

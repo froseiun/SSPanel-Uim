@@ -407,27 +407,27 @@
   - DOMAIN-SUFFIX,reuters.com,境外流量
   - DOMAIN-SUFFIX,reutersmedia.net,境外流量
   # > Telegram
-  - DOMAIN-SUFFIX,legra.ph,境外流量
-  - DOMAIN-SUFFIX,t.me,境外流量
-  - DOMAIN-SUFFIX,tdesktop.com,境外流量
-  - DOMAIN-SUFFIX,telegra.ph,境外流量
-  - DOMAIN-SUFFIX,telegram.me,境外流量
-  - DOMAIN-SUFFIX,telegram.org,境外流量
-  - DOMAIN-SUFFIX,telesco.pe,境外流量
-  - IP-CIDR,91.108.4.0/22,境外流量
-  - IP-CIDR,91.108.8.0/22,境外流量
-  - IP-CIDR,91.108.12.0/22,境外流量
-  - IP-CIDR,91.108.16.0/22,境外流量
-  - IP-CIDR,91.108.20.0/22,境外流量
-  - IP-CIDR,91.108.56.0/22,境外流量
-  - IP-CIDR,91.105.192.0/23,境外流量
-  - IP-CIDR,149.154.160.0/20,境外流量
-  - IP-CIDR,185.76.151.0/24,境外流量
-  - IP-CIDR,2001:b28:f23d::/48,境外流量
-  - IP-CIDR,2001:b28:f23f::/48,境外流量
-  - IP-CIDR,2001:67c:4e8::/48,境外流量
-  - IP-CIDR,2001:b28:f23c::/48,境外流量
-  - IP-CIDR,2a0a:f280::/32,境外流量
+  - DOMAIN-SUFFIX,legra.ph,Telegram
+  - DOMAIN-SUFFIX,t.me,Telegram
+  - DOMAIN-SUFFIX,tdesktop.com,Telegram
+  - DOMAIN-SUFFIX,telegra.ph,Telegram
+  - DOMAIN-SUFFIX,telegram.me,Telegram
+  - DOMAIN-SUFFIX,telegram.org,Telegram
+  - DOMAIN-SUFFIX,telesco.pe,Telegram
+  - IP-CIDR,91.108.4.0/22,Telegram
+  - IP-CIDR,91.108.8.0/22,Telegram
+  - IP-CIDR,91.108.12.0/22,Telegram
+  - IP-CIDR,91.108.16.0/22,Telegram
+  - IP-CIDR,91.108.20.0/22,Telegram
+  - IP-CIDR,91.108.56.0/22,Telegram
+  - IP-CIDR,91.105.192.0/23,Telegram
+  - IP-CIDR,149.154.160.0/20,Telegram
+  - IP-CIDR,185.76.151.0/24,Telegram
+  - IP-CIDR,2001:b28:f23d::/48,Telegram
+  - IP-CIDR,2001:b28:f23f::/48,Telegram
+  - IP-CIDR,2001:67c:4e8::/48,Telegram
+  - IP-CIDR,2001:b28:f23c::/48,Telegram
+  - IP-CIDR,2a0a:f280::/32,Telegram
   # > The Economist
   - DOMAIN-SUFFIX,economist.com,境外流量
   - DOMAIN-SUFFIX,static-economist.com,境外流量
