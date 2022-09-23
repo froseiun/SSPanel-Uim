@@ -358,6 +358,16 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
+                'name' => 'FCM',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
                 'name' => 'GitHub',
                 'type' => 'select',
                 'content' => [

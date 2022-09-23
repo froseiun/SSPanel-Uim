@@ -15,15 +15,15 @@
   - DOMAIN,update.googleapis.com,DIRECT
   - DOMAIN,translate.googleapis.com,DIRECT
   # >> Firebase Cloud Messaging
-  - DOMAIN,mtalk.google.com,DIRECT
-  - DOMAIN,alt1-mtalk.google.com,DIRECT
-  - DOMAIN,alt2-mtalk.google.com,DIRECT
-  - DOMAIN,alt3-mtalk.google.com,DIRECT
-  - DOMAIN,alt4-mtalk.google.com,DIRECT
-  - DOMAIN,alt5-mtalk.google.com,DIRECT
-  - DOMAIN,alt6-mtalk.google.com,DIRECT
-  - DOMAIN,alt7-mtalk.google.com,DIRECT
-  - DOMAIN,alt8-mtalk.google.com,DIRECT
+  - DOMAIN,mtalk.google.com,FCM
+  - DOMAIN,alt1-mtalk.google.com,FCM
+  - DOMAIN,alt2-mtalk.google.com,FCM
+  - DOMAIN,alt3-mtalk.google.com,FCM
+  - DOMAIN,alt4-mtalk.google.com,FCM
+  - DOMAIN,alt5-mtalk.google.com,FCM
+  - DOMAIN,alt6-mtalk.google.com,FCM
+  - DOMAIN,alt7-mtalk.google.com,FCM
+  - DOMAIN,alt8-mtalk.google.com,FCM
   # > Tencent
   - DOMAIN,fairplay.l.qq.com,DIRECT
   - DOMAIN,livew.l.qq.com,DIRECT
