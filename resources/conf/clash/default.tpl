@@ -891,6 +891,8 @@
   - DOMAIN,content8.steampowered.com,Steam_CDN
 
   # > Steam API
+  - DOMAIN-SUFFIX,steamserver.net,Steam_API
+  - DOMAIN-SUFFIX,steam-chat.com,Steam_API
   - DOMAIN-SUFFIX,steamcommunity.com,Steam_API
   - DOMAIN-SUFFIX,steampowered.com,Steam_API
   - DOMAIN-SUFFIX,steamgames.com,Steam_API
