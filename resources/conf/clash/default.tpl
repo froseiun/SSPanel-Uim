@@ -13,7 +13,7 @@
   - DOMAIN,dl.google.com,DIRECT
   - DOMAIN,dl.l.google.com,DIRECT
   - DOMAIN,update.googleapis.com,DIRECT
-  - DOMAIN,translate.googleapis.com,DIRECT
+  - DOMAIN,translate.googleapis.com,境外流量
   # >> Firebase Cloud Messaging
   - DOMAIN,mtalk.google.com,FCM
   - DOMAIN,alt1-mtalk.google.com,FCM
