@@ -362,8 +362,8 @@ $_ENV['Clash_Profiles'] = [
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '境外流量',
-                        '直接连接'
+                        '直接连接',
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
