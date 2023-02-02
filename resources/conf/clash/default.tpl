@@ -563,8 +563,11 @@
   # > AbemaTV
   - DOMAIN-SUFFIX,abema.io,境外其他流媒体
   - DOMAIN-SUFFIX,abema.tv,境外其他流媒体
+  - DOMAIN-SUFFIX,abema-tv.com,境外其他流媒体
   - DOMAIN-SUFFIX,ameba.jp,境外其他流媒体
   - DOMAIN-SUFFIX,hayabusa.io,境外其他流媒体
+  - DOMAIN-SUFFIX,hayabusa.media,境外其他流媒体
+  - DOMAIN,api-abematv.bucketeer.jp,境外其他流媒体
   - DOMAIN-KEYWORD,abematv.akamaized.net,境外其他流媒体
   # > All 4
   - DOMAIN-SUFFIX,c4assets.com,境外其他流媒体
@@ -621,6 +624,11 @@
   - DOMAIN-SUFFIX,encoretvb.com,境外其他流媒体
   - DOMAIN,edge.api.brightcove.com,境外其他流媒体
   - DOMAIN,bcbolt446c5271-a.akamaihd.net,境外其他流媒体
+  # > Hami Video
+  - DOMAIN-SUFFIX,ott.hinet.net,境外其他流媒体
+  - DOMAIN-SUFFIX,hamivideo.hinet.net,境外其他流媒体
+  - DOMAIN,hls-hichannel.cdn.hinet.net,境外其他流媒体
+  - DOMAIN-KEYWORD,hamivideo.cdn.hinet.net,境外其他流媒体
   # > HBO NOW & Max
   - DOMAIN-SUFFIX,hbo.com,境外其他流媒体
   - DOMAIN-SUFFIX,hbogo.com,境外其他流媒体
@@ -685,6 +693,7 @@
   - DOMAIN-SUFFIX,kktv.com.tw,境外其他流媒体
   - DOMAIN-SUFFIX,kktv.me,境外其他流媒体
   - DOMAIN,kktv-theater.kk.stream,境外其他流媒体
+  - DOMAIN,theater-kktv.cdn.hinet.net,境外其他流媒体
   # > LINE TV
   - DOMAIN-SUFFIX,linetv.tw,境外其他流媒体
   - DOMAIN,d3c7rimkq79yfu.cloudfront.net,境外其他流媒体
