@@ -801,24 +801,16 @@
   - DOMAIN,gamer2-cds.cdn.hinet.net,巴哈姆特
 
   # > bilibili
-  - DOMAIN,api.biliapi.com,bilibili
-  - DOMAIN,api.biliapi.net,bilibili
-  - DOMAIN,api.bilibili.com,bilibili
-  - DOMAIN,app.biliapi.com,bilibili
-  - DOMAIN,app.biliapi.net,bilibili
-  - DOMAIN,app.bilibili.com,bilibili
-  - DOMAIN,grpc.biliapi.net,bilibili
-  - DOMAIN,m.bilibili.com,bilibili
-  - DOMAIN,upos-hz-mirrorakam.akamaized.net,bilibili
-  - DOMAIN,www.bilibili.com,bilibili
-  - DOMAIN-KEYWORD,cn-hk-eq-bcache-,bilibili
-  # > bilibili Intl
+  - DOMAIN-SUFFIX,biliapi.com,bilibili
+  - DOMAIN-SUFFIX,biliapi.net,bilibili
+  - DOMAIN-SUFFIX,bilibili.com,bilibili
   - DOMAIN-SUFFIX,biliintl.com,bilibili
-  - DOMAIN,apm-misaka.biliapi.net,bilibili
-  - DOMAIN,p.bstarstatic.com,bilibili
   - DOMAIN,p-bstarstatic.akamaized.net,bilibili
   - DOMAIN,upos-bstar-mirrorakam.akamaized.net,bilibili
   - DOMAIN,upos-bstar1-mirrorakam.akamaized.net,bilibili
+  - DOMAIN,upos-hz-mirrorakam.akamaized.net,bilibili
+  - DOMAIN,p.bstarstatic.com,bilibili
+  - DOMAIN-KEYWORD,cn-hk-eq-bcache-,bilibili
 
   # > Apple Direct
   - DOMAIN,api.smoot.apple.com,DIRECT
