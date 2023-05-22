@@ -12,7 +12,6 @@
                 <div class="card">
                     <div class="card-main">
                         <div class="card-inner">
-                            <p>商品不可叠加，新购商品会覆盖旧商品的效果。</p>
                             <p>购买新套餐时，如果未关闭旧套餐自动续费，则旧套餐的自动续费依然生效。</p>
                             <p><i class="icon icon-lg">attach_money</i>当前余额：<font color="#399AF2" size="5">{$user->money}</font> 元</p>
                         </div>
@@ -39,11 +38,11 @@
                         <div class="card-main">
                             <div class="dropdown btn-group">
                                 <a href="javascript:void(0);" type="button" class="btn btn-dropdown-toggle dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  选择商品类型 <span class="caret"></span>
+                                  点此选择商品类型 <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                   <li class="order-type"><a href="javascript:void(0)" id="orders">套餐购买</a></li>
-                                  <li class="order-type"><a href="javascript:void(0)" id="traffice-packages">叠加流量包</a></li>
+                                  <li class="order-type"><a href="javascript:void(0)" id="traffice-packages">流量包购买</a></li>
                                 </ul>
                             </div>
                         </div>

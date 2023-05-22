@@ -151,17 +151,19 @@ class CodeController extends AdminController
             $code->save();
         }
 
-        if (Setting::obtain('mail_driver') != 'none') {
-            Mail::send(
-                $user->email,
-                $_ENV['appName'] . '- 充值码',
-                'giftcard.tpl',
-                [
-                    'text' => implode('<br/>', $cards)
-                ],
-                []
-            );
-        }
+        /** 关闭充值码发送邮件
+        *if (Setting::obtain('mail_driver') != 'none') {
+        *    Mail::send(
+        *        $user->email,
+        *        $_ENV['appName'] . '- 充值码',
+        *        'giftcard.tpl',
+        *        [
+        *            'text' => implode('<br/>', $cards)
+        *        ],
+        *        []
+        *    );
+        *}
+        */
         
         $rs['ret'] = 1;
         $rs['msg'] = '充值码添加成功';
