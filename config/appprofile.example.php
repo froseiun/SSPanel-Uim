@@ -112,6 +112,16 @@ $_ENV['Surge_Profiles'] = [
                 ]
             ],
             [
+                'name' => '🤖ChatGPT',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '🔰境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
                 'name' => '🍎苹果服务',
                 'type' => 'select',
                 'content' => [
@@ -210,6 +220,16 @@ $_ENV['Surge2_Profiles'] = [
             ],
             [
                 'name' => '🎬境外媒体',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '🔰境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '🤖ChatGPT',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -449,6 +469,16 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
+                'name' => 'ChatGPT',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
                 'name' => '星野集团',
                 'type' => 'select',
                 'content' => [
@@ -579,6 +609,15 @@ $_ENV['Surfboard_Profiles'] = [
                     'regex' => '(.*)',
                 ]
             ]
+            [
+                'name' => '🤖ChatGPT',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '🔰境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
         ],
         'Rule' => [
             'source' => 'surfboard/default.tpl'
