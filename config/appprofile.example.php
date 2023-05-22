@@ -315,6 +315,16 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
+                'name' => 'OpenAI&Bing',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
                 'name' => 'Steam_API',
                 'type' => 'select',
                 'content' => [

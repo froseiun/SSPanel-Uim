@@ -914,7 +914,7 @@
   - DOMAIN,assets2.xboxlive.com,Microsoft
   - DOMAIN,az416426.vo.msecnd.net,Microsoft
   - DOMAIN,az668014.vo.msecnd.net,Microsoft
-  - DOMAIN-SUFFIX,bing.com,Microsoft
+  # - DOMAIN-SUFFIX,bing.com,Microsoft
   - DOMAIN-SUFFIX,linkedin.com,Microsoft
   - DOMAIN-SUFFIX,licdn.com,Microsoft
   - DOMAIN-SUFFIX,msn.com,Microsoft
@@ -922,6 +922,11 @@
   - DOMAIN-SUFFIX,live.net,Microsoft
   - DOMAIN-SUFFIX,livefilestore.com,Microsoft
   - DOMAIN-SUFFIX,1dv.com,Microsoft
+
+    # > GPT相关
+  - DOMAIN-SUFFIX,openai.com,OpenAI&Bing
+  - DOMAIN-SUFFIX,auth0.com,OpenAI&Bing
+  - DOMAIN-SUFFIX,bing.com,OpenAI&Bing
 
   # > GitHub
   - DOMAIN-SUFFIX,github.blog,GitHub
