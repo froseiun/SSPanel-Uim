@@ -1066,13 +1066,7 @@
   - DOMAIN-SUFFIX,wiley.com,DIRECT
   - DOMAIN-SUFFIX,worldbank.org,DIRECT
   - DOMAIN-SUFFIX,worldscientific.com,DIRECT
-  
-  # > ChatGPT
-  - DOMAIN-SUFFIX,openai.com,ChatGPT
-  - DOMAIN-SUFFIX,auth0.com,ChatGPT
-  - DOMAIN-SUFFIX,bing.com,ChatGPT
-  - DOMAIN-SUFFIX,live.com,ChatGPT
-  
+
   # > 局域网
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
