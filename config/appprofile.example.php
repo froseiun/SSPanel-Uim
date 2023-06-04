@@ -248,7 +248,7 @@ $_ENV['Clash_Profiles'] = [
             'allow-lan'           => false,
             'mode'                => 'rule',
             'log-level'           => 'silent',
-            'external-controller' => '0.0.0.0:9090',
+            'external-controller' => '127.0.0.1:19198',
             'secret'              => ''
         ],
         'DNS' => [
