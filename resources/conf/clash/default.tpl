@@ -957,10 +957,10 @@
   - DOMAIN-SUFFIX,8686c.com,DIRECT
   - DOMAIN,xz.pphimalayanrt.com,DIRECT
   # > PayPal
-  - DOMAIN-SUFFIX,paypal.com,DIRECT
-  - DOMAIN-SUFFIX,paypal.me,DIRECT
-  - DOMAIN-SUFFIX,paypal-mktg.com,DIRECT
-  - DOMAIN-SUFFIX,paypalobjects.com,DIRECT
+  - DOMAIN-SUFFIX,paypal.com,境外流量
+  - DOMAIN-SUFFIX,paypal.me,境外流量
+  - DOMAIN-SUFFIX,paypal-mktg.com,境外流量
+  - DOMAIN-SUFFIX,paypalobjects.com,境外流量
   # > Tencent
   - IP-CIDR,182.254.116.0/24,DIRECT
   - IP-CIDR,203.205.238.0/23,DIRECT
