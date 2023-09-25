@@ -274,6 +274,7 @@ $_ENV['detect_gfw_count']                = '3';                                 
 
 #离线检测
 $_ENV['enable_detect_offline']           = true;
+$_ENV['enable_offline_mail_notify']      = -1;                                                                  //发送节点掉线通知邮件, -1为关闭, 0为全部管理员, 其他为指定用户id
 #离线检测是否推送到Server酱 请配置好上文的Server配置
 $_ENV['enable_detect_offline_useScFtqq'] = false;
 

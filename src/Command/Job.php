@@ -223,17 +223,47 @@ class Job extends Command
                         file_get_contents('https://sctapi.ftqq.com/' . $ScFtqq_SCKEY . '.send', false, $context);
                     }
 
-                    foreach ($adminUser as $user) {
-                        echo 'Send offline mail to user: ' . $user->id . PHP_EOL;
-                        $user->sendMail(
-                            $_ENV['appName'] . '-系统警告',
-                            'news/warn.tpl',
-                            [
-                                'text' => '管理员您好，系统发现节点 ' . $node->name . ' 掉线了，请您及时处理。'
-                            ],
-                            [],
-                            $_ENV['email_queue']
+                    if ($_ENV['enable_offline_mail_notify'] == 0) {
+                        //改进聒噪的节点掉线提醒(掉线部分)
+                        foreach ($adminUser as $user) {
+                            echo 'Send offline mail to user: ' . $user->id . PHP_EOL;
+                            $user->sendMail(
+                                $_ENV['appName'] . '-系统警告',
+                                'news/warn.tpl',
+                                [
+                                    'text' => '管理员您好，系统发现节点 ' . $node->name . ' 掉线了，请您及时处理。'
+                                ],
+                                [],
+                                $_ENV['email_queue']
+                            );
+                            $notice_text = str_replace(
+                                '%node_name%',
+                                $node->name,
+                                Config::getconfig('Telegram.string.NodeOffline')
+                            );
+                        }
+                    } elseif ($_ENV['enable_offline_mail_notify'] < 0) {
+                        echo 'Skipping sending offline mail due to configuration.' . PHP_EOL;
+                        $notice_text = str_replace(
+                            '%node_name%',
+                            $node->name,
+                            Config::getconfig('Telegram.string.NodeOffline')
                         );
+                    } elseif ($_ENV['enable_offline_mail_notify'] > 0) {
+                        foreach ($adminUser as $user) {
+                            if ($user->id == $_ENV['enable_offline_mail_notify']) {
+                                echo 'Send offline mail to specific user: ' . $user->id . PHP_EOL;
+                                $user->sendMail(
+                                    $_ENV['appName'] . '-系统警告',
+                                    'news/warn.tpl',
+                                    [
+                                        'text' => '管理员您好，系统发现节点 ' . $node->name . ' 掉线了，请您及时处理。'
+                                    ],
+                                    [],
+                                    $_ENV['email_queue']
+                                );
+                            }
+                        }
                         $notice_text = str_replace(
                             '%node_name%',
                             $node->name,
@@ -269,24 +299,55 @@ class Job extends Command
                         $context = stream_context_create($opts);
                         file_get_contents('https://sctapi.ftqq.com/' . $ScFtqq_SCKEY . '.send', false, $context);
                     }
-                    foreach ($adminUser as $user) {
-                        echo 'Send offline mail to user: ' . $user->id . PHP_EOL;
-                        $user->sendMail(
-                            $_ENV['appName'] . '-系统提示',
-                            'news/warn.tpl',
-                            [
-                                'text' => '管理员您好，系统发现节点 ' . $node->name . ' 恢复上线了。'
-                            ],
-                            [],
-                            $_ENV['email_queue']
+
+                    if ($_ENV['enable_offline_mail_notify'] == 0) {
+                        //改进聒噪的节点掉线提醒(上线部分)
+                        foreach ($adminUser as $user) {
+                            echo 'Send offline mail to user: ' . $user->id . PHP_EOL;
+                            $user->sendMail(
+                                $_ENV['appName'] . '-系统提示',
+                                'news/warn.tpl',
+                                [
+                                    'text' => '管理员您好，系统发现节点 ' . $node->name . ' 恢复上线了。'
+                                ],
+                                [],
+                                $_ENV['email_queue']
+                            );
+                            $notice_text = str_replace(
+                                '%node_name%',
+                                $node->name,
+                                Config::getconfig('Telegram.string.NodeOnline')
+                            );
+                        }
+                    } elseif ($_ENV['enable_offline_mail_notify'] < 0) {
+                        echo 'Skipping sending offline mail due to configuration.' . PHP_EOL;
+                        $notice_text = str_replace(
+                            '%node_name%',
+                            $node->name,
+                            Config::getconfig('Telegram.string.NodeOnline')
                         );
+                    } elseif ($_ENV['enable_offline_mail_notify'] > 0) {
+                        foreach ($adminUser as $user) {
+                            if ($user->id == $_ENV['enable_offline_mail_notify']) {
+                                echo 'Send offline mail to specific user: ' . $user->id . PHP_EOL;
+                                $user->sendMail(
+                                    $_ENV['appName'] . '-系统提示',
+                                    'news/warn.tpl',
+                                    [
+                                        'text' => '管理员您好，系统发现节点 ' . $node->name . ' 恢复上线了。'
+                                    ],
+                                    [],
+                                    $_ENV['email_queue']
+                                );
+                            }
+                        }
                         $notice_text = str_replace(
                             '%node_name%',
                             $node->name,
                             Config::getconfig('Telegram.string.NodeOnline')
                         );
                     }
-
+                    
                     if (Config::getconfig('Telegram.bool.NodeOnline')) {
                         Telegram::Send($notice_text);
                     }
