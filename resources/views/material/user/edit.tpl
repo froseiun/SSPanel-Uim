@@ -29,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="card margin-bottom-no">
                     <div class="card-main">
                         <div class="card-inner">
@@ -118,6 +119,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="card margin-bottom-no">
                     <div class="card-main">
                         <div class="card-inner">
@@ -425,6 +427,7 @@
                         </div>
                     </div>
                 {/if}
+                <!--
                 <div class="card margin-bottom-no">
                     <div class="card-main">
                         <div class="card-inner">
@@ -452,6 +455,7 @@
                         </div>
                     </div>
                 </div>
+                -->
             </div>
                 {include file='dialog.tpl'}
         </section>

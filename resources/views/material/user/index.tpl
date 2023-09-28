@@ -284,6 +284,7 @@
                                             <div id="connection-info">
                                                 <table id="connection-info-table" class="table">
                                                     <tbody>
+                                                    <!--
                                                     <tr>
                                                         <td><strong>端口</strong></td>
                                                         <td>{$user->port}</td>
@@ -292,10 +293,12 @@
                                                         <td><strong>SS/SSR连接密码</strong></td>
                                                         <td>{$user->passwd}</td>
                                                     </tr>
+                                                    -->
                                                     <tr>
                                                         <td><strong>UUID</strong></td>
                                                         <td>{$user->uuid}</td>
                                                     </tr>
+                                                    <!--
                                                     <tr>
                                                         <td><strong>自定义加密</strong></td>
                                                         <td>{$user->method}</td>
@@ -312,6 +315,7 @@
                                                         <td><strong>自定义混淆参数</strong></td>
                                                         <td>{$user->obfs_param}</td>
                                                     </tr>
+                                                    -->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -319,11 +323,13 @@
                                         <div class="tab-pane fade active in" id="sub_center">
                                             <nav class="tab-nav margin-top-no">
                                                 <ul class="nav nav-list">
+                                                    <!--
                                                     <li class="active">
                                                         <a class="" data-toggle="tab" href="#sub_center_universal_subscription"><i class="icon icon-lg">star</i>&nbsp;通用订阅</a>
                                                     </li>
+                                                    -->
                                                     <li>
-                                                        <a class="" data-toggle="tab" href="#sub_center_general"><i class="icon icon-lg">error</i>&nbsp;协议/客户端专用订阅（旧）</a>
+                                                        <a class="" data-toggle="tab" href="#sub_center_general"><i class="icon icon-lg">error</i>&nbsp;协议/客户端订阅</a>
                                                     </li>
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_windows"><i class="icon icon-lg">desktop_windows</i>&nbsp;Windows</a>
@@ -334,6 +340,7 @@
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_ios"><i class="icon icon-lg">phone_iphone</i>&nbsp;iOS</a>
                                                     </li>
+                                                    <!--
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_android"><i class="icon icon-lg">android</i>&nbsp;Android</a>
                                                     </li>
@@ -343,6 +350,7 @@
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_router"><i class="icon icon-lg">router</i>&nbsp;Router</a>
                                                     </li>
+                                                    -->
                                                 </ul>
                                             </nav>
                                             {function name=printClient items=null}
@@ -417,13 +425,13 @@
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['v2ray']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>.<a id="general_v2ray" class="copy-config btn-dl" onclick=Copyconfig("/user/getUserAllURL?type=v2ray","#general_v2ray","")><i class="material-icons icon-sm">send</i> 拷贝全部节点 URL</a>
                                                 </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_4</span> [ Trojan ]：
-                                                    <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['trojan']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
-                                                </p>
-                                                <hr/>
                                                 -->
                                                 <p><span class="icon icon-lg text-white">filter_1</span> [ Clash ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['clash']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
+                                                </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">filter_4</span> [ Trojan ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['trojan']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                 </p>
                                             </div>
                                             <div class="tab-pane fade" id="sub_center_windows">
