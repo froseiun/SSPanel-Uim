@@ -22,102 +22,206 @@ $_ENV['Surge_Profiles'] = [
             'loglevel'                    => 'notify',
             'dns-server'                  => 'system, 223.5.5.5, 1.1.1.1',
             'skip-proxy'                  => '127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com',
-            'external-controller-access'  => 'China@0.0.0.0:8233',
-            'allow-wifi-access'           => 'true',
             'enhanced-mode-by-rule'       => 'false',
             'exclude-simple-hostnames'    => 'true',
             'show-error-page-for-reject'  => 'true',
             'ipv6'                        => 'true',
             'replica'                     => 'false',
-            'http-listen'                 => '0.0.0.0:8234',
-            'socks5-listen'               => '0.0.0.0:8235',
-            'wifi-access-http-port'       => 6152,
-            'wifi-access-socks5-port'     => 6153,
-            'internet-test-url'           => 'http://wifi.vivo.com.cn/generate_204',
-            'proxy-test-url'              => 'http://cp.cloudflare.com',
-            'test-timeout'                => 3
         ],
         'Proxy' => [
-            '🚀直接连接 = direct'
+            '直接连接 = DIRECT'
         ],
         'ProxyGroup' => [
             [
-                'name' => '🔰境外流量',
+                'name' => '境外流量',
                 'type' => 'select',
                 'content' => [
-                    'regex' => '(.*)',
                     'right-proxies' => [
-                        '🚀直接连接'
+                        '直接连接'
                     ],
+                    'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '⚓️其他流量',
+                'name' => 'Microsoft',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量',
-                        '🚀直接连接'
+                        '直接连接',
+                        '境外流量'
                     ]
                 ]
             ],
             [
-                'name' => '✈️Telegram',
+                'name' => 'Cygames',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬YouTube',
+                'name' => 'DMM',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Netflix',
+                'name' => 'OpenAI&Bing',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬哔哩哔哩',
+                'name' => 'Steam_API',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🚀直接连接'
+                        '境外流量',
+                        '直接连接'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬境外媒体',
+                'name' => 'Steam_CDN',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '直接连接',
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🍎苹果服务',
+                'name' => 'Apple_API',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🚀直接连接',
-                        '🔰境外流量'
+                        '直接连接',
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Apple_CDN',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Telegram',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'GitHub',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
+                'name' => '雀魂麻将',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Netflix',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '巴哈姆特',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'YouTube',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'bilibili',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '境外其他流媒体',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '星野集团',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
+                'name' => '其他流量',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
                     ]
                 ]
             ]
@@ -141,90 +245,202 @@ $_ENV['Surge2_Profiles'] = [
             'dns-server'                 => 'system, 223.5.5.5, 1.1.1.1',
             'skip-proxy'                 => '127.0.0.1, 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, 100.64.0.0/10, 17.0.0.0/8, localhost, *.local, *.crashlytics.com',
             'bypass-system'              => 'true',
-            'allow-wifi-access'          => 'true',
-            'external-controller-access' => 'ChinaX@0.0.0.0:8233'
+            'allow-wifi-access'          => 'false',
         ],
         'Proxy' => [
-            '🚀直接连接 = direct'
+            '直接连接 = DIRECT'
         ],
         'ProxyGroup' => [
             [
-                'name' => '🔰境外流量',
+                'name' => '境外流量',
                 'type' => 'select',
                 'content' => [
-                    'regex' => '(.*)',
                     'right-proxies' => [
-                        '🚀直接连接'
+                        '直接连接'
                     ],
+                    'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '⚓️其他流量',
+                'name' => 'Microsoft',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量',
-                        '🚀直接连接'
+                        '直接连接',
+                        '境外流量'
                     ]
                 ]
             ],
             [
-                'name' => '✈️Telegram',
+                'name' => 'Cygames',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬YouTube',
+                'name' => 'DMM',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬Netflix',
+                'name' => 'OpenAI&Bing',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬哔哩哔哩',
+                'name' => 'Steam_API',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🚀直接连接'
+                        '境外流量',
+                        '直接连接'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🎬境外媒体',
+                'name' => 'Steam_CDN',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🔰境外流量'
+                        '直接连接',
+                        '境外流量'
                     ],
                     'regex' => '(.*)',
                 ]
             ],
             [
-                'name' => '🍎苹果服务',
+                'name' => 'Apple_API',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
-                        '🚀直接连接',
-                        '🔰境外流量'
+                        '直接连接',
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Apple_CDN',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接',
+                        '境外流量'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Telegram',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'GitHub',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
+                'name' => '雀魂麻将',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'Netflix',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '巴哈姆特',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'YouTube',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => 'bilibili',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '直接连接'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '境外其他流媒体',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量'
+                    ],
+                    'regex' => '(.*)',
+                ]
+            ],
+            [
+                'name' => '星野集团',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
+                    ]
+                ]
+            ],
+            [
+                'name' => '其他流量',
+                'type' => 'select',
+                'content' => [
+                    'left-proxies' => [
+                        '境外流量',
+                        '直接连接'
                     ]
                 ]
             ]
