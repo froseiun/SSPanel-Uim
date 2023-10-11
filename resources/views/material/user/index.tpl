@@ -340,10 +340,10 @@
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_ios"><i class="icon icon-lg">phone_iphone</i>&nbsp;iOS</a>
                                                     </li>
-                                                    <!--
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_android"><i class="icon icon-lg">android</i>&nbsp;Android</a>
                                                     </li>
+                                                    <!--
                                                     <li>
                                                         <a class="" data-toggle="tab" href="#sub_center_linux"><i class="icon icon-lg">devices_other</i>&nbsp;Linux</a>
                                                     </li>
@@ -384,9 +384,10 @@
                                                     </p>
                                                 {/foreach}
                                             {/function}
+                                            <!--
                                             <div class="tab-pane fade active in" id="sub_center_universal_subscription">
                                                 <p>请使用协议/客户端专用订阅。</p>
-                                                <!--
+                                                
                                                 <hr/>
                                                 <p><span class="icon icon-lg text-white">settings_suggest</span> [ 所有节点 ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/all"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
@@ -407,9 +408,9 @@
                                                 <p><span class="icon icon-lg text-white">settings_suggest</span> [ Trojan 节点 ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$getUniversalSub}/trojan"><i class="material-icons icon-sm">send</i> 拷贝链接</a>
                                                 </p>
-                                                -->
                                             </div>
-                                            <div class="tab-pane fade" id="sub_center_general">
+                                            -->
+                                            <div class="tab-pane fade active in" id="sub_center_general">
                                                 <!--
                                                 <p>此处的订阅将会在未来版本中被废弃，请尽快切换至可以使用通用订阅的客戶端</p>
                                                 <hr/>
@@ -623,8 +624,10 @@
                                                     </p>
                                                     <p>
                                                         使用方式：
+                                                        <!--
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['ssr']}"><i class="material-icons icon-sm">send</i> 拷贝 SSR 订阅链接</a>
                                                         .
+                                                        -->
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['quantumultx']}"><i class="material-icons icon-sm">send</i> 拷贝该应用专属订阅链接</a>
                                                     </p>
                                                 <hr/>
@@ -650,8 +653,10 @@
                                                 <p>
                                                     使用方式：
                                                     <a class="btn-dl" href="stash://install-config?url={urlencode($subInfo['clash'])}"><i class="material-icons icon-sm">send</i> 一键导入 Stash</a>
+                                                    <!--
                                                     .
                                                     <a class="btn-dl" href="{$subInfo['clash']}"><i class="material-icons icon-sm">send</i> 配置文件下载</a>
+                                                    -->
                                                 </p>
                                             {if array_key_exists('iOS',$config['userCenterClient'])}
                                                 {if count($config['userCenterClient']['iOS']) != 0}
