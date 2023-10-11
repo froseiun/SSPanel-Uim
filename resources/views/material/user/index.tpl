@@ -328,7 +328,7 @@
                                                         <a class="" data-toggle="tab" href="#sub_center_universal_subscription"><i class="icon icon-lg">star</i>&nbsp;通用订阅</a>
                                                     </li>
                                                     -->
-                                                    <li>
+                                                    <li class="active">
                                                         <a class="" data-toggle="tab" href="#sub_center_general"><i class="icon icon-lg">error</i>&nbsp;协议/客户端订阅</a>
                                                     </li>
                                                     <li>
@@ -477,7 +477,7 @@
                                                     </p>
                                                 <hr/>
                                                 -->
-                                                <p><span class="icon icon-lg text-white">filter_1</span> Clash for Windows - [ SS/VMess/Trojan ]：</p>
+                                                <p><span class="icon icon-lg text-white">filter_1</span> Clash for Windows：</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="/clients/Clash-Windows.exe"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
@@ -497,23 +497,15 @@
                                             {/if}
                                             </div>
                                             <div class="tab-pane fade" id="sub_center_mac">
-                                                <p><span class="icon icon-lg text-white">filter_1</span> Surge - [ SS/VMess ]：</p>
-                                                    <p>
-                                                        应用下载：
-                                                        <a class="btn-dl" href="https://nssurge.com/mac/v3/Surge-latest.zip"><i class="material-icons icon-sm">cloud_download</i> 官方下载</a>
-                                                    </p>
+                                                <p><span class="icon icon-lg text-white">filter_1</span> Surge：</p>
                                                     <p>
                                                         使用方式：
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge4']}"><i class="material-icons icon-sm">send</i> 拷贝 4.x 托管链接</a>
+                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge4']}"><i class="material-icons icon-sm">send</i> 拷贝托管链接</a>
                                                         .
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge3']}"><i class="material-icons icon-sm">send</i> 拷贝 3.x 托管链接</a>
-                                                        .
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge_node']}"><i class="material-icons icon-sm">send</i> 拷贝 3.x 节点链接</a>
-                                                        .
-                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge2']}"><i class="material-icons icon-sm">send</i> 拷贝 2.x 托管链接</a>
+                                                        <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge_node']}"><i class="material-icons icon-sm">send</i> 拷贝节点链接</a>
                                                     </p>
                                                 <hr/>
-                                                <p><span class="icon icon-lg text-white">filter_2</span> ClashX - [ SS/VMess ]：</p>
+                                                <p><span class="icon icon-lg text-white">filter_2</span> ClashX：</p>
                                                     <p>
                                                         应用下载：
                                                         <a class="btn-dl" href="/clients/ClashX.dmg"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
@@ -583,25 +575,12 @@
                                                 <hr/>
                                                 {/if}
                                             {/if}
-                                                <p><span class="icon icon-lg text-white">filter_1</span> Surge - [ SS/VMess ]：</p>
-                                                    <p>
-                                                        应用下载：
-                                                        <a class="btn-dl" href="https://itunes.apple.com/us/app/surge-3/id1442620678?ls=1&mt=8"><i class="material-icons icon-sm">cloud_download</i> 官方下载</a>
-                                                    </p>
-                                                    <p>
-                                                        相关说明：
-                                                        Surge 4 托管配置中可能含有 VMess 节点，如您未订阅 Surge 4 请使用 3.x 一键.
-                                                        其中 2 & 3 & 4 代表 Surge 的版本.
-                                                    </p>
+                                                <p><span class="icon icon-lg text-white">filter_1</span> Surge：</p>
                                                     <p>
                                                         使用方式：
-                                                        <a class="btn-dl" href="surge3:///install-config?url={urlencode($subInfo['surge4'])}"><i class="material-icons icon-sm">send</i> 4.x 一键</a>
-                                                        .
-                                                        <a class="btn-dl" href="surge3:///install-config?url={urlencode($subInfo['surge3'])}"><i class="material-icons icon-sm">send</i> 3.x 一键</a>
+                                                        <a class="btn-dl" href="surge3:///install-config?url={urlencode($subInfo['surge4'])}"><i class="material-icons icon-sm">send</i> 托管一键</a>
                                                         .
                                                         <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['surge_node']}"><i class="material-icons icon-sm">send</i> 节点 List</a>
-                                                        .
-                                                        <a class="btn-dl" href="surge:///install-config?url={urlencode($subInfo['surge2'])}"><i class="material-icons icon-sm">send</i> 2.x 一键</a>
                                                     </p>
                                                 <!--
                                                 <hr/>
