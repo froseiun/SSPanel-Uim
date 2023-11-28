@@ -9,6 +9,16 @@
 
 declare(strict_types=1);
 
+
+use LiveCodeCoverage\LiveCodeCoverage;
+
+$shutDownCodeCoverage = LiveCodeCoverage::bootstrap(
+    true,
+    __DIR__ . '/../var/coverage',
+    __DIR__ . '/../phpunit.xml.dist'
+);
+
+
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config/.config.php';
 require __DIR__ . '/../config/appprofile.php';
@@ -35,3 +45,5 @@ $routes = require __DIR__ . '/../app/routes.php';
 $routes($app);
 
 $app->run();
+
+$shutDownCodeCoverage();
