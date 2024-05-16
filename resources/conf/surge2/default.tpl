@@ -933,6 +933,7 @@ DOMAIN-SUFFIX,openai.com,OpenAI&Bing
 DOMAIN-SUFFIX,auth0.com,OpenAI&Bing
 DOMAIN-SUFFIX,bing.com,OpenAI&Bing
 DOMAIN-SUFFIX,sentry.io,OpenAI&Bing
+DOMAIN-SUFFIX,chatgpt.com,OpenAI&Bing
 
 # > GitHub
 DOMAIN-SUFFIX,github.blog,GitHub
