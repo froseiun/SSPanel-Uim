@@ -398,6 +398,7 @@
   - DOMAIN-SUFFIX,pixiv.net,境外流量
   - DOMAIN-SUFFIX,pixiv.org,境外流量
   - DOMAIN-SUFFIX,pximg.net,境外流量
+  - DOMAIN-SUFFIX,fanbox.cc,境外流量
   # > Reddit
   - DOMAIN-SUFFIX,redd.it,境外流量
   - DOMAIN-SUFFIX,reddit.com,境外流量
@@ -929,6 +930,8 @@
   - DOMAIN-SUFFIX,bing.com,OpenAI&Bing
   - DOMAIN-SUFFIX,sentry.io,OpenAI&Bing
   - DOMAIN-SUFFIX,chatgpt.com,OpenAI&Bing
+  - DOMAIN-SUFFIX,claude.ai,OpenAI&Bing
+  - DOMAIN-SUFFIX,anthropic.com,OpenAI&Bing
 
   # > GitHub
   - DOMAIN-SUFFIX,github.blog,GitHub
