@@ -46,7 +46,7 @@
 
 {include file='admin/footer.tpl'}
 
-<script src="https://cdnjs.cloudflare.com/editor-md/1.5.0/editormd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/editor-md/1.5.0/editormd.min.js"></script>
 <script>
     (() => {
         editor = editormd("editormd", {
