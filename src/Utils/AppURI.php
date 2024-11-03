@@ -274,6 +274,12 @@ class AppURI
                     : '');
                 $return = $item['remark'] . ' = vmess, ' . $item['add'] . ', ' . $item['port'] . ', username = ' . $item['id'] . $ws . $tls;
                 break;
+            case 'trojan':
+                $return = ($item['remark'] . ' = trojan, ' . $item['address'] . ', ' . $item['port'] . ', password=' . $item['passwd']) . ", sni=" . $item['host'];
+                if ($item['allow_insecure'] == true) {
+                    $return .= ', skip-cert-verify=true';
+                }
+                break;
         }
         return $return;
     }
