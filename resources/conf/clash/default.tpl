@@ -14,16 +14,16 @@
   - DOMAIN,dl.l.google.com,DIRECT
   - DOMAIN,update.googleapis.com,DIRECT
   - DOMAIN,translate.googleapis.com,境外流量
-  # >> Firebase Cloud Messaging
-  - DOMAIN,mtalk.google.com,FCM
-  - DOMAIN,alt1-mtalk.google.com,FCM
-  - DOMAIN,alt2-mtalk.google.com,FCM
-  - DOMAIN,alt3-mtalk.google.com,FCM
-  - DOMAIN,alt4-mtalk.google.com,FCM
-  - DOMAIN,alt5-mtalk.google.com,FCM
-  - DOMAIN,alt6-mtalk.google.com,FCM
-  - DOMAIN,alt7-mtalk.google.com,FCM
-  - DOMAIN,alt8-mtalk.google.com,FCM
+  # >> Firebase Cloud Messaging FCM
+  - DOMAIN,mtalk.google.com,DIRECT
+  - DOMAIN,alt1-mtalk.google.com,DIRECT
+  - DOMAIN,alt2-mtalk.google.com,DIRECT
+  - DOMAIN,alt3-mtalk.google.com,DIRECT
+  - DOMAIN,alt4-mtalk.google.com,DIRECT
+  - DOMAIN,alt5-mtalk.google.com,DIRECT
+  - DOMAIN,alt6-mtalk.google.com,DIRECT
+  - DOMAIN,alt7-mtalk.google.com,DIRECT
+  - DOMAIN,alt8-mtalk.google.com,DIRECT
   # > Tencent
   - DOMAIN,fairplay.l.qq.com,DIRECT
   - DOMAIN,livew.l.qq.com,DIRECT
@@ -485,28 +485,6 @@
   # > Alphabet
   - DOMAIN-SUFFIX,go.dev,境外流量
   - DOMAIN-SUFFIX,golang.org,境外流量
-  # ---(Apple)---
-  - DOMAIN-SUFFIX,appsto.re,境外流量
-  - DOMAIN-SUFFIX,smoot.apple.com,境外流量
-  - DOMAIN,amp-api.podcasts.apple.com,境外流量
-  - DOMAIN,beta.music.apple.com,境外流量
-  - DOMAIN,books.itunes.apple.com,境外流量
-  - DOMAIN,lookup-api.apple.com,境外流量
-  - DOMAIN,radio.itunes.apple.com,境外流量
-  # > Web Preview
-  - DOMAIN,apps.apple.com,境外流量
-  - DOMAIN,books.apple.com,境外流量
-  - DOMAIN,itunes.apple.com,境外流量
-  - DOMAIN,tv.apple.com,境外流量
-  # > News
-  - DOMAIN,gateway.icloud.com,境外流量
-  - DOMAIN-SUFFIX,apple.news,境外流量
-  - DOMAIN,news-assets.apple.com,境外流量
-  - DOMAIN,news-client.apple.com,境外流量
-  - DOMAIN,news-client-search.apple.com,境外流量
-  - DOMAIN,news-edge.apple.com,境外流量
-  - DOMAIN,news-events.apple.com,境外流量
-  - DOMAIN,apple.comscoreresearch.com,境外流量
   # > TikTok
   - DOMAIN-SUFFIX,byteoversea.com,境外流量
   - DOMAIN-SUFFIX,ibytedtos.com,境外流量
@@ -834,7 +812,7 @@
   # > Apple CDN
   - DOMAIN,aod.itunes.apple.com,Apple_CDN
   - DOMAIN,api.smoot.apple.cn,Apple_CDN
-  - DOMAIN,music.apple.com,Apple_CDN
+  - DOMAIN-SUFFIX,music.apple.com,Apple_CDN
   - DOMAIN,mvod.itunes.apple.com,Apple_CDN
   - DOMAIN,streamingaudio.itunes.apple.com,Apple_CDN
   - DOMAIN-SUFFIX,mzstatic.com,Apple_CDN
@@ -866,6 +844,8 @@
   - DOMAIN-SUFFIX,itunes.com,Apple_API
   - DOMAIN-SUFFIX,me.com,Apple_API
   - DOMAIN-SUFFIX,itunes-apple.com.akadns.net,Apple_API
+  - DOMAIN-SUFFIX,apple-relay.apple.com,Apple_API
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,Apple_API
 
   # > Steam CDN
   - DOMAIN-SUFFIX,steamusercontent.com,Steam_CDN
@@ -925,20 +905,20 @@
   - DOMAIN-SUFFIX,1dv.com,Microsoft
 
     # > GPT相关
-  - DOMAIN-SUFFIX,openai.com,OpenAI&Bing
-  - DOMAIN-SUFFIX,auth0.com,OpenAI&Bing
-  - DOMAIN-SUFFIX,bing.com,OpenAI&Bing
-  - DOMAIN-SUFFIX,sentry.io,OpenAI&Bing
-  - DOMAIN-SUFFIX,chatgpt.com,OpenAI&Bing
-  - DOMAIN-SUFFIX,claude.ai,OpenAI&Bing
-  - DOMAIN-SUFFIX,anthropic.com,OpenAI&Bing
+  - DOMAIN-SUFFIX,openai.com,GPT
+  - DOMAIN-SUFFIX,auth0.com,GPT
+  - DOMAIN-SUFFIX,bing.com,GPT
+  - DOMAIN-SUFFIX,sentry.io,GPT
+  - DOMAIN-SUFFIX,chatgpt.com,GPT
+  - DOMAIN-SUFFIX,claude.ai,GPT
+  - DOMAIN-SUFFIX,anthropic.com,GPT
 
   # > GitHub
-  - DOMAIN-SUFFIX,github.blog,GitHub
-  - DOMAIN-SUFFIX,github.com,GitHub
-  - DOMAIN-SUFFIX,github.io,GitHub
-  - DOMAIN-SUFFIX,githubassets.com,GitHub
-  - DOMAIN-SUFFIX,githubusercontent.com,GitHub
+  - DOMAIN-SUFFIX,github.blog,境外流量
+  - DOMAIN-SUFFIX,github.com,境外流量
+  - DOMAIN-SUFFIX,github.io,境外流量
+  - DOMAIN-SUFFIX,githubassets.com,境外流量
+  - DOMAIN-SUFFIX,githubusercontent.com,境外流量
 
   # > DN42
   - IP-CIDR,172.16.0.0/12,DN42
@@ -1080,7 +1060,7 @@
   # > 局域网
   - IP-CIDR,192.168.0.0/16,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
-  - IP-CIDR,172.16.0.0/12,DIRECT
+  # - IP-CIDR,172.16.0.0/12,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
   - IP-CIDR,100.64.0.0/10,DIRECT
   - IP-CIDR,224.0.0.0/4,DIRECT

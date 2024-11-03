@@ -73,7 +73,7 @@ $_ENV['Surge_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'OpenAI&Bing',
+                'name' => 'GPT',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -133,16 +133,6 @@ $_ENV['Surge_Profiles'] = [
                         '境外流量'
                     ],
                     'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'GitHub',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '境外流量',
-                        '直接连接'
-                    ]
                 ]
             ],
             [
@@ -292,7 +282,7 @@ $_ENV['Surge2_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'OpenAI&Bing',
+                'name' => 'GPT',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -352,16 +342,6 @@ $_ENV['Surge2_Profiles'] = [
                         '境外流量'
                     ],
                     'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'GitHub',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '境外流量',
-                        '直接连接'
-                    ]
                 ]
             ],
             [
@@ -531,7 +511,7 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'OpenAI&Bing',
+                'name' => 'GPT',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -584,17 +564,6 @@ $_ENV['Clash_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'FCM',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
-                    ],
-                    'regex' => '(.*)',
-                ]
-            ],
-            [
                 'name' => 'Telegram',
                 'type' => 'select',
                 'content' => [
@@ -602,16 +571,6 @@ $_ENV['Clash_Profiles'] = [
                         '境外流量'
                     ],
                     'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'GitHub',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '境外流量',
-                        '直接连接'
-                    ]
                 ]
             ],
             [
@@ -774,7 +733,7 @@ $_ENV['Surfboard_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'OpenAI&Bing',
+                'name' => 'GPT',
                 'type' => 'select',
                 'content' => [
                     'left-proxies' => [
@@ -827,17 +786,6 @@ $_ENV['Surfboard_Profiles'] = [
                 ]
             ],
             [
-                'name' => 'FCM',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接',
-                        '境外流量'
-                    ],
-                    'regex' => '(.*)',
-                ]
-            ],
-            [
                 'name' => 'Telegram',
                 'type' => 'select',
                 'content' => [
@@ -845,16 +793,6 @@ $_ENV['Surfboard_Profiles'] = [
                         '境外流量'
                     ],
                     'regex' => '(.*)',
-                ]
-            ],
-            [
-                'name' => 'GitHub',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '境外流量',
-                        '直接连接'
-                    ]
                 ]
             ],
             [
@@ -935,16 +873,6 @@ $_ENV['Surfboard_Profiles'] = [
                         '境外流量',
                         '直接连接'
                     ]
-                ]
-            ],
-            [
-                'name' => 'DN42',
-                'type' => 'select',
-                'content' => [
-                    'left-proxies' => [
-                        '直接连接'
-                    ],
-                    'regex' => '(.*)',
                 ]
             ],
             [
