@@ -839,7 +839,7 @@ DOMAIN,app-site-association.cdn-apple.com,Apple_CDN
 # > Apple API
 DOMAIN-SUFFIX,aaplimg.com,Apple_API
 DOMAIN-SUFFIX,apple.co,Apple_API
-DOMAIN-SUFFIX,apple.com,Apple_API
+DOMAIN-SUFFIX,podcasts.apple.com,Apple_API
 DOMAIN-SUFFIX,apple-cloudkit.com,Apple_API
 DOMAIN-SUFFIX,apple-livephotoskit.com,Apple_API
 DOMAIN-SUFFIX,appsto.re,Apple_API
