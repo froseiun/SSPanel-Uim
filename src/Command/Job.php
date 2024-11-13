@@ -178,7 +178,7 @@ class Job extends Command
         });
 
         // ------- 更新 IP 库
-        (new Tool($this->argv))->initQQWry();
+        // (new Tool($this->argv))->initQQWry();
         // ------- 更新 IP 库
 
         // ------- 发送每日系统运行报告
