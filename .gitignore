@@ -33,6 +33,7 @@ storage/*.*
 !storage/framework/smarty/cache/.gitkeep
 !storage/framework/smarty/compile/.gitkeep
 !storage/framework/views/.gitkeep
+storage/SendTelegram/*
 
 .user.ini
 public/.user.ini
