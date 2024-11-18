@@ -58,7 +58,7 @@
                                                             {
                                                                 type: "scatter",
                                                                 {literal}
-                                                                toolTipContent: "<span style=color: {color};><strong>产生时间: </strong></span>{x} <br/><span style=color: {color};><strong>流量: </strong></span>{traffic} <br/><span style=color: {color};><strong>产生节点: </strong></span>{jd}",
+                                                                toolTipContent: "<span style=color: {color};><strong>产生时间: </strong></span>{x} <br/><span style=color: {color};><strong>流量: </strong></span>{traffic} <br/><span style=color: {color};><strong>实际上传: </strong></span>{upload} <br/><span style=color: {color};><strong>实际下载: </strong></span>{download} <br/><span style=color: {color};><strong>产生节点: </strong></span>{jd}",
                                                                 {/literal}
 
                                                                 dataPoints: [
@@ -74,7 +74,9 @@
                                                                         y:{$single_log->totalUsedRaw()},
                                                                         jd: "{$single_log->node()->name}",
                                                                         traffic: "{$single_log->traffic}",
-                                                                        color : "{$single_log->nodeColor()}"
+                                                                        color : "{$single_log->nodeColor()}",
+                                                                        download : "{$single_log->downloadtraffic()}",
+                                                                        upload : "{$single_log->uploadtraffic()}"
                                                                         {literal}
                                                                     }
                                                                     {/literal}
@@ -87,7 +89,9 @@
                                                                         y:{$single_log->totalUsedRaw()},
                                                                         jd: "{$single_log->node()->name}",
                                                                         traffic: "{$single_log->traffic}",
-                                                                        color : "{$single_log->nodeColor()}"
+                                                                        color : "{$single_log->nodeColor()}",
+                                                                        download : "{$single_log->downloadtraffic()}",
+                                                                        upload : "{$single_log->uploadtraffic()}"
                                                                         {literal}
                                                                     }
                                                                     {/literal}
