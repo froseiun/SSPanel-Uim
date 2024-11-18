@@ -30,7 +30,8 @@ use App\Models\{
     StreamMedia,
     EmailVerify,
     ProductOrder,
-    UserSubscribeLog
+    UserSubscribeLog,
+    TrafficLog
 };
 use App\Utils\{
     GA,
@@ -509,67 +510,68 @@ class UserController extends BaseController
      */
     public function media($request, $response, $args)
     {
-        $results = [];
-        $db = new DatatablesHelper;
-        $nodes = $db->query('SELECT DISTINCT node_id FROM stream_media');
+        return $response->withStatus(302)->withHeader('Location', '/user');
+        // $results = [];
+        // $db = new DatatablesHelper;
+        // $nodes = $db->query('SELECT DISTINCT node_id FROM stream_media');
         
-        foreach ($nodes as $node_id)
-        {
-            $node = Node::where('id', $node_id)->first();
+        // foreach ($nodes as $node_id)
+        // {
+        //     $node = Node::where('id', $node_id)->first();
             
-            $unlock = StreamMedia::where('node_id', $node_id)
-            ->orderBy('id', 'desc')
-            ->where('created_at', '>', time() - 86460) // 只获取最近一天零一分钟内上报的数据
-            ->first();
+        //     $unlock = StreamMedia::where('node_id', $node_id)
+        //     ->orderBy('id', 'desc')
+        //     ->where('created_at', '>', time() - 86460) // 只获取最近一天零一分钟内上报的数据
+        //     ->first();
             
-            if ($unlock != null && $node != null) {
-                $details = json_decode($unlock->result, true);
-                $details = str_replace('Originals Only', '仅限自制', $details);
-                $details = str_replace('Oversea Only', '仅限海外', $details);
+        //     if ($unlock != null && $node != null) {
+        //         $details = json_decode($unlock->result, true);
+        //         $details = str_replace('Originals Only', '仅限自制', $details);
+        //         $details = str_replace('Oversea Only', '仅限海外', $details);
 
-                foreach ($details as $key => $value)
-                {
-                    $info = [
-                        'node_name' => $node->name,
-                        'created_at' => $unlock->created_at,
-                        'unlock_item' => $details
-                    ];
-                }
+        //         foreach ($details as $key => $value)
+        //         {
+        //             $info = [
+        //                 'node_name' => $node->name,
+        //                 'created_at' => $unlock->created_at,
+        //                 'unlock_item' => $details
+        //             ];
+        //         }
                 
-                array_push($results, $info);
-            }
-        }
+        //         array_push($results, $info);
+        //     }
+        // }
 
-        if ($_ENV['streaming_media_unlock_multiplexing'] != null ) {
-            foreach ($_ENV['streaming_media_unlock_multiplexing'] as $key => $value)
-            {
-                $key_node = Node::where('id', $key)->first();
-                $value_node = StreamMedia::where('node_id', $value)
-                ->orderBy('id', 'desc')
-                ->where('created_at', '>', time() - 86460) // 只获取最近一天零一分钟内上报的数据
-                ->first();
+        // if ($_ENV['streaming_media_unlock_multiplexing'] != null ) {
+        //     foreach ($_ENV['streaming_media_unlock_multiplexing'] as $key => $value)
+        //     {
+        //         $key_node = Node::where('id', $key)->first();
+        //         $value_node = StreamMedia::where('node_id', $value)
+        //         ->orderBy('id', 'desc')
+        //         ->where('created_at', '>', time() - 86460) // 只获取最近一天零一分钟内上报的数据
+        //         ->first();
 
-                if ($value_node != null) {
-                    $details = json_decode($value_node->result, true);
-                    $details = str_replace('Originals Only', '仅限自制', $details);
-                    $details = str_replace('Oversea Only', '仅限海外', $details);
+        //         if ($value_node != null) {
+        //             $details = json_decode($value_node->result, true);
+        //             $details = str_replace('Originals Only', '仅限自制', $details);
+        //             $details = str_replace('Oversea Only', '仅限海外', $details);
                     
-                    $info = [
-                        'node_name' => $key_node->name,
-                        'created_at' => $value_node->created_at,
-                        'unlock_item' => $details
-                    ];
+        //             $info = [
+        //                 'node_name' => $key_node->name,
+        //                 'created_at' => $value_node->created_at,
+        //                 'unlock_item' => $details
+        //             ];
                     
-                    array_push($results, $info);
-                }
-           }
-        }
+        //             array_push($results, $info);
+        //         }
+        //    }
+        // }
 
-        array_multisort(array_column($results, 'node_name'), SORT_ASC, $results);
+        // array_multisort(array_column($results, 'node_name'), SORT_ASC, $results);
         
-        return $this->view()
-            ->assign('results', $results)
-            ->display('user/media.tpl');
+        // return $this->view()
+        //     ->assign('results', $results)
+        //     ->display('user/media.tpl');
     }
 
     /**
@@ -1818,5 +1820,21 @@ class UserController extends BaseController
         }
         $this->user = $user;
         return $this->getPcClient($request, $response, $args);
+    }
+
+    /**
+     * 生成流量图表
+     *
+     * @param Request  $request
+     * @param Response $response
+     * @param array    $args
+     */
+    public function traffic_log($request, $response, $args)
+    {
+        $traffic = TrafficLog::where('user_id', $this->user->id)->where('log_time', '>', time() - 3 * 86400)->orderBy('id', 'desc')->get();
+
+        return $this->view()
+            ->assign('logs', $traffic)
+            ->display('user/traffic_log.tpl');
     }
 }

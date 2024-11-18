@@ -8,7 +8,8 @@ use App\Models\{
     Node,
     User,
     DetectLog,
-    NodeOnlineLog
+    NodeOnlineLog,
+    TrafficLog
 };
 use App\Utils\Tools;
 use Slim\Http\{
@@ -177,6 +178,29 @@ class UserController extends BaseController
                     ];
                     return $response->withJson($res);
                 }
+    
+                // 计算 traffic
+                $total_traffic = (($u + $d) * $node->traffic_rate);
+                if ($total_traffic < 1024) {
+                    $traffic = number_format($total_traffic, 2, ".", "") . " B";
+                }
+                elseif ($total_traffic < 1024 * 1024) {
+                    $traffic = number_format($total_traffic / 1024, 2, ".", "") . " KB";
+                }
+                else {
+                    $traffic = number_format($total_traffic / (1024 * 1024), 2, ".", "") . " MB";
+                }
+                
+                // 更新 user_traffic_log
+                $traffic_log = new TrafficLog();
+                $traffic_log->user_id = $user_id;
+                $traffic_log->node_id = $node_id;
+                $traffic_log->u = $u;
+                $traffic_log->d = $d;
+                $traffic_log->rate = $node->traffic_rate;
+                $traffic_log->traffic = $traffic;
+                $traffic_log->log_time = time();
+                $traffic_log->save();
             }
         }
 

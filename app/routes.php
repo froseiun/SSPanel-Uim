@@ -106,6 +106,9 @@ return function (SlimApp $app) {
         $this->get('/payment/purchase/{type}',         App\Services\Payment::class . ':purchase');
         $this->get('/payment/return/{type}',           App\Services\Payment::class . ':returnHTML');
 
+        //流量图表
+        $this->get('/traffic_log',              App\Controllers\UserController::class . ':traffic_log');
+
     })->add(new Auth());
 
     $app->group('/payment', function () {

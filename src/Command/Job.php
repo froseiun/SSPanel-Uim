@@ -19,6 +19,7 @@ use App\Models\Token;
 use App\Models\UnblockIp;
 use App\Models\User;
 use App\Models\UserSubscribeLog;
+use App\Models\TrafficLog;
 use App\Services\Config;
 use App\Services\Mail;
 use App\Utils\DatatablesHelper;
@@ -103,6 +104,7 @@ class Job extends Command
         UnblockIp::where('datetime', '<', time() - 300)->delete();
         BlockIp::where('datetime', '<', time() - 86400)->delete();
         TelegramSession::where('datetime', '<', time() - 900)->delete();
+        TrafficLog::where('log_time', '<', time() - 86400 * 3)->delete(); // 清空超过三天的流量日志记录
         // ------- 清理各表记录
 
 

@@ -73,6 +73,9 @@
                         <li>
                             <a href="/user/edit"><i class="icon icon-lg">edit</i>&nbsp;资料编辑</a>
                         </li>
+                        <li>
+                            <a href="/user/traffic_log"><i class="icon icon-lg">table_chart_view</i>&nbsp;流量图表</a>
+                        </li>
                         {if $config['subscribeLog']===true && $config['subscribeLog_show']===true}
                         <li>
                             <a href="/user/subscribe_log"><i class="icon icon-lg">important_devices</i>&nbsp;订阅记录</a>
