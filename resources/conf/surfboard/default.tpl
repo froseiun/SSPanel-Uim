@@ -912,6 +912,7 @@ DOMAIN-SUFFIX,sentry.io,GPT
 DOMAIN-SUFFIX,chatgpt.com,GPT
 DOMAIN-SUFFIX,claude.ai,GPT
 DOMAIN-SUFFIX,anthropic.com,GPT
+DOMAIN,copilot.microsoft.com,GPT
 
 # > GitHub
 DOMAIN-SUFFIX,github.blog,境外流量
