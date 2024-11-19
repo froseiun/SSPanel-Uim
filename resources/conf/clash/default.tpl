@@ -880,6 +880,7 @@
   - DOMAIN-SUFFIX,steamgames.com,Steam_API
 
   # > Microsoft
+  - DOMAIN,copilot.microsoft.com,GPT
   - DOMAIN-SUFFIX,microsoft.com,Microsoft
   - DOMAIN-SUFFIX,msecnd.net,Microsoft
   - DOMAIN-SUFFIX,office365.com,Microsoft
@@ -912,7 +913,6 @@
   - DOMAIN-SUFFIX,chatgpt.com,GPT
   - DOMAIN-SUFFIX,claude.ai,GPT
   - DOMAIN-SUFFIX,anthropic.com,GPT
-  - DOMAIN,copilot.microsoft.com,GPT
 
   # > GitHub
   - DOMAIN-SUFFIX,github.blog,境外流量
