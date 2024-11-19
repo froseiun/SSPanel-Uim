@@ -14,56 +14,46 @@
                         <div class="card">
                             <div class="card-main">
                                 <div class="card-inner margin-bottom-no">
-                                    <p class="card-heading">注意!</p>
-                                    <p>部分节点不支持流量记录.</p>
-                                    <p>此处只展示最近 72 小时的记录，粒度为分钟。</p>
+                                    <p>部分节点实际上传流量和实际下载流量相反，仅供参考。</p>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-12 col-sm-12">
                         <div class="card">
                             <div class="card-main">
                                 <div class="card-inner">
                                     <div id="log_chart" style="height: 300px; width: 100%;"></div>
-
                                     <script src="/assets/js/canvasjs.min.js"></script>
-
                                     <script type="text/javascript">
                                         window.onload = function () {
                                             var log_chart = new CanvasJS.Chart("log_chart",
                                                     {
                                                         zoomEnabled: true,
                                                         title: {
-                                                            text: "您的最近72小时流量消耗",
+                                                            text: "最近72小时流量消耗",
                                                             fontSize: 20
 
                                                         },
                                                         animationEnabled: true,
                                                         axisX: {
-                                                            title: "时间",
+                                                            title: "时间/分钟",
                                                             labelFontSize: 14,
                                                             titleFontSize: 18
                                                         },
                                                         axisY: {
-                                                            title: "流量/KB",
+                                                            title: "实际流量/KB",
                                                             lineThickness: 2,
                                                             labelFontSize: 14,
                                                             titleFontSize: 18
                                                         },
-
                                                         data: [
                                                             {
                                                                 type: "scatter",
                                                                 {literal}
-                                                                toolTipContent: "<span style=color: {color};><strong>产生时间: </strong></span>{x} <br/><span style=color: {color};><strong>流量: </strong></span>{traffic} <br/><span style=color: {color};><strong>实际上传: </strong></span>{upload} <br/><span style=color: {color};><strong>实际下载: </strong></span>{download} <br/><span style=color: {color};><strong>产生节点: </strong></span>{jd}",
+                                                                toolTipContent: "<span style=color: {color};><strong>产生时间: </strong></span>{x} <br/><span style=color: {color};><strong>计费流量: </strong></span>{traffic} <br/><span style=color: {color};><strong>实际上传: </strong></span>{upload} <br/><span style=color: {color};><strong>实际下载: </strong></span>{download} <br/><span style=color: {color};><strong>产生节点: </strong></span>{jd}",
                                                                 {/literal}
-
                                                                 dataPoints: [
-
-
                                                                     {$i=0}
                                                                     {foreach $logs as $single_log}
                                                                     {if $i==0}
@@ -71,7 +61,7 @@
                                                                     {
                                                                         {/literal}
                                                                         x: new Date({$single_log->log_time*1000}),
-                                                                        y:{$single_log->totalUsedRaw()},
+                                                                        y: {$single_log->totalUsedRaw()},
                                                                         jd: "{$single_log->node()->name}",
                                                                         traffic: "{$single_log->traffic}",
                                                                         color : "{$single_log->nodeColor()}",
@@ -86,7 +76,7 @@
                                                                     , {
                                                                         {/literal}
                                                                         x: new Date({$single_log->log_time*1000}),
-                                                                        y:{$single_log->totalUsedRaw()},
+                                                                        y: {$single_log->totalUsedRaw()},
                                                                         jd: "{$single_log->node()->name}",
                                                                         traffic: "{$single_log->traffic}",
                                                                         color : "{$single_log->nodeColor()}",
@@ -97,23 +87,17 @@
                                                                     {/literal}
                                                                     {/if}
                                                                     {/foreach}
-
                                                                 ]
                                                             }
-
                                                         ]
                                                     });
-
                                             log_chart.render();
                                         }
                                     </script>
-
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

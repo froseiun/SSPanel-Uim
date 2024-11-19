@@ -54,28 +54,30 @@ class TrafficLog extends Model
 
     public function downloadtraffic()
     {
-        if ($this->attributes['d'] < 1024) {
-            $traffic = number_format($this->attributes['d'], 2, ".", "") . " B";
+        $rawtraffic = $this->attributes['d'];
+        if ($rawtraffic < 1024) {
+            $traffic = number_format($rawtraffic, 2, ".", "") . " B";
         }
-        elseif ($this->attributes['d'] < 1024 * 1024) {
-            $traffic = number_format($this->attributes['d'] / 1024, 2, ".", "") . " KB";
+        elseif ($rawtraffic < 1024 * 1024) {
+            $traffic = number_format($rawtraffic / 1024, 2, ".", "") . " KB";
         }
         else {
-            $traffic = number_format($this->attributes['d'] / (1024 * 1024), 2, ".", "") . " MB";
+            $traffic = number_format($rawtraffic / (1024 * 1024), 2, ".", "") . " MB";
         }
         return $traffic;
     }
 
     public function uploadtraffic()
     {
-        if ($this->attributes['u'] < 1024) {
-            $traffic = number_format($this->attributes['u'], 2, ".", "") . " B";
+        $rawtraffic = $this->attributes['u'];
+        if ($rawtraffic < 1024) {
+            $traffic = number_format($rawtraffic, 2, ".", "") . " B";
         }
-        elseif ($this->attributes['u'] < 1024 * 1024) {
-            $traffic = number_format($this->attributes['u'] / 1024, 2, ".", "") . " KB";
+        elseif ($rawtraffic < 1024 * 1024) {
+            $traffic = number_format($rawtraffic / 1024, 2, ".", "") . " KB";
         }
         else {
-            $traffic = number_format($this->attributes['u'] / (1024 * 1024), 2, ".", "") . " MB";
+            $traffic = number_format($rawtraffic / (1024 * 1024), 2, ".", "") . " MB";
         }
         return $traffic;
     }
