@@ -32,7 +32,7 @@
                                                     {
                                                         zoomEnabled: true,
                                                         title: {
-                                                            text: "最近72小时流量消耗",
+                                                            text: "最近30小时流量消耗",
                                                             fontSize: 20
 
                                                         },

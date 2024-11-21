@@ -1831,7 +1831,7 @@ class UserController extends BaseController
      */
     public function traffic_log($request, $response, $args)
     {
-        $traffic = TrafficLog::where('user_id', $this->user->id)->where('log_time', '>', time() - 3 * 86400)->orderBy('id', 'desc')->get();
+        $traffic = TrafficLog::where('user_id', $this->user->id)->where('log_time', '>', time() - 30 * 3600)->orderBy('id', 'desc')->get();
 
         return $this->view()
             ->assign('logs', $traffic)
