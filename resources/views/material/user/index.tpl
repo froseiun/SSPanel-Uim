@@ -431,6 +431,10 @@
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['clash']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                 </p>
                                                 <hr/>
+                                                <p><span class="icon icon-lg text-white">filter_4</span> [ SingBox ]：
+                                                    <a class="copy-text btn-dl" data-clipboard-text="" aria-disabled="true"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
+                                                </p>
+                                                <hr/>
                                                 <p><span class="icon icon-lg text-white">filter_4</span> [ Trojan ]：
                                                     <a class="copy-text btn-dl" data-clipboard-text="{$subInfo['trojan']}"><i class="material-icons icon-sm">send</i> 拷贝订阅链接</a>
                                                 </p>
@@ -484,6 +488,20 @@
                                                         <a class="btn-dl" href="/clients/Clash-Windows.exe"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
                                                         .
                                                         <a class="btn-dl" href="https://github.com/Fndroid/clash_for_windows_pkg/releases"><i class="material-icons icon-sm">cloud_download</i> 官方下载</a>
+                                                    </p>
+                                                    <p>
+                                                        使用方式：
+                                                        <a class="btn-dl" href="{$subInfo['clash']}"><i class="material-icons icon-sm">send</i> 配置文件下载</a>
+                                                        .
+                                                        <a class="btn-dl" href="clash://install-config?url={urlencode($subInfo['clash'])}"><i class="material-icons icon-sm">send</i> 配置一键导入</a>
+                                                    </p>
+                                                <hr/>
+                                                <p><span class="icon icon-lg text-white">filter_1</span> Netch：</p>
+                                                    <p>
+                                                        应用下载：
+                                                        <a class="btn-dl" href="/clients/Netch.exe"><i class="material-icons icon-sm">cloud_download</i> 本站下载</a>
+                                                        .
+                                                        <a class="btn-dl" href="https://github.com/netchx/netch/releases"><i class="material-icons icon-sm">cloud_download</i> 官方下载</a>
                                                     </p>
                                                     <p>
                                                         使用方式：
