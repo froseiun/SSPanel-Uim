@@ -20,7 +20,7 @@ class SettingController extends AdminController
     {
         $config = array();
         $settings = Setting::get(['item', 'value', 'type']);
-        
+
         foreach ($settings as $setting)
         {
         	if ($setting->type == 'bool') {
@@ -29,7 +29,7 @@ class SettingController extends AdminController
                 $config[$setting->item] = (string) $setting->value;
             }
         }
-        
+
         return $response->write(
             $this->view()
                 //->registerClass('Setting', Setting::class)
@@ -39,11 +39,11 @@ class SettingController extends AdminController
                 ->display('admin/setting.tpl')
         );
     }
-    
+
     public function save($request, $response, $args)
     {
         $class = $request->getParam('class');
-        
+
         switch ($class) {
             // 支付
             case 'f2f_pay':
@@ -124,11 +124,11 @@ class SettingController extends AdminController
                 $list = array('invitation_mode', 'invite_rebate_mode', 'rebate_ratio', 'rebate_frequency_limit', 'rebate_amount_limit', 'rebate_time_range_limit');
                 break;
         }
-        
+
         foreach ($list as $item)
         {
             $setting = Setting::where('item', '=', $item)->first();
-            
+
             if ($setting->type == 'array') {
                 $setting->value = json_encode($request->getParam("$item"));
             } else {
@@ -142,7 +142,7 @@ class SettingController extends AdminController
                 ]);
             }
         }
-        
+
         return $response->withJson([
             'ret' => 1,
             'msg' => "保存成功"
@@ -152,7 +152,7 @@ class SettingController extends AdminController
     public function test($request, $response, $args)
     {
         $to = $request->getParam('recipient');
-        
+
         try {
             Mail::send(
                 $to,
@@ -178,7 +178,7 @@ class SettingController extends AdminController
         $payment_gateways = array(
             // 网关名 网关代号
             "CoinPay" => "coinpay",
-            "当面付" => "f2fpay",
+//            "当面付" => "f2fpay",
             "PayJs" => "payjs",
             "PaymentWall" => "paymentwall",
             "Stripe" => "stripe",

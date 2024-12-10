@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Services\Gateway\{
-    AopF2F,
+//    AopF2F,
     Vmqpay,
     PaymentWall,
     PAYJS,
