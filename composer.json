@@ -1,22 +1,23 @@
 {
     "require": {
-        "php": "^7.2",
+        "php": "^7.4",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mysqli": "*",
         "ext-xml": "*",
         "aws/aws-sdk-php": "3.*",
-        "cloudflare/sdk": "1.1.1",
+        "cloudflare/sdk": "^1.2",
         "esdeathlove/datatables": "^1.6",
         "firebase/php-jwt": "~3.0",
+        "guzzlehttp/guzzle": "^7",
         "illuminate/database": "6.*",
         "illuminate/pagination": "6.*",
+        "influxdata/influxdb-client-php": "^3.6",
         "irazasyed/telegram-bot-sdk": "^3.4.1",
         "khanamiryan/qrcode-detector-decoder": "*",
-        "league/omnipay": "^3",
-        "lokielse/omnipay-alipay": "*",
-        "mailgun/mailgun-php": "^2.6.0",
+        "mailgun/mailgun-php": "^4.3",
         "paymentwall/paymentwall-php": "^2.1",
+        "php-http/message-factory": "^1.1",
         "phpmailer/phpmailer": "~6.0",
         "ramsey/uuid": "^3.0@dev",
         "robmorgan/phinx": "^0.12.9",
@@ -37,6 +38,9 @@
     },
     "config": {
         "sort-packages": true,
-        "optimize-autoloader": true
+      "optimize-autoloader": true,
+      "allow-plugins": {
+        "php-http/discovery": true
+      }
     }
 }
