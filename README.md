@@ -3,7 +3,8 @@ Forked from [SSPanel UIM](https://github.com/Anankke/SSPanel-Uim)
 Web panel for Shadowsocks & ShadowsocksR and V2Ray, based on ss-panel-v3-mod.
 
 ## Requirements
-- ✅ PHP 7.2+
+
+- ✅ PHP 7.4+
 - ✅ Composer
 - ✅ MariaDB / MySQL
 - ✅ Nginx (or other web server supports PHP-CGI)
@@ -46,7 +47,7 @@ Rename to:
 
 `config/appprofile.php`
 
-Follow the notes and edit it. 
+Follow the notes and edit it.
 
 ### Create Admin User
 `php xcat User createAdmin`
@@ -64,6 +65,22 @@ php xcat Tool initdownload
 0 0 * * * php -n /[webroot]/xcat Job DailyJob
 */1 * * * * php /[webroot]/xcat Job CheckJob
 ```
+
+## Development (Linux)
+Notice: default config for dev setup is insecure. Do not use in production.
+
+Rename example config files for config and appprofile under `./config`.
+
+```shell
+cp ./config/.config.example.php ./config/.config.php
+sed -i "s/^\$_ENV\['debug'\].*/\$_ENV\['debug'\] = true;/" ./config/.config.php
+cp ./config/appprofile.example.php ./config/appprofile.php
+mkdir -p certs
+openssl req -x509 -nodes -days 3650 -newkey rsa:4096 -sha256 -keyout ./certs/nginx.key -out ./certs/nginx.crt -subj '/CN=localhost'
+docker compose up
+```
+
+The website will be served at https://localhost:8081 with admin: a@a.com sspanel
 
 ## Donate
 
