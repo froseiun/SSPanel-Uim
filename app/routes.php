@@ -108,6 +108,7 @@ return function (SlimApp $app) {
 
         //流量图表
         $this->get('/traffic_log',              App\Controllers\UserController::class . ':traffic_log');
+        $this->get('/traffic_log_preview', App\Controllers\UserController::class . ':traffic_log_preview');
 
     })->add(new Auth());
 

@@ -33,8 +33,8 @@ use App\Models\{
     UserSubscribeLog,
     TrafficLog
 };
-use App\Utils\{
-    GA,
+use App\Utils\{GA,
+    InfluxHelper,
     URL,
     Hash,
     Check,
@@ -514,16 +514,16 @@ class UserController extends BaseController
         // $results = [];
         // $db = new DatatablesHelper;
         // $nodes = $db->query('SELECT DISTINCT node_id FROM stream_media');
-        
+
         // foreach ($nodes as $node_id)
         // {
         //     $node = Node::where('id', $node_id)->first();
-            
+
         //     $unlock = StreamMedia::where('node_id', $node_id)
         //     ->orderBy('id', 'desc')
         //     ->where('created_at', '>', time() - 86460) // 只获取最近一天零一分钟内上报的数据
         //     ->first();
-            
+
         //     if ($unlock != null && $node != null) {
         //         $details = json_decode($unlock->result, true);
         //         $details = str_replace('Originals Only', '仅限自制', $details);
@@ -537,7 +537,7 @@ class UserController extends BaseController
         //                 'unlock_item' => $details
         //             ];
         //         }
-                
+
         //         array_push($results, $info);
         //     }
         // }
@@ -555,20 +555,20 @@ class UserController extends BaseController
         //             $details = json_decode($value_node->result, true);
         //             $details = str_replace('Originals Only', '仅限自制', $details);
         //             $details = str_replace('Oversea Only', '仅限海外', $details);
-                    
+
         //             $info = [
         //                 'node_name' => $key_node->name,
         //                 'created_at' => $value_node->created_at,
         //                 'unlock_item' => $details
         //             ];
-                    
+
         //             array_push($results, $info);
         //         }
         //    }
         // }
 
         // array_multisort(array_column($results, 'node_name'), SORT_ASC, $results);
-        
+
         // return $this->view()
         //     ->assign('results', $results)
         //     ->display('user/media.tpl');
@@ -1836,5 +1836,43 @@ class UserController extends BaseController
         return $this->view()
             ->assign('logs', $traffic)
             ->display('user/traffic_log.tpl');
+    }
+
+    public function traffic_log_preview($request, $response, $args)
+    {
+        $influxdb = new InfluxHelper();
+        $traffic = $influxdb->query(<<<EOD
+        from(bucket: "{$influxdb->bucket_name}")
+          |> range(start: -7d)
+          |> filter(fn: (r) => r._measurement == "traffic_log")
+          |> filter(fn: (r) => r.user_id == "{$this->user->id}")
+          |> filter(fn: (r) => r["_field"] == "u" or r["_field"] == "d" or r["_field"] == "traffic_metered")
+          |> aggregateWindow(every: 10m, fn: sum, createEmpty: false)
+          |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+          |> group(columns: ["node_id"])
+          |> drop(columns: ["_start", "_stop", "_measurement"])
+          |> yield(name: "traffic_usage")
+        EOD
+        );
+
+        $nodes_list = Node::get(["id", "name"])->toArray();
+        $nodes_list = array_combine(array_column($nodes_list, 'id'), array_column($nodes_list, 'name'));
+
+        // flatten the output
+        $data = array();
+        foreach ($traffic as $table) {
+            $node = array();
+            $node_id = 0;
+            foreach ($table->records as $row) {
+                $node_id = $row->values["node_id"];
+                $row->values["node_name"] = $nodes_list[$node_id];
+                $node[] = $row->values;
+            }
+            $data[$node_id] = $node;
+        }
+
+        $this->view()
+            ->assign('data', $data)
+            ->display('user/traffic_log_preview.tpl');
     }
 }

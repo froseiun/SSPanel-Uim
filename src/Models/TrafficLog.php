@@ -9,6 +9,17 @@ class TrafficLog extends Model
     protected $connection = 'default';
     protected $table = 'user_traffic_log';
 
+    public static function dataUnitConvert(string $data): string
+    {
+        if ($data < 1024) {
+            return number_format($data, 2, ".", "") . " B";
+        } elseif ($data < 1024 * 1024) {
+            return number_format($data / 1024, 2, ".", "") . " KB";
+        } else {
+            return number_format($data / (1024 * 1024), 2, ".", "") . " MB";
+        }
+    }
+
     public function node()
     {
         $node = Node::where('id', $this->attributes['node_id'])->first();
@@ -55,30 +66,12 @@ class TrafficLog extends Model
     public function downloadtraffic()
     {
         $rawtraffic = $this->attributes['d'];
-        if ($rawtraffic < 1024) {
-            $traffic = number_format($rawtraffic, 2, ".", "") . " B";
-        }
-        elseif ($rawtraffic < 1024 * 1024) {
-            $traffic = number_format($rawtraffic / 1024, 2, ".", "") . " KB";
-        }
-        else {
-            $traffic = number_format($rawtraffic / (1024 * 1024), 2, ".", "") . " MB";
-        }
-        return $traffic;
+        return $this->dataUnitConvert($rawtraffic);
     }
 
     public function uploadtraffic()
     {
         $rawtraffic = $this->attributes['u'];
-        if ($rawtraffic < 1024) {
-            $traffic = number_format($rawtraffic, 2, ".", "") . " B";
-        }
-        elseif ($rawtraffic < 1024 * 1024) {
-            $traffic = number_format($rawtraffic / 1024, 2, ".", "") . " KB";
-        }
-        else {
-            $traffic = number_format($rawtraffic / (1024 * 1024), 2, ".", "") . " MB";
-        }
-        return $traffic;
+        return $this->dataUnitConvert($rawtraffic);
     }
 }

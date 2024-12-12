@@ -4,6 +4,7 @@ namespace App\Utils;
 
 use InfluxDB2;
 use InfluxDB2\Client;
+use InfluxDB2\FluxTable;
 use InfluxDB2\Model\Query;
 use InfluxDB2\Point;
 use App\Services\Config;
@@ -29,11 +30,11 @@ class InfluxHelper
 
     /**
      * @param $query Query|string
-     * @return void
+     * @return FluxTable[]|null
      */
     public function query($query)
     {
-        $this->queryApi->query($query);
+        return $this->queryApi->query($query);
     }
 
     /**

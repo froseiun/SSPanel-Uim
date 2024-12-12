@@ -185,15 +185,7 @@ class UserController extends BaseController
 
                 // 计算 traffic
                 $total_traffic = (($u + $d) * $node->traffic_rate);
-                if ($total_traffic < 1024) {
-                    $traffic = number_format($total_traffic, 2, ".", "") . " B";
-                }
-                elseif ($total_traffic < 1024 * 1024) {
-                    $traffic = number_format($total_traffic / 1024, 2, ".", "") . " KB";
-                }
-                else {
-                    $traffic = number_format($total_traffic / (1024 * 1024), 2, ".", "") . " MB";
-                }
+                $traffic = TrafficLog::dataUnitConvert($total_traffic);
 
                 // 更新 user_traffic_log
                 $traffic_log = new TrafficLog();
@@ -213,7 +205,7 @@ class UserController extends BaseController
                         ->addField("u", $u)
                         ->addField("d", $d)
                         ->addField("rate", $node->traffic_rate)
-                        ->addField("traffic_raw", $total_traffic)
+                        ->addField("traffic_metered", $total_traffic)
                 );
 
             }
