@@ -513,3 +513,18 @@ CREATE TABLE IF NOT EXISTS `user_token` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_token_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `user_traffic_log` (
+    `id`       bigint(20)   unsigned  NOT NULL AUTO_INCREMENT,
+    `user_id`  bigint(20)   unsigned  NOT NULL,
+    `u` bigint(20) unsigned NOT NULL DEFAULT 0,
+    `d` bigint(20) unsigned NOT NULL DEFAULT 0,
+    `node_id`  int(11)     NOT NULL,
+    `rate`     float       NOT NULL,
+    `traffic`  varchar(32) NOT NULL,
+    `log_time` int(11)     NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    KEY `node_id` (`node_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

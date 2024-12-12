@@ -27,10 +27,10 @@ $_ENV['adminApiToken']  = 'ChangeMeToSafeKey';        // Admin API 的 Token, �
 // db_host 例: localhost（可解析的主机名）, 127.0.0.1（IP 地址）, 10.0.0.2:4406（含端口)
 // db_socket 例：/var/run/mysqld/mysqld.sock（需使用绝对地址）
 $_ENV['db_driver']    = 'mysql';
-$_ENV['db_host']      = '';
+$_ENV['db_host'] = 'mariadb:3306';
 $_ENV['db_socket']    = '';
 $_ENV['db_database']  = 'sspanel';           //数据库名
-$_ENV['db_username']  = 'root';              //数据库用户名
+$_ENV['db_username'] = 'sspanel';              //数据库用户名
 $_ENV['db_password']  = 'sspanel';           //用户名对应的密码
 #高级
 $_ENV['db_charset']   = 'utf8mb4';
