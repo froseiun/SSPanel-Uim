@@ -43,6 +43,18 @@ $_ENV['streaming_media_unlock_multiplexing'] = [
     //'297' => '4',
 ];
 
+// InfluxDB --------------------------------------------------------------------------------------------
+// installation guide: https://docs.influxdata.com/influxdb/v2/install/?t=Linux
+// influx config (http-bind-address, reporting-disabled): https://docs.influxdata.com/influxdb/v2/reference/config-options/
+// setup https://docs.influxdata.com/influxdb/v2/get-started/setup/?t=Set+up+with+the+CLI
+// 用于存放节点回传的流量使用数据
+//
+$_ENV['influx_url'] = 'http://influxdb2:8086';
+$_ENV['influx_token'] = 'bifrost-my-token'; // get via: influx auth create --all-access --host http://localhost:8086 --org bifrost-org
+$_ENV['influx_bucket'] = 'bifrost-bucket';
+$_ENV['influx_org'] = 'bifrost-org';
+
+
 //邮件设置--------------------------------------------------------------------------------------------
 $_ENV['sendPageLimit']      = 50;           //发信分页 解决大站发公告超时问题
 $_ENV['email_queue']        = true;         //如题，自动计划任务邮件使用队列 需要每分钟执行 php xcat Job SendMail

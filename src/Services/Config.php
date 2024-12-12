@@ -27,7 +27,7 @@ class Config
         $public_configs = Setting::getPublicConfig();
 
         // 鉴于还未完成配置的全面数据库化，先这么用着
-        
+
         return [
             'version'                 => VERSION,
             'appName'                 => $_ENV['appName'],
@@ -119,6 +119,16 @@ class Config
             'charset'       => $_ENV['db_charset'],
             'collation'     => $_ENV['db_collation'],
             'prefix'        => $_ENV['db_prefix'],
+        ];
+    }
+
+    public static function getInfluxConfig(): array
+    {
+        return [
+            'url' => $_ENV['influx_url'],
+            'token' => $_ENV['influx_token'],
+            'bucket' => $_ENV['influx_bucket'],
+            'org' => $_ENV['influx_org'],
         ];
     }
 

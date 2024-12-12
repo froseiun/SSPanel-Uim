@@ -3,6 +3,8 @@
 namespace App\Controllers\Mod_Mu;
 
 use App\Controllers\BaseController;
+use App\Utils\InfluxHelper;
+use InfluxDB2\Point;
 use App\Models\{
     Ip,
     Node,
@@ -150,6 +152,8 @@ class UserController extends BaseController
         }
         $node = Node::find($node_id);
 
+        $influxdb = new InfluxHelper();
+
         if ($node == null) {
             return $response->withJson([
                 'ret' => 0,
@@ -178,7 +182,7 @@ class UserController extends BaseController
                     ];
                     return $response->withJson($res);
                 }
-    
+
                 // 计算 traffic
                 $total_traffic = (($u + $d) * $node->traffic_rate);
                 if ($total_traffic < 1024) {
@@ -190,7 +194,7 @@ class UserController extends BaseController
                 else {
                     $traffic = number_format($total_traffic / (1024 * 1024), 2, ".", "") . " MB";
                 }
-                
+
                 // 更新 user_traffic_log
                 $traffic_log = new TrafficLog();
                 $traffic_log->user_id = $user_id;
@@ -201,6 +205,17 @@ class UserController extends BaseController
                 $traffic_log->traffic = $traffic;
                 $traffic_log->log_time = time();
                 $traffic_log->save();
+
+                $influxdb->write(
+                    Point::measurement("traffic_log")
+                        ->addTag("user_id", $user_id)
+                        ->addTag("node_id", $node_id)
+                        ->addField("u", $u)
+                        ->addField("d", $d)
+                        ->addField("rate", $node->traffic_rate)
+                        ->addField("traffic_raw", $total_traffic)
+                );
+
             }
         }
 
@@ -212,6 +227,12 @@ class UserController extends BaseController
         $online_log->online_user = count($data);
         $online_log->log_time = time();
         $online_log->save();
+
+        $influxdb->write(
+            Point::measurement("online_log")
+                ->addTag("node_id", $node_id)
+                ->addField("online_user", count($data))
+        );
 
         $res = [
             'ret' => 1,
