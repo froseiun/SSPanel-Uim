@@ -12,7 +12,6 @@
         "guzzlehttp/guzzle": "^7",
         "illuminate/database": "6.*",
         "illuminate/pagination": "6.*",
-        "influxdata/influxdb-client-php": "^3.6",
         "irazasyed/telegram-bot-sdk": "^3.4.1",
         "khanamiryan/qrcode-detector-decoder": "*",
         "mailgun/mailgun-php": "^4.3",
