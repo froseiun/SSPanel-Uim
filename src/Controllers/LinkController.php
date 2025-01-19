@@ -9,13 +9,7 @@ use App\Models\{
     User,
     UserSubscribeLog
 };
-use App\Utils\{
-    URL,
-    Tools,
-    AppURI,
-    ConfGenerate,
-    ConfRender
-};
+use App\Utils\{AppMetricsURI, URL, Tools, AppURI, ConfGenerate, ConfRender};
 use voku\helper\AntiXSS;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Http\{
@@ -151,7 +145,7 @@ class LinkController extends BaseController
 
         $getBody = '';
 
-        $sub_type_array = ['list', 'clash', 'surge', 'surfboard','anxray', 'quantumult', 'quantumultx', 'sub'];
+        $sub_type_array = ['list', 'clash', 'surge', 'surfboard', 'anxray', 'quantumult', 'quantumultx', 'sub', 'blackbox'];
         foreach ($sub_type_array as $key) {
             if (isset($opts[$key])) {
                 $query_value = $opts[$key];
@@ -168,7 +162,11 @@ class LinkController extends BaseController
                     } else {
                         $SubscribeExtend = self::getSubscribeExtend($key, $query_value);
                     }
-                    $filename = $SubscribeExtend['filename'] . '_' . time() . '.' . $SubscribeExtend['suffix'];
+                    if ($key != 'blackbox') {
+                        $filename = $SubscribeExtend['filename'] . '_' . time() . '.' . $SubscribeExtend['suffix'];
+                    } else {
+                        $filename = $SubscribeExtend['filename'] . '.' . $SubscribeExtend['suffix'];
+                    }
                     $subscribe_type = $SubscribeExtend['filename'];
 
                     $class = ('get' . $SubscribeExtend['class']);
@@ -351,6 +349,33 @@ class LinkController extends BaseController
                     'class'    => 'Quantumult'
                 ];
                 break;
+
+            // metrics
+            case 'blackbox':
+                switch ($value) {
+                    case 'alloy':
+                        $return = [
+                            'filename' => 'config',
+                            'suffix' => 'alloy',
+                            'class' => 'Blackbox'
+                        ];
+                        break;
+                    case 'targets':
+                        $return = [
+                            'filename' => 'targets',
+                            'suffix' => 'yaml',
+                            'class' => 'Blackbox'
+                        ];
+                        break;
+                    case 'modules':
+                        $return = [
+                            'filename' => 'modules',
+                            'suffix' => 'yaml',
+                            'class' => 'Blackbox'
+                        ];
+                        break;
+                }
+                break;
             default:
                 $return = [
                     'filename' => 'UndefinedNode',
@@ -457,7 +482,9 @@ class LinkController extends BaseController
             'quantumult_conf' => '?quantumult=3',
             'quantumultx'     => '?list=quantumultx',
             'shadowrocket'    => '?list=shadowrocket',
-            'kitsunebi'       => '?list=kitsunebi'
+            'kitsunebi' => '?list=kitsunebi',
+            // metrics
+            'blackbox' => '?blackbox=',
         ];
 
         return array_map(
@@ -867,5 +894,48 @@ class LinkController extends BaseController
         }
         $return_url .= URL::get_NewAllUrl($user, $Rule);
         return base64_encode($return_url);
+    }
+
+    public static function getBlackbox($user, $sub, $opts, $Rule)
+    {
+        $items = URL::getNew_AllItems($user, $Rule);
+
+        //get node_id
+        $Rule['type'] = 'all';
+        $nodes = URL::getNodes($user, [0, 11, 13, 14], $Rule);
+
+        $return = [];
+        foreach ($items as $item) {
+            // get node_id
+            $node_id = -1;
+            foreach ($nodes as $node) {
+                if ($item['remark'] == $node['name']) {
+                    $node_id = $node['id'];
+                }
+            }
+
+            switch ($sub) {
+                case 'targets':
+                    $out = AppMetricsURI::getBlackboxTargetsURI($item, $node_id, $user);
+                    if ($out != null) $return[] = $out;
+                    break;
+                case 'modules':
+                    $out = AppMetricsURI::getBlackboxModulesURI($item, $node_id);
+                    if ($out != null) $return = array_merge($return, $out);
+                    break;
+            }
+        }
+
+        switch ($sub) {
+            // metrics
+            case 'alloy':
+                return AppMetricsURI::getBlackboxAlloyURI($user);
+            case 'targets':
+                return \Symfony\Component\Yaml\Yaml::dump($return, 4, 2);
+            case 'modules':
+                return \Symfony\Component\Yaml\Yaml::dump(['modules' => $return], 6, 2);
+            default:
+                return '';
+        }
     }
 }
